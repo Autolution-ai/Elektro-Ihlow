@@ -57,6 +57,35 @@
     });
   }
 
+  /* ---------- Bild-Reveal (Clip beim Scrollen) ---------- */
+  const imgReveals = $$("[data-img-reveal]");
+  if (reduceMotion || !window.gsap) {
+    imgReveals.forEach((el) => el.classList.add("is-in"));
+  } else {
+    imgReveals.forEach((el) =>
+      ScrollTrigger.create({ trigger: el, start: "top 85%", onEnter: () => el.classList.add("is-in") }));
+  }
+
+  /* ---------- Parallax (Team-Band) ---------- */
+  const parallaxEls = $$("[data-parallax]");
+  if (!reduceMotion && parallaxEls.length) {
+    let ticking = false;
+    const applyP = () => {
+      parallaxEls.forEach((el) => {
+        const r = el.parentElement.getBoundingClientRect();
+        const vh = window.innerHeight;
+        if (r.bottom < -60 || r.top > vh + 60) return;
+        const prog = (r.top + r.height / 2 - vh / 2) / vh;
+        el.style.transform = `translateY(${(prog * -46).toFixed(1)}px)`;
+      });
+      ticking = false;
+    };
+    const onP = () => { if (!ticking) { ticking = true; requestAnimationFrame(applyP); } };
+    window.addEventListener("scroll", onP, { passive: true });
+    window.addEventListener("resize", onP);
+    applyP();
+  }
+
   /* ---------- Zähler (Hero-Stats) ---------- */
   const counters = $$("[data-count]");
   const runCounter = (el) => {

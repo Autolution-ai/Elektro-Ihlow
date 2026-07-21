@@ -92,24 +92,24 @@ body { overflow-x: hidden; }
 .nav__toggle { display: none; }
 
 /* ---------- HERO (Startseite) ---------- */
-.hero { padding-top: var(--space-l); padding-bottom: var(--space-xl); overflow: hidden; }
+.hero { padding-top: var(--space-m); padding-bottom: var(--space-l); overflow: hidden; }
 .hero__inner {
-  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 4vw, 5rem);
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 4vw, 4.5rem);
   align-items: center;
 }
 .hero__title {
-  font-size: var(--step-4); font-weight: 800; letter-spacing: -0.03em; line-height: 1.02;
-  margin-bottom: var(--space-m); text-wrap: balance;
+  font-size: clamp(2.3rem, 1.5rem + 2.6vw, 3.6rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.03;
+  margin-bottom: var(--space-s); text-wrap: balance;
 }
-.hero__lead { font-size: var(--step-1); color: var(--ink-soft); max-width: 40ch; margin-bottom: var(--space-l); }
+.hero__lead { font-size: var(--step-0); color: var(--ink-soft); max-width: 44ch; margin-bottom: var(--space-m); }
 .hero__actions { display: flex; align-items: center; gap: var(--space-m); flex-wrap: wrap; }
 .hero__cta-group { display: flex; flex-direction: column; gap: .5rem; align-items: flex-start; }
 .hero__microcopy { font-size: var(--step--1); color: var(--ink-faint); padding-left: .2rem; }
 
 .hero__media { position: relative; }
 .hero__media img {
-  width: 100%; border-radius: var(--radius-l); object-fit: cover; aspect-ratio: 3/4;
-  box-shadow: var(--shadow-m);
+  width: 100%; border-radius: var(--radius-l); object-fit: cover; aspect-ratio: 4/5;
+  max-height: 76vh; box-shadow: var(--shadow-m);
 }
 .hero__badge {
   position: absolute; left: -22px; bottom: 34px;
@@ -122,8 +122,8 @@ body { overflow-x: hidden; }
 
 .hero__stats {
   display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-m); margin-top: var(--space-xl);
-  padding-top: var(--space-l); border-top: 1px solid var(--line);
+  gap: var(--space-m); margin-top: var(--space-l);
+  padding-top: var(--space-m); border-top: 1px solid var(--line);
 }
 .hero__stats li { display: flex; flex-direction: column; gap: .25rem; list-style: none; }
 .stat__num { font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); letter-spacing: -0.02em; color: var(--ink); }
@@ -417,6 +417,40 @@ body { overflow-x: hidden; }
 .nav__toggle[aria-expanded="true"] .nav__toggle-bar::before { top: 0; transform: translateX(-50%) rotate(45deg); }
 .nav__toggle[aria-expanded="true"] .nav__toggle-bar::after { top: 0; transform: translateX(-50%) rotate(-45deg); }
 
+/* ---------- Team-Band (Parallax) ---------- */
+.band { position: relative; overflow: hidden; min-height: clamp(360px, 52vh, 600px); display: flex; align-items: center; color: #fff; }
+.band__media { position: absolute; inset: -12% 0; z-index: 0; will-change: transform; }
+.band__media img { width: 100%; height: 100%; object-fit: cover; }
+.band::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(95deg, oklch(20% 0.011 55 / 0.88), oklch(20% 0.011 55 / 0.5) 55%, oklch(20% 0.011 55 / 0.12)); }
+.band__inner { position: relative; z-index: 2; padding-block: var(--space-xl); }
+.band__eyebrow { display: inline-flex; align-items: center; font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; font-size: var(--step--1); color: var(--red); margin-bottom: var(--space-s); }
+.band__quote { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); line-height: 1.2; letter-spacing: -0.01em; max-width: 42ch; text-wrap: balance; color: #fff; }
+
+/* ---------- Leit-Leistung als Bild-Text-Split ---------- */
+.service--lead { grid-column: 1 / -1; background: var(--ink); color: var(--on-dark); border-color: transparent; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 0; padding: 0; overflow: hidden; align-items: stretch; }
+.service--lead:hover { transform: none; box-shadow: none; }
+.service__lead-media { position: relative; min-height: 280px; }
+.service__lead-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.service__lead-text { padding: var(--space-xl) var(--space-l); display: flex; flex-direction: column; gap: var(--space-s); justify-content: center; }
+
+/* ---------- Bild-Reveal (Clip beim Scrollen) ---------- */
+[data-img-reveal] { overflow: hidden; }
+.reveal-ready [data-img-reveal] img { clip-path: inset(0 0 100% 0); transform: scale(1.1); transition: clip-path 1s var(--ease), transform 1.2s var(--ease); }
+.reveal-ready [data-img-reveal].is-in img { clip-path: inset(0 0 0 0); transform: scale(1); }
+
+/* ---------- Projekt-Bild Hover-Zoom ---------- */
+.project > img { transition: transform .7s var(--ease); }
+.project:hover > img { transform: scale(1.05); }
+
+/* ---------- Services: dezenter Hintergrund-Blitz ---------- */
+.services { position: relative; overflow: hidden; }
+.services::before { content: ""; position: absolute; top: -6%; right: -6%; width: min(48vw, 640px); aspect-ratio: 1; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M60 3 20 55h22l-8 42 46-58H56z' fill='%23231f1e'/%3E%3C/svg%3E") no-repeat center / contain; opacity: .035; pointer-events: none; z-index: 0; transform: rotate(8deg); }
+.services > .container { position: relative; z-index: 1; }
+
+/* ---------- Hero-Badge dezentes Schweben ---------- */
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+.hero__badge { animation: floaty 5s ease-in-out infinite; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .site-header--solid, .site-header.is-scrolled { background: oklch(98.6% 0.006 75 / 0.95); }
@@ -437,7 +471,10 @@ body { overflow-x: hidden; }
   .proof__inner, .heritage__inner, .apply__inner, .why__cols, .home-career__inner { grid-template-columns: 1fr; }
   .heritage__media { max-width: 420px; }
   .services__grid { grid-template-columns: 1fr; }
-  .service--lead { padding: var(--space-l) var(--space-m); }
+  .service--lead { grid-template-columns: 1fr; }
+  .service__lead-media { min-height: 200px; }
+  .service__lead-text { padding: var(--space-l) var(--space-m); }
+  .band__inner { padding-block: var(--space-l); }
   .projects__grid { grid-template-columns: 1fr 1fr; }
   .project, .project--text, .project--accent { grid-column: span 1; }
   .project--wide { grid-column: span 2; }
