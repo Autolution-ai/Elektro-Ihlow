@@ -1,0 +1,33 @@
+/* tokens.css – Design-Tokens
+   STRUKTUR ist fix, WERTE werden je Demo aus der Kunden-CI (Phase 1) gesetzt.
+   Kein Einheitsdesign: Farben, Schriften, Radien immer projektspezifisch. */
+
+:root {
+  /* Farben – aus Kunden-CI setzen. oklch bevorzugen (harmonische Paletten). */
+  --color-bg: /* aus CI */;
+  --color-surface: /* aus CI */;
+  --color-text: /* aus CI */;
+  --color-primary: /* aus CI */;
+  --color-accent: /* aus CI */;
+
+  /* Typografie – Schriften je Demo wählen (zur Marke passend) */
+  --font-display: /* Display-Schrift */;
+  --font-body: /* Fließtext-Schrift */;
+
+  /* Schriftgrößen – fluid via clamp, Werte je Demo justierbar */
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
+  --step-3: clamp(2rem, 1.6rem + 2vw, 3.5rem);
+
+  /* Abstände – Skala fix, Nutzung je Layout */
+  --space-xs: 0.5rem;
+  --space-s: 1rem;
+  --space-m: 2rem;
+  --space-l: 4rem;
+  --space-xl: 8rem;
+
+  /* Sonstiges */
+  --radius: /* je Demo */;
+  --maxw: 1200px;
+}

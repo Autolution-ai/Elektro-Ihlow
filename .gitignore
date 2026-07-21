@@ -1,0 +1,27 @@
+# Secrets & Umgebungsvariablen – NIEMALS committen
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Vercel
+.vercel
+
+# Build-Output
+dist/
+build/
+.cache/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*

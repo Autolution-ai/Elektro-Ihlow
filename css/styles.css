@@ -1,0 +1,10 @@
+/* styles.css – Layout & Komponenten.
+   Entsteht je Demo. Hier KEINE Vorfestlegung des Aussehens.
+   Nutzt Tokens aus tokens.css. Anti-Slop beachten (siehe CLAUDE.md):
+   keine gleichförmigen Kachelraster, echte Hierarchie, bewusste Typografie. */
+
+/* Beispiel-Container (anpassbar) */
+.container {
+  width: min(100% - 2 * var(--space-s), var(--maxw));
+  margin-inline: auto;
+}
