@@ -4,45 +4,428 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Meta: bei jeder Demo aus der Demo-Spec füllen -->
-  <title><!-- Kunde | Kernleistung --></title>
-  <meta name="description" content="<!-- 1 Satz, aus website-copy -->">
+  <title>Elektro Ihlow GmbH | Elektrotechnik in Biesenthal &amp; Berlin</title>
+  <meta name="description" content="Komplette Elektroinstallation aus einer Hand, seit 1946. Familienbetrieb in dritter Generation, zwei Standorte in Biesenthal und Berlin. Projekt anfragen oder bewerben.">
 
-  <!-- Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <header>
-    <!-- Logo (freigestellt, aus Phase 1) + Navigation -->
+  <a class="skip-link" href="#hauptinhalt">Zum Inhalt springen</a>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner container">
+      <a class="brand" href="index.html" aria-label="Elektro Ihlow, Startseite">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M18.5 2 6 18h7l-1.5 12L26 13h-7.5z" fill="currentColor"/>
+        </svg>
+        <span class="brand__text">Elektro <strong>Ihlow</strong></span>
+      </a>
+
+      <nav class="nav" aria-label="Hauptnavigation">
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" data-nav-toggle>
+          <span class="nav__toggle-bar"></span><span class="sr-only">Menü</span>
+        </button>
+        <ul class="nav__menu" id="nav-menu" data-nav-menu>
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#projekte">Projekte</a></li>
+          <li><a href="#unternehmen">Unternehmen</a></li>
+          <li><a href="#standorte">Standorte</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" href="karriere.html">Jetzt bewerben</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <!-- Sektionen entstehen je Demo aus der Struktur (Phase 2).
-         KEINE feste Sektions-Vorgabe hier – Layout ist projektspezifisch. -->
+  <main id="hauptinhalt">
+
+    <!-- 1. HERO -->
+    <section class="hero">
+      <div class="hero__inner container">
+        <div class="hero__text">
+          <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Elektrohandwerk seit 1946</p>
+          <h1 class="hero__title" data-reveal>
+            Seit 1946 kümmern wir uns um <span class="mark-red">alles rund um Strom</span>.
+            Jetzt suchen wir die nächste Generation.
+          </h1>
+          <p class="hero__lead" data-reveal>
+            Drei Generationen Elektrohandwerk in Biesenthal und Berlin, rund 30 Kolleginnen
+            und Kollegen und Projekte von der einzelnen Wohnung bis zur ganzen Siedlung.
+            Wir haben mehr Arbeit als Hände. Deshalb suchen wir Verstärkung, und für Ihr
+            Bauvorhaben nehmen wir uns trotzdem Zeit.
+          </p>
+          <div class="hero__actions" data-reveal>
+            <div class="hero__cta-group">
+              <a class="btn btn--primary btn--lg" href="karriere.html">Jetzt bewerben</a>
+              <span class="hero__microcopy">In 2 Minuten, ohne Anschreiben</span>
+            </div>
+            <button class="btn btn--ghost btn--lg" data-open-modal="projekt">Projekt anfragen</button>
+          </div>
+        </div>
+
+        <div class="hero__media" data-reveal>
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_122224_9fc01fc7-9d7e-49d1-97d2-c1e8ae3f1124_min.webp" width="900" height="1200"
+               alt="Elektromonteur von Elektro Ihlow bei der Installation eines Verteilerschranks auf einer Baustelle"
+               loading="eager">
+          <div class="hero__badge">
+            <span class="hero__badge-num">Meister&shy;betrieb</span>
+            <span class="hero__badge-label">Elektro-Innung</span>
+          </div>
+        </div>
+      </div>
+
+      <ul class="hero__stats container" aria-label="Kennzahlen">
+        <li><span class="stat__num" data-count="1946" data-suffix="">seit 1946</span><span class="stat__label">dritte Generation</span></li>
+        <li><span class="stat__num" data-count="30" data-prefix="rund ">rund 30</span><span class="stat__label">feste Mitarbeiter</span></li>
+        <li><span class="stat__num">2 Standorte</span><span class="stat__label">Biesenthal &amp; Berlin</span></li>
+        <li><span class="stat__num">bis 3 Mio. €</span><span class="stat__label">Projektvolumen</span></li>
+      </ul>
+    </section>
+
+    <!-- 2. RECRUITING-RIBBON -->
+    <aside class="ribbon">
+      <div class="ribbon__inner container">
+        <p class="ribbon__text">
+          Wir wachsen und suchen Menschen, die ihr Handwerk ernst nehmen.
+          Vom Projektleiter bis zum Monteur ist gerade einiges frei.
+        </p>
+        <a class="ribbon__link" href="karriere.html">
+          Zu den offenen Stellen
+          <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </aside>
+
+    <!-- 3. AUFTRAGSLAGE & PROOF -->
+    <section class="proof">
+      <div class="proof__inner container">
+        <div class="proof__lead">
+          <h2 class="section-title" data-reveal>Voll ausgelastet, seit Jahren</h2>
+          <p data-reveal>
+            Unsere Auftragsbücher sind voll, und das nicht erst seit gestern. Für Sie
+            bedeutet das zweierlei. Sie bekommen einen Betrieb, dem private Bauherren,
+            Wohnungsverwaltungen und Ämter seit Langem vertrauen. Und Sie bekommen einen
+            Partner, der auch im nächsten und übernächsten Jahr noch da ist.
+          </p>
+          <p data-reveal>
+            Wir nehmen nicht jeden Auftrag an, den man uns anbietet. Was wir zusagen,
+            führen wir sauber zu Ende.
+          </p>
+        </div>
+        <dl class="proof__figures">
+          <div class="figure" data-reveal><dt>seit 1946</dt><dd>in Familienhand, dritte Generation</dd></div>
+          <div class="figure" data-reveal><dt>rund 30</dt><dd>feste Mitarbeiter an zwei Standorten</dd></div>
+          <div class="figure" data-reveal><dt>500 € bis 3 Mio. €</dt><dd>Projektvolumen, von klein bis Großbaustelle</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 4. LEISTUNGEN -->
+    <section class="services" id="leistungen">
+      <div class="container">
+        <header class="services__head">
+          <h2 class="section-title" data-reveal>Komplette Elektrotechnik, aus einer Hand</h2>
+          <p class="services__intro" data-reveal>
+            Wir planen und installieren die gesamte Elektrotechnik für Gebäude, von der
+            ersten Leitung im Rohbau bis zur eingemessenen und übergebenen Anlage. Einzelne
+            Rauchmelder oder eine neue Antenne sind nicht unser Geschäft. Sobald es um die
+            komplette Installation geht, um einen Neubau, eine Sanierung oder ein
+            Gewerbeobjekt, sind Sie bei uns richtig.
+          </p>
+        </header>
+
+        <div class="services__grid">
+          <article class="service service--lead" data-reveal>
+            <span class="service__index">Kernleistung</span>
+            <h3>Gesamt-Elektroinstallation</h3>
+            <p>
+              Der Kern unserer Arbeit. Wir übernehmen die komplette Elektrik eines Gebäudes:
+              Planung, Installation, Verteilung, Prüfung und Übergabe. Ob Wohnhaus,
+              Neubausiedlung oder gewerbliches Objekt, Sie haben einen Ansprechpartner von
+              der ersten Leitung bis zum Abnahmeprotokoll.
+            </p>
+            <button class="link-cta" data-open-modal="projekt">Projekt anfragen
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </article>
+
+          <article class="service" data-reveal>
+            <h3>Wohnungsbau &amp; Siedlungen</h3>
+            <p>Ganze Wohnanlagen und neue Siedlungen, oft über mehrere Bauabschnitte. Wir arbeiten seit Jahren mit Bauträgern und Wohnungsverwaltungen zusammen und kennen den Takt einer Baustelle.</p>
+          </article>
+          <article class="service" data-reveal>
+            <h3>Gewerbe &amp; öffentliche Objekte</h3>
+            <p>Betriebe, Verwaltungen, Gemeinden und Ämter, auch bei größeren Bauvorhaben mit festen Terminen und klaren Abnahmen.</p>
+          </article>
+          <article class="service" data-reveal>
+            <h3>Smart Home &amp; KNX</h3>
+            <p>Licht, Heizung, Beschattung und Sicherheit sinnvoll verbunden und per KNX geplant, damit die Technik dem Haus dient und nicht umgekehrt.</p>
+          </article>
+          <article class="service" data-reveal>
+            <h3>Datennetze</h3>
+            <p>Strukturierte Verkabelung für Wohnung und Betrieb, damit Netzwerk und Telefonie dort funktionieren, wo Sie sie brauchen.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PROJEKTE / REFERENZEN -->
+    <section class="projects" id="projekte">
+      <div class="container">
+        <header class="projects__head">
+          <h2 class="section-title" data-reveal>Woran wir arbeiten</h2>
+          <p data-reveal>
+            Unsere Referenzen wachsen mit jeder Baustelle. Konkrete Namen und Zahlen stimmen
+            wir gern im Gespräch ab. Einen Eindruck, in welcher Bandbreite und Größenordnung
+            wir arbeiten, geben diese Projektarten.
+          </p>
+        </header>
+
+        <div class="projects__grid">
+          <article class="project project--wide" data-reveal>
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_122228_f8e0e7b9-1091-4675-8c21-d15e4527e683_min.webp" width="1200" height="900" loading="lazy"
+                 alt="Neu gebaute Wohnsiedlung mit mehreren Mehrfamilienhäusern">
+            <div class="project__body">
+              <h3>Neue Wohnsiedlungen</h3>
+              <p>Komplette Elektroinstallation für mehrere Wohneinheiten, vom Rohbau bis zur Übergabe an die Bewohner.</p>
+            </div>
+          </article>
+          <article class="project" data-reveal>
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_122230_dee936e3-9f62-441e-be6c-3150fb21ff50_min.webp" width="900" height="700" loading="lazy"
+                 alt="Moderne Gewerbeimmobilie mit sichtbarer Elektroinstallation">
+            <div class="project__body">
+              <h3>Gewerbeobjekte</h3>
+              <p>Elektrotechnik für Betriebe und Verwaltungsgebäude, geplant um den laufenden Betrieb herum.</p>
+            </div>
+          </article>
+          <article class="project project--text" data-reveal>
+            <div class="project__body">
+              <h3>Größere Bauvorhaben</h3>
+              <p>Projekte im sechs- bis siebenstelligen Bereich, über mehrere Gewerke und Bauabschnitte koordiniert.</p>
+            </div>
+          </article>
+          <article class="project project--text" data-reveal>
+            <div class="project__body">
+              <h3>Öffentliche Auftraggeber</h3>
+              <p>Aufträge für Gemeinden, Ämter und Wohnungsverwaltungen, mit den Abläufen, die öffentliche Vergaben verlangen.</p>
+            </div>
+          </article>
+          <article class="project project--accent" data-reveal>
+            <div class="project__body">
+              <h3>Bestandskunden</h3>
+              <p>Auftraggeber, die seit Jahren wiederkommen, weil sie wissen, wie wir arbeiten.</p>
+              <button class="link-cta link-cta--on-accent" data-open-modal="projekt">Projekt anfragen
+                <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. UNTERNEHMEN / HERITAGE -->
+    <section class="heritage" id="unternehmen">
+      <div class="heritage__inner container">
+        <div class="heritage__media" data-reveal>
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_123213_59a10881-dffe-423f-b01a-f0f0fd00dd90_min.webp" width="1200" height="800" loading="lazy"
+               alt="André Ihlow, Elektromeister und Geschäftsführer von Elektro Ihlow">
+          <ol class="heritage__timeline" aria-label="Generationen">
+            <li><span>1946</span> Gerhard Ihlow</li>
+            <li><span>1979</span> Jörg-Reinhard Ihlow</li>
+            <li><span>2004</span> André Ihlow</li>
+          </ol>
+        </div>
+        <div class="heritage__text">
+          <h2 class="section-title" data-reveal>Drei Generationen, ein Handwerk</h2>
+          <p data-reveal>
+            Angefangen hat alles 1946 mit Gerhard Ihlow. 1979 übernahm sein Sohn
+            Jörg-Reinhard Ihlow den Betrieb, seit 2004 führt ihn Elektromeister André Ihlow
+            in dritter Generation. In dieser Zeit hat sich viel verändert, an den Werkzeugen,
+            an der Technik, an den Vorschriften. Geblieben ist, wie wir arbeiten: gründlich,
+            verlässlich und mit dem Anspruch, dass die Anlage auch in zwanzig Jahren noch stimmt.
+          </p>
+          <p data-reveal>
+            Wir sind Meisterbetrieb, Mitglied der Elektro-Innung und bilden unseren Nachwuchs
+            selbst aus. Wer heute bei uns lernt, leitet morgen vielleicht die eigene Baustelle.
+          </p>
+          <blockquote class="heritage__quote" data-reveal>
+            <p>„Mein Großvater hat den Betrieb aufgebaut, mein Vater hat ihn großgemacht.
+              Meine Aufgabe ist, dass die nächste Generation genauso gern hier arbeitet wie ich.“</p>
+            <cite>André Ihlow, Geschäftsführer</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. STANDORTE -->
+    <section class="locations" id="standorte">
+      <div class="container">
+        <h2 class="section-title" data-reveal>Zwei Standorte, ein Team</h2>
+        <p class="locations__lead" data-reveal>
+          Ob im Barnim oder in Berlin, Sie erreichen uns an beiden Standorten gleichwertig.
+          Rufen Sie an, dann finden wir gemeinsam heraus, ob und wie wir Ihr Vorhaben umsetzen.
+        </p>
+        <div class="locations__grid">
+          <article class="location" data-reveal>
+            <span class="location__tag">Hauptsitz</span>
+            <h3>Biesenthal</h3>
+            <address>
+              Breite Straße 13<br>16359 Biesenthal<br>
+              <a href="tel:+493337455590">03337 45 59 0</a>
+            </address>
+          </article>
+          <article class="location" data-reveal>
+            <span class="location__tag">Niederlassung</span>
+            <h3>Berlin</h3>
+            <address>
+              Bizetstraße 74<br>13088 Berlin<br>
+              <a href="tel:+4930960648 95">030 96 06 48 95</a>
+            </address>
+          </article>
+          <article class="location location--cta" data-reveal>
+            <h3>Ihr Projekt?</h3>
+            <p>Sechs kurze Fragen, dann wissen wir, ob und wie wir helfen können.</p>
+            <button class="btn btn--primary" data-open-modal="projekt">Projekt anfragen</button>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <!-- Footer-Inhalt je Demo. Pflicht: Impressum & Datenschutz als Links
-         mit Platzhalter-Inhalt. -->
-    <nav aria-label="Rechtliches">
-      <a href="#impressum">Impressum</a>
-      <a href="#datenschutz">Datenschutz</a>
-    </nav>
-    <!-- Hinweis-Platzhalter für die Rechtsseiten:
-         "Wird im Rahmen der Zusammenarbeit eingerichtet." -->
+  <footer class="site-footer">
+    <div class="site-footer__inner container">
+      <div class="site-footer__brand">
+        <a class="brand brand--footer" href="index.html" aria-label="Elektro Ihlow, Startseite">
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M18.5 2 6 18h7l-1.5 12L26 13h-7.5z" fill="currentColor"/></svg>
+          <span class="brand__text">Elektro <strong>Ihlow</strong></span>
+        </a>
+        <p class="site-footer__claim">Alles rund um Strom.</p>
+        <p class="site-footer__tag">Elektrohandwerk in dritter Generation, in Biesenthal und Berlin.</p>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Standorte</h4>
+        <address>
+          Breite Straße 13, 16359 Biesenthal<br>
+          Bizetstraße 74, 13088 Berlin
+        </address>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Kontakt</h4>
+        <p><a href="tel:+493337455590">03337 45 59 0</a> · Biesenthal<br>
+           <a href="tel:+4930960648 95">030 96 06 48 95</a> · Berlin</p>
+        <button class="btn btn--ghost btn--sm btn--on-dark" data-open-modal="projekt">Projekt anfragen</button>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Karriere</h4>
+        <p>Vom Projektleiter bis zum Monteur ist gerade einiges frei.</p>
+        <a class="btn btn--primary btn--sm" href="karriere.html">Jetzt bewerben</a>
+      </div>
+    </div>
+
+    <div class="site-footer__legal container">
+      <nav aria-label="Rechtliches">
+        <a href="#impressum">Impressum</a>
+        <a href="#datenschutz">Datenschutz</a>
+      </nav>
+      <p class="site-footer__note">Impressum und Datenschutz werden im Rahmen der Zusammenarbeit eingerichtet.</p>
+    </div>
   </footer>
 
-  <!-- Animations-Libraries: nur einbinden, was die Demo wirklich nutzt.
-       Snippets & Logik in docs/LIBRARIES.md und Skill motion-toolkit. -->
-  <!--
+  <!-- PROJEKTANFRAGE-MODAL -->
+  <div class="modal" id="modal-projekt" aria-hidden="true" data-modal="projekt">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-projekt-title">
+      <button class="modal__close" data-modal-close aria-label="Schließen">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="funnel" data-funnel="projekt" data-funnel-type="projekt">
+        <div class="funnel__head">
+          <h2 id="modal-projekt-title">Erzählen Sie uns von Ihrem Projekt</h2>
+          <p class="funnel__intro">Sechs kurze Fragen, danach wissen wir, ob und wie wir helfen können. Das dauert keine zwei Minuten.</p>
+          <div class="funnel__progress"><span data-funnel-bar></span></div>
+        </div>
+        <form class="funnel__form" data-funnel-form novalidate>
+          <!-- Steps injected/managed by JS; markup present for no-JS fallback -->
+          <fieldset class="funnel__step" data-step="1">
+            <legend>Welche Art Projekt planen Sie?</legend>
+            <div class="choices" data-choices>
+              <label class="choice"><input type="radio" name="art" value="Neubau"><span>Neubau</span></label>
+              <label class="choice"><input type="radio" name="art" value="Wohnungsbau / Siedlung"><span>Wohnungsbau / Siedlung</span></label>
+              <label class="choice"><input type="radio" name="art" value="Gewerbeobjekt"><span>Gewerbeobjekt</span></label>
+              <label class="choice"><input type="radio" name="art" value="Sanierung"><span>Sanierung</span></label>
+            </div>
+            <p class="funnel__hint">Passt nichts genau? Wählen Sie das Nächstliegende.</p>
+          </fieldset>
+          <fieldset class="funnel__step" data-step="2" hidden>
+            <legend>Geht es um die komplette Elektrotechnik?</legend>
+            <div class="choices" data-choices>
+              <label class="choice"><input type="radio" name="umfang" value="Komplette Installation"><span>Ja, komplette Installation</span></label>
+              <label class="choice"><input type="radio" name="umfang" value="Nur ein Teilbereich"><span>Nur ein Teilbereich</span></label>
+              <label class="choice"><input type="radio" name="umfang" value="Weiß ich noch nicht"><span>Weiß ich noch nicht</span></label>
+            </div>
+            <p class="funnel__hint">Unser Schwerpunkt ist die gesamte Anlage. Fragen Sie im Zweifel trotzdem.</p>
+          </fieldset>
+          <fieldset class="funnel__step" data-step="3" hidden>
+            <legend>Wo befindet sich das Projekt?</legend>
+            <input class="funnel__input" type="text" name="ort" placeholder="Ort oder Region" autocomplete="off">
+            <p class="funnel__hint">Wir arbeiten rund um Biesenthal und Berlin.</p>
+          </fieldset>
+          <fieldset class="funnel__step" data-step="4" hidden>
+            <legend>Wann soll es starten?</legend>
+            <div class="choices" data-choices>
+              <label class="choice"><input type="radio" name="start" value="So bald wie möglich"><span>So bald wie möglich</span></label>
+              <label class="choice"><input type="radio" name="start" value="In den nächsten Monaten"><span>In den nächsten Monaten</span></label>
+              <label class="choice"><input type="radio" name="start" value="Noch in Planung"><span>Noch in Planung</span></label>
+            </div>
+            <p class="funnel__hint">Ein grober Zeitraum reicht.</p>
+          </fieldset>
+          <fieldset class="funnel__step" data-step="5" hidden>
+            <legend>Gibt es schon Pläne oder Unterlagen?</legend>
+            <div class="choices" data-choices>
+              <label class="choice"><input type="radio" name="plaene" value="Liegen vor"><span>Ja, liegen vor</span></label>
+              <label class="choice"><input type="radio" name="plaene" value="In Arbeit"><span>In Arbeit</span></label>
+              <label class="choice"><input type="radio" name="plaene" value="Noch nicht"><span>Noch nicht</span></label>
+            </div>
+            <p class="funnel__hint">Kein Problem, wenn noch nichts fertig ist.</p>
+          </fieldset>
+          <fieldset class="funnel__step" data-step="6" hidden>
+            <legend>Wer ist Ihr Ansprechpartner?</legend>
+            <input class="funnel__input" type="text" name="name" placeholder="Name" autocomplete="name">
+            <input class="funnel__input" type="tel" name="telefon" placeholder="Telefon" autocomplete="tel">
+            <input class="funnel__input" type="email" name="email" placeholder="E-Mail" autocomplete="email">
+            <p class="funnel__hint">Wir melden uns persönlich und besprechen die nächsten Schritte.</p>
+          </fieldset>
+
+          <div class="funnel__done" data-funnel-done hidden>
+            <div class="funnel__check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="34" height="34"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Danke, Ihre Anfrage ist bei uns.</h3>
+            <p>Wir sehen sie uns an und melden uns bei Ihnen, telefonisch oder per E-Mail. Passt Ihr Vorhaben in unseren Kalender, finden wir schnell einen Termin.</p>
+            <p class="funnel__demo-note">Demo-Hinweis: In der Live-Version läuft die Anfrage direkt bei Elektro Ihlow ein.</p>
+          </div>
+
+          <div class="funnel__nav" data-funnel-nav>
+            <button type="button" class="btn btn--ghost btn--sm" data-funnel-back hidden>Zurück</button>
+            <button type="button" class="btn btn--primary" data-funnel-next>Weiter</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/animejs@4/lib/anime.iife.min.js"></script>
-  -->
   <script src="js/main.js"></script>
 </body>
 </html>
