@@ -154,6 +154,32 @@ body { overflow-x: hidden; }
 .figure dt { font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); color: var(--red); letter-spacing: -0.02em; }
 .figure dd { color: var(--ink-soft); margin-top: .2rem; }
 
+/* ---------- Karriere (Startseite, Top-of-Funnel, Du) ---------- */
+.home-career { position: relative; overflow: hidden; background: var(--dark); color: var(--on-dark); padding-block: var(--space-2xl); }
+.home-career::after {
+  content: ""; position: absolute; top: -20%; right: -6%; width: 42%; height: 150%;
+  background: radial-gradient(closest-side, oklch(58.5% 0.186 28.5 / 0.20), transparent);
+  pointer-events: none;
+}
+.home-career__inner { position: relative; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+.home-career__title { font-size: var(--step-3); font-weight: 800; letter-spacing: -0.02em; line-height: 1.04; color: #fff; margin-bottom: var(--space-s); text-wrap: balance; }
+.home-career__lead { font-size: var(--step-1); color: var(--on-dark-soft); max-width: 46ch; margin-bottom: var(--space-m); }
+.home-career__roles { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; margin-bottom: var(--space-l); }
+.home-career__roles a {
+  display: inline-flex; align-items: center; padding: .5rem 1rem; border-radius: 999px;
+  border: 1.5px solid var(--line-dark); font-family: var(--font-display); font-weight: 600;
+  font-size: var(--step--1); color: var(--on-dark); transition: border-color .2s, background .2s, color .2s;
+}
+.home-career__roles a:hover { border-color: var(--red); background: var(--red); color: #fff; }
+.home-career__actions { display: flex; flex-wrap: wrap; gap: var(--space-s); margin-bottom: .8rem; }
+.home-career__microcopy { font-size: var(--step--1); color: var(--on-dark-soft); }
+.home-career__benefits { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.home-career__benefits li { display: flex; gap: var(--space-s); padding: var(--space-m) 0; border-top: 1px solid var(--line-dark); }
+.home-career__benefits li:last-child { border-bottom: 1px solid var(--line-dark); }
+.home-career__benefit-mark { flex-shrink: 0; width: 12px; height: 12px; margin-top: .35rem; background: var(--red); border-radius: 3px; transform: rotate(45deg); }
+.home-career__benefits strong { display: block; font-family: var(--font-display); font-size: var(--step-0); color: #fff; margin-bottom: .2rem; }
+.home-career__benefits span > span, .home-career__benefits li > span { color: var(--on-dark-soft); }
+
 /* ---------- Leistungen ---------- */
 .services { padding-block: var(--space-2xl); background: var(--surface); }
 .services__head { max-width: 60ch; margin-bottom: var(--space-xl); }
@@ -408,7 +434,7 @@ body { overflow-x: hidden; }
   .hero__media { order: -1; max-width: 440px; }
   .hero__media img { aspect-ratio: 4/3; }
   .hero__stats { grid-template-columns: repeat(2, 1fr); gap: var(--space-l) var(--space-m); }
-  .proof__inner, .heritage__inner, .apply__inner, .why__cols { grid-template-columns: 1fr; }
+  .proof__inner, .heritage__inner, .apply__inner, .why__cols, .home-career__inner { grid-template-columns: 1fr; }
   .heritage__media { max-width: 420px; }
   .services__grid { grid-template-columns: 1fr; }
   .service--lead { padding: var(--space-l) var(--space-m); }
@@ -432,6 +458,7 @@ body { overflow-x: hidden; }
   .job__meta { grid-column: 1 / -1; grid-row: 2; }
   .site-footer__inner { grid-template-columns: 1fr; }
   .hero__actions { width: 100%; }
-  .hero__actions .btn, .khero__actions .btn { width: 100%; }
+  .hero__actions .btn, .khero__actions .btn, .home-career__actions .btn { width: 100%; }
+  .home-career__actions { width: 100%; }
   .site-footer__note { margin-left: 0; }
 }
