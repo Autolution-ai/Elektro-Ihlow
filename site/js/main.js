@@ -15,22 +15,26 @@
     requestAnimationFrame(raf);
   }
 
-  /* ---------- Smart-Header (solide bei Scroll, versteckt beim Runterscrollen) ---------- */
+  /* ---------- Smart-Header: bei jedem Hochscrollen sichtbar, egal wo ---------- */
   const header = $("[data-header]");
   if (header) {
     const isSolid = header.classList.contains("site-header--solid");
-    let lastY = window.scrollY;
-    const onHeaderScroll = () => {
-      const y = window.scrollY;
+    const setHeader = (y, dir) => {
       if (!isSolid) header.classList.toggle("is-scrolled", y > 20);
       const menu = document.querySelector("[data-nav-menu]");
       const menuOpen = menu && menu.classList.contains("is-open");
-      if (!menuOpen && y > lastY && y > 160) header.classList.add("is-hidden");
-      else header.classList.remove("is-hidden");
-      lastY = y;
+      if (menuOpen || y < 120 || dir < 0) header.classList.remove("is-hidden");
+      else if (dir > 0 && y > 160) header.classList.add("is-hidden");
     };
-    onHeaderScroll();
-    window.addEventListener("scroll", onHeaderScroll, { passive: true });
+    if (lenis) {
+      lenis.on("scroll", (e) => setHeader(typeof e.scroll === "number" ? e.scroll : window.scrollY, e.direction || 0));
+      setHeader(window.scrollY, 0);
+    } else {
+      let lastY = window.scrollY;
+      const onS = () => { const y = window.scrollY; setHeader(y, y > lastY ? 1 : (y < lastY ? -1 : 0)); lastY = y; };
+      onS();
+      window.addEventListener("scroll", onS, { passive: true });
+    }
   }
 
   /* ---------- Mobile-Navigation ---------- */
