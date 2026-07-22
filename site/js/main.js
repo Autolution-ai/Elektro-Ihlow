@@ -15,26 +15,35 @@
     requestAnimationFrame(raf);
   }
 
-  /* ---------- Smart-Header: bei jedem Hochscrollen sichtbar, egal wo ---------- */
+  /* ---------- Smart-Header: liest die echte Scroll-Position pro Frame ----------
+     Framework-unabhaengig (funktioniert mit und ohne Lenis), gilt fuer alle Seiten.
+     Runter scrollen -> Header aus. Hoch scrollen (egal wo) -> Header sofort da. */
   const header = $("[data-header]");
   if (header) {
     const isSolid = header.classList.contains("site-header--solid");
-    const setHeader = (y, dir) => {
-      if (!isSolid) header.classList.toggle("is-scrolled", y > 20);
+    let lastY = window.scrollY;
+    let hidden = false, scrolled = false;
+    const update = () => {
+      const y = window.scrollY;
+      const delta = y - lastY;
       const menu = document.querySelector("[data-nav-menu]");
       const menuOpen = menu && menu.classList.contains("is-open");
-      if (menuOpen || y < 120 || dir < 0) header.classList.remove("is-hidden");
-      else if (dir > 0 && y > 160) header.classList.add("is-hidden");
+
+      if (!isSolid) {
+        const s = y > 20;
+        if (s !== scrolled) { scrolled = s; header.classList.toggle("is-scrolled", s); }
+      }
+
+      let wantHidden = hidden;
+      if (menuOpen || y < 120) wantHidden = false;
+      else if (delta > 4) wantHidden = true;      // runter
+      else if (delta < -4) wantHidden = false;    // hoch
+      if (wantHidden !== hidden) { hidden = wantHidden; header.classList.toggle("is-hidden", hidden); }
+
+      if (Math.abs(delta) > 0.5) lastY = y;
+      requestAnimationFrame(update);
     };
-    if (lenis) {
-      lenis.on("scroll", (e) => setHeader(typeof e.scroll === "number" ? e.scroll : window.scrollY, e.direction || 0));
-      setHeader(window.scrollY, 0);
-    } else {
-      let lastY = window.scrollY;
-      const onS = () => { const y = window.scrollY; setHeader(y, y > lastY ? 1 : (y < lastY ? -1 : 0)); lastY = y; };
-      onS();
-      window.addEventListener("scroll", onS, { passive: true });
-    }
+    requestAnimationFrame(update);
   }
 
   /* ---------- Mobile-Navigation ---------- */
