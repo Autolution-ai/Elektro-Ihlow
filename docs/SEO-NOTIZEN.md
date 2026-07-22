@@ -80,9 +80,11 @@ Elektrohandwerk, Elektriker, Meisterbetrieb.
 - **Zwei Standorte = zwei lokale SEO-Ziele.** Biesenthal (Barnim) und Berlin
   (Raum Weißensee/Hohenschönhausen, PLZ 13088) getrennt behandeln: eigene
   NAP-Daten, ggf. zwei Google-Business-Profile, Standort-Landingpages denkbar.
-- **Nische schärft das Ranking.** Positionierung "komplette Elektrotechnik, keine
-  Kleinstaufträge" ist auch SEO-relevant: auf Neubau, Wohnungsbau, Gewerbe und
-  öffentliche Auftraggeber optimieren, nicht auf "Rauchmelder / Antenne / Notdienst".
+- **Schwerpunkt schärft das Ranking.** Der Fokus auf komplette Elektrotechnik ist
+  auch SEO-relevant: primär auf Neubau, Wohnungsbau, Gewerbe und öffentliche
+  Auftraggeber optimieren. Einzelleistungen (Rauchmelder, Antenne, KNX etc.) sind
+  laut Altseite Teil des Angebots und können als eigene Detailseiten ranken, aber
+  nachgeordnet zum Gesamtprojekt-Kern.
 - **Recruiting-Keywords eigenständig behandeln.** Die Karriere-Seite konkurriert
   um andere Suchbegriffe (Jobs, Stellenangebote, Ausbildung) als die Leistungsseite.
   Für ein echtes Projekt lohnt strukturiertes Job-Markup (JobPosting-Schema).
