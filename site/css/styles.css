@@ -75,10 +75,11 @@ body { overflow-x: hidden; }
   border-bottom-color: var(--line); box-shadow: 0 1px 0 var(--line);
 }
 .brand { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--font-display); }
-.brand__mark { width: 30px; height: 30px; color: var(--red); flex-shrink: 0; }
+.brand__mark { width: 34px; height: 30px; color: var(--ink); flex-shrink: 0; }
 .brand__text { font-size: 1.22rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
 .brand__text strong { font-weight: 800; }
 .brand--footer .brand__text { color: var(--on-dark); }
+.brand--footer .brand__mark { color: var(--on-dark); }
 
 .nav { display: flex; align-items: center; }
 .nav__menu { display: flex; align-items: center; gap: var(--space-m); list-style: none; }
