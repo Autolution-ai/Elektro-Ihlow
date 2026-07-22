@@ -93,7 +93,7 @@
     const prefix = el.dataset.prefix || "";
     const suffix = el.dataset.suffix || "";
     if (reduceMotion) { el.textContent = prefix + target + suffix; return; }
-    const dur = 1200, t0 = performance.now();
+    const dur = 1100, t0 = performance.now();
     const tick = (now) => {
       const p = Math.min((now - t0) / dur, 1);
       const eased = 1 - Math.pow(1 - p, 3);
@@ -106,7 +106,11 @@
     if ("IntersectionObserver" in window && !reduceMotion) {
       const io = new IntersectionObserver((entries, obs) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) { runCounter(e.target); obs.unobserve(e.target); }
+          if (e.isIntersecting) {
+            const i = counters.indexOf(e.target);
+            setTimeout(() => runCounter(e.target), Math.max(0, i) * 130);
+            obs.unobserve(e.target);
+          }
         });
       }, { threshold: 0.6 });
       counters.forEach((c) => io.observe(c));
