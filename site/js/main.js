@@ -15,12 +15,22 @@
     requestAnimationFrame(raf);
   }
 
-  /* ---------- Header-Zustand bei Scroll ---------- */
+  /* ---------- Smart-Header (solide bei Scroll, versteckt beim Runterscrollen) ---------- */
   const header = $("[data-header]");
-  if (header && !header.classList.contains("site-header--solid")) {
-    const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+  if (header) {
+    const isSolid = header.classList.contains("site-header--solid");
+    let lastY = window.scrollY;
+    const onHeaderScroll = () => {
+      const y = window.scrollY;
+      if (!isSolid) header.classList.toggle("is-scrolled", y > 20);
+      const menu = document.querySelector("[data-nav-menu]");
+      const menuOpen = menu && menu.classList.contains("is-open");
+      if (!menuOpen && y > lastY && y > 160) header.classList.add("is-hidden");
+      else header.classList.remove("is-hidden");
+      lastY = y;
+    };
+    onHeaderScroll();
+    window.addEventListener("scroll", onHeaderScroll, { passive: true });
   }
 
   /* ---------- Mobile-Navigation ---------- */

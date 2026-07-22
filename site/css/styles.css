@@ -65,10 +65,11 @@ body { overflow-x: hidden; }
 
 /* ---------- Header ---------- */
 .site-header {
-  position: sticky; top: 0; z-index: 100;
-  transition: background .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+  position: sticky; top: 0; z-index: 100; will-change: transform;
+  transition: transform .35s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
   border-bottom: 1px solid transparent;
 }
+.site-header.is-hidden { transform: translateY(-100%); }
 .site-header__inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
 .site-header.is-scrolled, .site-header--solid {
   background: oklch(98.6% 0.006 75 / 0.85); backdrop-filter: blur(12px);
