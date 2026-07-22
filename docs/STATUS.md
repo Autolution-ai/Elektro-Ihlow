@@ -54,6 +54,18 @@ Generationen-Timeline unten links) → Standorte → Footer → Projektanfrage-M
 Projektleiter, Assistenz/Büro + Initiativ) → Benefits → Kultur (+ Team-Bild) →
 Bewerbungs-Funnel (7 Schritte inline). Diese Seite ist FERTIG.
 
+**unternehmen.html (Über uns, Sie):** Subhero → Faktenleiste (1946 · 3. Gen ·
+~30 · 2 Standorte + Innung/Meister-Note) → Heritage (André + Timeline + Story)
+→ Wie wir arbeiten (3 Werte) → Team-Band → CTA-Band. Aus Scrape ueber-uns + Startseiten-Abschnitten.
+
+**standorte.html (Sie):** Subhero → Standort-Detail (Biesenthal Hauptsitz +
+Berlin, Adresse/Tel/Kurzinfo) → Einzugsgebiet (Barnim/Berlin/Größere Vorhaben) →
+CTA-Band (Projekt-Modal + Anruf). Enthält das Projektanfrage-Modal.
+
+**Navigation (alle Seiten):** Startseite (nur Unterseiten) · Leistungen ▾ ·
+Über uns · Standorte · Karriere · [Jetzt bewerben]. Aktiver Punkt via
+`aria-current="page"` (rot). Alte Anker-Nav (Projekte/Unternehmen/Standorte→#anchor) ersetzt.
+
 ## 5. Features / Interaktion (`site/js/main.js`)
 - **Smart-Header:** natives window-scroll + rAF + ticking + DELTA=6 +
   SHOW_HIDE_START=120. Runter = aus, hoch = ein. (Lenis wurde ENTFERNT, weil es
@@ -97,12 +109,13 @@ Smart-Header · Mega-Menü Leistungen.
    Bestätigung durch Bruno steht aus. **Wenn wieder aufgegriffen:** prüfen, ob
    scroll wirklich auf `window` läuft (kein innerer Scroll-Container), ob
    `html/body`-overflow o.ä. stört.
-2. **Copy-Widerspruch (Bruno vorgelegt, Antwort offen):** Leistungs-Abschnitt
-   sagt „Einzelne Rauchmelder/Antenne sind NICHT unser Geschäft", Mega-Menü
-   listet genau diese. Zeile ggf. entschärfen.
-3. **Nav → echte Unterseiten (offen):** Projekte/Unternehmen/Standorte zeigen
-   auf Startseiten-Anker. Bruno will perspektivisch eigene Unterseiten; welche
-   zuerst? Leistungs-Detailseiten (16 Stück) ebenfalls später.
+2. **Copy-Widerspruch – ERLEDIGT.** Zeile „Rauchmelder/Antenne nicht unser
+   Geschäft" war faktenwidrig (Altseite listet beide als Leistung). Auf
+   Gesamtprojekt-Positionierung umgeschrieben (Commit a03b339).
+3. **Nav → echte Unterseiten – ERLEDIGT (Über uns, Standorte, Karriere).**
+   `unternehmen.html` + `standorte.html` neu gebaut, Karriere verlinkt,
+   „Startseite" im Header auf Unterseiten, aria-current. Noch offen/später:
+   Leistungs-Detailseiten (16 Stück), evtl. eigene Projekte-Seite.
 4. **Finale QA fehlt noch:** Cross-Device (iPhone/Safari, Android/Chrome,
    Desktop) via `responsive-qa`, dann Bruno-Freigabe. Inhalts-QA gegen
    `docs/CHECKLISTE.md` war bereits durch (keine kritischen Punkte).
