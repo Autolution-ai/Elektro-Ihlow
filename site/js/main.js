@@ -15,35 +15,35 @@
     requestAnimationFrame(raf);
   }
 
-  /* ---------- Smart-Header: liest die echte Scroll-Position pro Frame ----------
-     Framework-unabhaengig (funktioniert mit und ohne Lenis), gilt fuer alle Seiten.
-     Runter scrollen -> Header aus. Hoch scrollen (egal wo) -> Header sofort da. */
+  /* ---------- Smart-Header: bei jeder Aufwaertsbewegung sichtbar, egal wo ----------
+     Nutzt den echten Scroll-Wert (Lenis oder window). Keine Schwelle -> reagiert
+     auch auf langsames Smooth-Scrollen. Ein Controller, gilt fuer alle Seiten. */
   const header = $("[data-header]");
   if (header) {
     const isSolid = header.classList.contains("site-header--solid");
     let lastY = window.scrollY;
     let hidden = false, scrolled = false;
-    const update = () => {
-      const y = window.scrollY;
-      const delta = y - lastY;
-      const menu = document.querySelector("[data-nav-menu]");
-      const menuOpen = menu && menu.classList.contains("is-open");
-
+    const applyHeader = (y) => {
       if (!isSolid) {
         const s = y > 20;
         if (s !== scrolled) { scrolled = s; header.classList.toggle("is-scrolled", s); }
       }
-
+      const menu = document.querySelector("[data-nav-menu]");
+      const menuOpen = menu && menu.classList.contains("is-open");
       let wantHidden = hidden;
-      if (menuOpen || y < 120) wantHidden = false;
-      else if (delta > 4) wantHidden = true;      // runter
-      else if (delta < -4) wantHidden = false;    // hoch
+      if (menuOpen || y <= 120) wantHidden = false;   // oben / Menue offen -> sichtbar
+      else if (y < lastY) wantHidden = false;         // hoch (jede Bewegung) -> sichtbar
+      else if (y > lastY && y > 160) wantHidden = true; // runter -> aus
       if (wantHidden !== hidden) { hidden = wantHidden; header.classList.toggle("is-hidden", hidden); }
-
-      if (Math.abs(delta) > 0.5) lastY = y;
-      requestAnimationFrame(update);
+      lastY = y;
     };
-    requestAnimationFrame(update);
+    if (lenis && typeof lenis.on === "function") {
+      lenis.on("scroll", (e) => applyHeader(e && typeof e.scroll === "number" ? e.scroll : window.scrollY));
+      applyHeader(window.scrollY);
+    } else {
+      const loop = () => { applyHeader(window.scrollY); requestAnimationFrame(loop); };
+      requestAnimationFrame(loop);
+    }
   }
 
   /* ---------- Mobile-Navigation ---------- */
