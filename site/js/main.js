@@ -52,8 +52,24 @@
     };
     navToggle.addEventListener("click", () =>
       setNav(navToggle.getAttribute("aria-expanded") !== "true"));
-    $$("a", navMenu).forEach((a) => a.addEventListener("click", () => setNav(false)));
+    $$("a", navMenu).forEach((a) => {
+      if (a.hasAttribute("data-nav-trigger")) return; // Trigger klappt Untermenue auf, schliesst nicht
+      a.addEventListener("click", () => setNav(false));
+    });
   }
+
+  /* ---------- Mega-Menü: auf Touch/kleinen Screens aufklappen ---------- */
+  $$("[data-nav-dropdown]").forEach((item) => {
+    const trigger = item.querySelector("[data-nav-trigger]");
+    if (!trigger) return;
+    trigger.addEventListener("click", (e) => {
+      if (window.matchMedia("(max-width: 900px)").matches) {
+        e.preventDefault();
+        const open = item.classList.toggle("is-open");
+        trigger.setAttribute("aria-expanded", String(open));
+      }
+    });
+  });
 
   /* ---------- Reveal-Animationen ---------- */
   const reveals = $$("[data-reveal]");

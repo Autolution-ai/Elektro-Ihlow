@@ -33,7 +33,46 @@
           <span class="nav__toggle-bar"></span><span class="sr-only">Menü</span>
         </button>
         <ul class="nav__menu" id="nav-menu" data-nav-menu>
-          <li><a href="index.html#leistungen">Leistungen</a></li>
+          <li class="nav__item nav__item--has-menu" data-nav-dropdown>
+            <a class="nav__trigger" href="index.html#leistungen" data-nav-trigger aria-haspopup="true" aria-expanded="false">Leistungen
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <div class="megamenu">
+              <div class="megamenu__panel">
+                <div class="megamenu__head">
+                  <span class="megamenu__title">Unsere Leistungen</span>
+                  <a class="megamenu__all" href="index.html#leistungen">Alle ansehen</a>
+                </div>
+                <div class="megamenu__grid">
+                  <div class="megamenu__col">
+                    <p class="megamenu__col-title">Elektrotechnik</p>
+                    <a class="megamenu__link" href="index.html#leistungen">Elektroinstallation</a>
+                    <a class="megamenu__link" href="index.html#leistungen">KNX</a>
+                    <a class="megamenu__link" href="index.html#leistungen">Hausautomatisierung</a>
+                    <a class="megamenu__link" href="index.html#leistungen">Smart Home</a>
+                    <a class="megamenu__link" href="index.html#leistungen">Datennetze</a>
+                    <a class="megamenu__link" href="index.html#leistungen">E-Heizung</a>
+                  </div>
+                  <div class="megamenu__col">
+                    <p class="megamenu__col-title">Sicherheit &amp; Licht</p>
+                    <a class="megamenu__link" href="index.html#leistungen">Beleuchtungsanlage</a>
+                    <a class="megamenu__link" href="index.html#leistungen">Blitzschutz</a>
+                    <a class="megamenu__link" href="index.html#leistungen">Einbruchmeldeanlage</a>
+                    <a class="megamenu__link" href="index.html#leistungen">Rauchmelder</a>
+                    <a class="megamenu__link" href="index.html#leistungen">Wechselsprechanlage</a>
+                  </div>
+                  <div class="megamenu__col">
+                    <p class="megamenu__col-title">Fernsehempfang</p>
+                    <a class="megamenu__link" href="index.html#leistungen">Antennenanlage</a>
+                    <a class="megamenu__link" href="index.html#leistungen">Kabelanschluss</a>
+                    <a class="megamenu__link" href="index.html#leistungen">Satellitenanlage</a>
+                    <a class="megamenu__link" href="index.html#leistungen">IPTV</a>
+                  </div>
+                </div>
+                <p class="megamenu__soon">Eigene Detailseiten je Leistung folgen in Kürze.</p>
+              </div>
+            </div>
+          </li>
           <li><a href="index.html#projekte">Projekte</a></li>
           <li><a href="index.html#unternehmen">Unternehmen</a></li>
           <li><a href="#stellen">Offene Stellen</a></li>
