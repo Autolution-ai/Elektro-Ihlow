@@ -6,13 +6,25 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+  const navToggle = $("[data-nav-toggle]");
+  const navMenu = $("[data-nav-menu]");
 
-  /* ---------- Sanftes Scrollen (Lenis) ---------- */
+  /* ---------- Sanftes Scrollen (Lenis) + saubere GSAP-Integration ----------
+     Lenis wird ueber gsap.ticker getaktet und meldet jeden Scroll an
+     ScrollTrigger. Dadurch laufen Header, Parallax und Reveals ueber EINE
+     zuverlaessige Scroll-Quelle statt ueber unregelmaessige native Events. */
   let lenis = null;
   if (!reduceMotion && window.Lenis) {
     lenis = new window.Lenis({ duration: 1.1, smoothWheel: true });
-    const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
-    requestAnimationFrame(raf);
+    if (window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+      lenis.on("scroll", ScrollTrigger.update);
+      gsap.ticker.add((t) => lenis.raf(t * 1000));
+      gsap.ticker.lagSmoothing(0);
+    } else {
+      const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
+      requestAnimationFrame(raf);
+    }
   }
 
   /* ---------- Smart-Header: bei jeder Aufwaertsbewegung sichtbar, egal wo ----------
@@ -28,8 +40,7 @@
         const s = y > 20;
         if (s !== scrolled) { scrolled = s; header.classList.toggle("is-scrolled", s); }
       }
-      const menu = document.querySelector("[data-nav-menu]");
-      const menuOpen = menu && menu.classList.contains("is-open");
+      const menuOpen = navMenu && navMenu.classList.contains("is-open");
       let wantHidden = hidden;
       if (menuOpen || y <= 120) wantHidden = false;   // oben / Menue offen -> sichtbar
       else if (y < lastY) wantHidden = false;         // hoch (jede Bewegung) -> sichtbar
@@ -47,8 +58,6 @@
   }
 
   /* ---------- Mobile-Navigation ---------- */
-  const navToggle = $("[data-nav-toggle]");
-  const navMenu = $("[data-nav-menu]");
   if (navToggle && navMenu) {
     const setNav = (open) => {
       navToggle.setAttribute("aria-expanded", String(open));
@@ -68,6 +77,7 @@
     document.body.classList.add("reveal-ready");
     if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
     reveals.forEach((el) => {
+      if (el.closest(".hero, .khero")) return; // Hero kommt per Stagger (unten)
       ScrollTrigger.create({
         trigger: el, start: "top 88%",
         onEnter: () => el.classList.add("is-in"),
@@ -92,20 +102,23 @@
   /* ---------- Parallax (Team-Band) ---------- */
   const parallaxEls = $$("[data-parallax]");
   if (!reduceMotion && parallaxEls.length) {
-    let ticking = false;
     const applyP = () => {
+      const vh = window.innerHeight;
       parallaxEls.forEach((el) => {
         const r = el.parentElement.getBoundingClientRect();
-        const vh = window.innerHeight;
         if (r.bottom < -60 || r.top > vh + 60) return;
         const prog = (r.top + r.height / 2 - vh / 2) / vh;
         el.style.transform = `translateY(${(prog * -46).toFixed(1)}px)`;
       });
-      ticking = false;
     };
-    const onP = () => { if (!ticking) { ticking = true; requestAnimationFrame(applyP); } };
-    window.addEventListener("scroll", onP, { passive: true });
-    window.addEventListener("resize", onP);
+    if (lenis) {
+      lenis.on("scroll", applyP);
+    } else {
+      let ticking = false;
+      const onP = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { applyP(); ticking = false; }); } };
+      window.addEventListener("scroll", onP, { passive: true });
+    }
+    window.addEventListener("resize", applyP);
     applyP();
   }
 
@@ -120,7 +133,9 @@
     const tick = (now) => {
       const p = Math.min((now - t0) / dur, 1);
       const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = prefix + Math.round(target * eased) + suffix;
+      // Suffix (z.B. " Standorte", " Mio. €") erst am Ende einblenden, damit
+      // keine unsauberen Zwischenwerte wie "1 Standorte" entstehen.
+      el.textContent = p < 1 ? prefix + Math.round(target * eased) : prefix + target + suffix;
       if (p < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
@@ -159,6 +174,8 @@
     const modal = $(`[data-modal="${id}"]`);
     if (!modal) return;
     lastFocus = document.activeElement;
+    const fn = modal.querySelector("[data-funnel]");
+    if (fn && fn._reset) fn._reset();
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
@@ -178,7 +195,16 @@
   $$("[data-modal-close]").forEach((b) =>
     b.addEventListener("click", () => closeModal(b.closest("[data-modal]"))));
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") { const m = $(".modal.is-open"); if (m) closeModal(m); }
+    const m = $(".modal.is-open");
+    if (e.key === "Escape") { if (m) closeModal(m); return; }
+    if (e.key === "Tab" && m) {
+      const f = $$('a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])', m)
+        .filter((el) => el.offsetParent !== null);
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
   });
 
   /* ---------- Funnel (Bewerbung + Projektanfrage) ---------- */
@@ -192,6 +218,7 @@
     const nextBtn = $("[data-funnel-next]", funnel);
     const done = $("[data-funnel-done]", funnel);
     let idx = 0;
+    let advanceTimer = null;
     const total = steps.length;
 
     const show = (i) => {
@@ -221,11 +248,15 @@
       $$("input[type=radio]", step).forEach((r) =>
         r.addEventListener("change", () => {
           markError(step, false);
-          if (idx < total - 1) setTimeout(next, 220);
+          if (idx < total - 1) {
+            clearTimeout(advanceTimer);
+            advanceTimer = setTimeout(() => { advanceTimer = null; next(); }, 220);
+          }
         }));
     });
 
     const next = () => {
+      clearTimeout(advanceTimer); advanceTimer = null;
       const step = steps[idx];
       if (!validate(step)) { markError(step, true);
         const legend = step.querySelector("legend"); if (legend) legend.animate(
@@ -243,6 +274,15 @@
       if (bar) bar.style.width = "100%";
       if (stepLabel) stepLabel.textContent = "Fertig";
     };
+    const reset = () => {
+      clearTimeout(advanceTimer); advanceTimer = null;
+      idx = 0;
+      if (form && typeof form.reset === "function") form.reset();
+      done.hidden = true;
+      nav.hidden = false;
+      show(0);
+    };
+    funnel._reset = reset;
 
     nextBtn.addEventListener("click", next);
     backBtn.addEventListener("click", back);
