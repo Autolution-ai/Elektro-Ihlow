@@ -120,6 +120,15 @@ Smart-Header · Mega-Menü Leistungen.
    Desktop) via `responsive-qa`, dann Bruno-Freigabe. Inhalts-QA gegen
    `docs/CHECKLISTE.md` war bereits durch (keine kritischen Punkte).
 
+## 8b. NEU (01.09.): Closing-Gespräch ausgewertet → Plan V2
+Gespräch Jonas x André (31.08.): kein Abschluss, Konkurrenz-Agentur mit
+persönlichem Draht vorn, Thema 4-8 Wochen auf Eis, Tür offen. Kernkritik:
+Tonalität "abgehoben", Inhalte noch nicht seins, "wie jeder andere", zu wenig
+Persönlichkeit/Authentizität. Zusagen: Freitextfeld + optionaler Lebenslauf im
+Funnel, Instagram-Funnel gehört zum Paket. Vollständige Analyse + Umsetzungsplan:
+**`docs/PLAN-V2-CALL-FEEDBACK.md`** – noch nichts umgesetzt, Freigabe offen.
+
 ## 9. Nächster sinnvoller Schritt
-Bruno-Entscheidung zu Punkt 2 & 3 abwarten, dann umsetzen. Danach finale
-Cross-Device-QA + Freigabe. Header-Scroll bei Bedarf wieder aufgreifen.
+Plan V2 (`docs/PLAN-V2-CALL-FEEDBACK.md`) mit Bruno durchgehen: Tonalitäts-
+Leitplanken freigeben, Skills/Material liefern, dann Phase A (Tonalität) starten.
+Header-Scroll bei Bedarf wieder aufgreifen.
