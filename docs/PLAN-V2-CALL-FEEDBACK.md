@@ -168,3 +168,71 @@ Analytics/Search Console, DSGVO-Betreuung, echtes Insta-Feed-Embed.
 8. Quick-Apply-Landing (Phase E) schon jetzt in die Demo oder erst nach Zusage?
 9. Sales-seitig (außerhalb der Website): Wiedervorlage in ~4 Wochen einplanen,
    bevor er den anderen Kontakt reaktiviert? Dann sollte V2 bis dahin stehen.
+
+---
+
+## 7. NACHTRAG (01.09.): Brunos Antworten & Arbeitsgrundlagen
+
+**Entschieden:**
+- Skills website-copy + anti-slop liegen bereits im Repo (identisch mit Brunos Stand).
+- Phasen-Reihenfolge A→F bestätigt. Quick-Apply-Landing kommt mit in die Demo.
+- Fotoshooting erst bei Abschluss. Bis dahin bleiben die KI-Bilder Platzhalter;
+  Phase C liefert trotzdem die Shooting-Liste als Verkaufs-Baustein.
+- Funnel-Aufbau: an Claude delegiert. Allgemeine Funnel-Regeln haben Vorrang,
+  Ihlow-Feedback fließt ein (Spezifikation unten).
+- Details zu den 3 Bürostellen: Bruno fragt nach. Instagram-Frage geklärt
+  (siehe Chat): gemeint ist, ob Elektro Ihlow einen eigenen Insta-Account hat.
+
+### 7.1 Tonalitäts-Leitplanken (ENTWURF, Freigabe Bruno offen)
+
+**So klingt Elektro Ihlow:**
+1. Bodenständig und direkt. Jeder Satz muss so klingen, als würde ihn ein
+   Elektromeister am Telefon sagen. Schreibtisch-Deutsch raus.
+2. Stolz nur über Fakten, nie über Pose. "Seit 1946", "drei Generationen",
+   "volle Auftragsbücher" dürfen stehen, aber als ruhige Tatsache und als
+   Sicherheits-Argument für den Leser, nicht als Überlegenheit.
+3. Warm und persönlich. Menschen und Alltag zeigen (Namen, Baustelle, Büro),
+   nicht Abstraktionen.
+4. Für Bewerber ist die Kernbotschaft Sicherheit und Zugehörigkeit: planbare
+   Arbeit, ein Betrieb, der bleibt, ein Team, das hält.
+5. Mit Kunden auf Augenhöhe: "Rufen Sie an, dann schauen wir gemeinsam"
+   statt Prüf- und Auswahl-Rhetorik.
+
+**Verboten (Abgehoben-Liste, ergänzt anti-slop):**
+- Ablehnungs-Rhetorik: "Wir nehmen nicht jeden Auftrag an", "Aufträge ablehnen
+  müssen", "ob Ihr Projekt zu uns passt" als Türsteher-Geste.
+- Spitzen und Vergleiche: "nicht erst seit gestern", "Viele Betriebe reden von
+  X, wir zeigen es", "anders als andere".
+- Marktführer- und Exklusivitäts-Posen jeder Art.
+
+**Der André-Test:** Würde André den Satz einem Bewerber oder Kunden laut ins
+Gesicht sagen, ohne dass es ihm unangenehm ist? Wenn nein: raus.
+
+### 7.2 Bewerbungs-Funnel V2 (Spezifikation für Phase B)
+
+Regeln dahinter: eine Frage pro Schritt, Tap statt Tippen wo möglich, leichteste
+Frage zuerst, Kontaktdaten als letzte Hürde so klein wie möglich, alles Optionale
+NACH dem Absenden (Lead zuerst sichern, dann anreichern). Versprechen "2 Minuten"
+muss real haltbar sein.
+
+1. **Stelle** (Tap): Projektleiter · Assistenz / Büro · Elektriker / Monteur ·
+   Ausbildung · Etwas anderes / Initiativ. Büro-Rollen zuerst (Ihlow-Priorität).
+2. **Erfahrung** (Tap): Mehrere Jahre im Beruf · Erste Erfahrung ·
+   Einsteiger, will es lernen. (Eine Formulierung, die für alle Rollen trägt.)
+3. **Start** (Tap): Ab sofort · In 1 bis 3 Monaten · Später / bin flexibel.
+4. **Umfang** (Tap): Vollzeit · Teilzeit.
+5. **Was ist dir wichtig?** (Mehrfach-Tap, Engagement-Frage): Faires Gehalt ·
+   Sicherer Job · Nettes Team · Weiterbildung · Moderne Ausstattung ·
+   Geregelte Zeiten.
+6. **Aufmerksam geworden über?** (Tap, ein Klick, Kanaldaten): Instagram ·
+   Google · Empfehlung · Fahrzeug / Baustelle gesehen · Sonstiges.
+7. **Kontakt** (einzige Tipp-Hürde): Name · Telefon · E-Mail. Sonst nichts.
+8. **Danke-Screen mit optionaler Anreicherung** (nach dem Absenden, klar als
+   optional markiert): Freitext "Magst du uns noch etwas mitgeben?" und
+   Hinweis Lebenslauf (Demo: optionales Datei-Feld ohne echten Upload).
+   Erwartungsmanagement: wer sich meldet und wann.
+
+Änderungen ggü. Ist-Zustand: Kanal-Frage neu (Schritt 6), Freitext + Lebenslauf
+neu (nach Absenden), Rollen-Reihenfolge gedreht, Formulierungen kommen in
+Phase A/B über website-copy + anti-slop. Die Quick-Apply-Landing
+(`bewerben.html`, Phase E) nutzt exakt denselben Funnel ohne Drumherum.
