@@ -87,7 +87,7 @@ anfühlen wie SEIN Betrieb, nicht wie eine Vorlage mit seinem Logo.
 
 ## 5. Umsetzungsplan V2 (in dieser Reihenfolge, nach Freigabe)
 
-### Phase A – Tonalitäts-Überarbeitung (größter Hebel, reine Copy)
+### Phase A – Tonalitäts-Überarbeitung (ERLEDIGT 01.09.)
 1. **Tonalitäts-Leitplanken festschreiben** (kurzes Briefing-Dokument, Bruno gibt frei):
    bodenständig, warm, direkt, familiär. Stolz nur über belegbare Fakten.
    Verbotsliste: Ablehnungs-Rhetorik ("nehmen nicht jeden Auftrag"), Überlegenheits-
@@ -236,3 +236,26 @@ muss real haltbar sein.
 neu (nach Absenden), Rollen-Reihenfolge gedreht, Formulierungen kommen in
 Phase A/B über website-copy + anti-slop. Die Quick-Apply-Landing
 (`bewerben.html`, Phase E) nutzt exakt denselben Funnel ohne Drumherum.
+
+
+## 8. Umsetzungs-Log
+
+**Phase A erledigt (01.09.):** Tonalität überarbeitet, Leitplanken 7.1 freigegeben.
+- index Proof-Block neu: "nicht erst seit gestern" und "Wir nehmen nicht jeden
+  Auftrag an" raus. Neu: Bestandskunden als Beleg, Ehrlichkeit bei Terminen
+  ("Wird es terminlich eng, sagen wir Ihnen das offen, statt Sie hinzuhalten").
+- karriere "Warum wir" neu: Vergleich "Viele Betriebe reden von Sicherheit" und
+  "Aufträge ablehnen müssen" raus. Sicherheit jetzt aus Bewerbersicht.
+- standorte: Türsteher-Headline "Passt Ihr Projekt zu uns?" -> "Erzählen Sie uns
+  von Ihrem Projekt"; Einzugsgebiet und "Größere Vorhaben" entschärft.
+- Funnel-Abschluss (index + standorte): "Passt Ihr Vorhaben in unseren Kalender"
+  -> "Dann klären wir in Ruhe, wann wir bei Ihnen anfangen können."
+- Funnel-Intro: "wissen wir, ob und wie wir helfen können" -> "melden wir uns mit
+  einer ehrlichen Einschätzung".
+- unternehmen: Approach-Intro leser-orientiert ("Drei Dinge können Sie erwarten").
+- Anti-slop: alle Gedankenstriche raus (2 Stück in neuen Titeln), kein
+  AI-Vokabular, keine Pose-Formulierungen mehr. Scan über alle 4 Seiten sauber.
+- Konsistenz: Hero-/Footer-CTA auf `karriere.html#funnel`, Ribbon auf `#stellen`.
+- Geprüft: keine defekten Links/Anker, keine JS-Fehler, kein Overflow (1280/390).
+
+**Als Nächstes:** Phase B (Funnel V2 nach Spezifikation 7.2).
