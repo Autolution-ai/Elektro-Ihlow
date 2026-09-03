@@ -696,3 +696,109 @@ body { overflow-x: hidden; }
 @media (max-width: 560px) {
   .insta__cta { width: 100%; }
 }
+
+/* ---------- Die Leitung: Sektionstrenner mit Blitz aus dem Logo ---------- */
+.wire {
+  display: flex; align-items: center; gap: .95rem; color: var(--red);
+  width: min(100% - 2 * var(--space-m), var(--maxw)); margin-inline: auto;
+  padding-block: var(--space-xl);
+}
+.wire__line { flex: 1; height: 1px; background: var(--line-strong); }
+.wire__line:first-child { transform-origin: left center; }
+.wire__line:last-child { transform-origin: right center; }
+.wire__bolt { flex-shrink: 0; }
+/* Zeichnen erst wenn GSAP da ist; ohne JS bleibt die Leitung sichtbar */
+.reveal-ready [data-wire] .wire__line { transform: scaleX(0); transition: transform .9s var(--ease); }
+.reveal-ready [data-wire] .wire__bolt { opacity: 0; transform: scale(.6); transition: opacity .4s var(--ease) .35s, transform .4s var(--ease) .35s; }
+.reveal-ready [data-wire].is-in .wire__line { transform: scaleX(1); }
+.reveal-ready [data-wire].is-in .wire__bolt { opacity: 1; transform: scale(1); }
+
+/* ---------- Generationen-Band ---------- */
+.generations { background: var(--dark); color: var(--on-dark); padding-block: var(--space-2xl); }
+.generations .section-title { color: #fff; }
+.gen {
+  list-style: none; display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-l); position: relative; margin-top: var(--space-xl);
+}
+.gen::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 7px;
+  height: 1px; background: var(--line-dark);
+}
+.gen__item { position: relative; padding-top: calc(var(--space-l) + 14px); }
+.gen__item::before {
+  content: ""; position: absolute; top: 0; left: 0; width: 14px; height: 14px;
+  background: var(--red); border-radius: 3px; transform: rotate(45deg);
+}
+.gen__year {
+  display: block; font-family: var(--font-display); font-weight: 800;
+  font-size: var(--step-4); letter-spacing: -0.03em; line-height: 1; color: #fff;
+}
+.gen__name {
+  display: block; font-family: var(--font-display); font-weight: 600;
+  font-size: var(--step-1); color: var(--on-dark); margin-top: .5rem;
+}
+.gen__note { display: block; color: var(--on-dark-soft); font-size: var(--step--1); margin-top: .3rem; max-width: 30ch; }
+
+@media (max-width: 900px) {
+  .gen { grid-template-columns: 1fr; gap: var(--space-xl); }
+  .gen::before { left: 6px; right: auto; top: 0; bottom: 0; width: 1px; height: auto; }
+  .gen__item { padding-top: 0; padding-left: calc(var(--space-m) + 14px); }
+  .gen__item::before { top: .35em; }
+  .wire { padding-block: var(--space-l); }
+}
+
+/* ---------- Quick-Apply-Landing (bewerben.html, Ziel für Instagram/Anzeigen) ---------- */
+.qa-bar { background: var(--dark); color: var(--on-dark); padding-block: .9rem; }
+.qa-bar__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-m); }
+.qa-bar .brand__text, .qa-bar .brand__mark { color: var(--on-dark); }
+.qa-bar__phone { font-family: var(--font-display); font-weight: 600; color: var(--on-dark); white-space: nowrap; }
+.qa-bar__phone:hover { color: #fff; }
+
+.qa-hero { background: var(--dark); color: var(--on-dark); padding-block: var(--space-l) var(--space-xl); position: relative; overflow: hidden; }
+.qa-hero::after {
+  content: ""; position: absolute; right: -8%; top: -30%; width: 60%; height: 160%;
+  background: radial-gradient(circle at 50% 50%, oklch(58.5% 0.186 28.5 / 0.22), transparent 62%);
+  pointer-events: none;
+}
+.qa-hero > .container { position: relative; z-index: 1; }
+.qa-hero__title {
+  font-family: var(--font-display); font-weight: 800; color: #fff;
+  font-size: clamp(2.1rem, 1.5rem + 2.4vw, 3.4rem); letter-spacing: -0.03em; line-height: 1.03;
+  margin-bottom: var(--space-s); text-wrap: balance;
+}
+.qa-hero__lead { color: var(--on-dark-soft); font-size: var(--step-1); max-width: 46ch; }
+.qa-chips { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin-top: var(--space-m); }
+.qa-chips li {
+  font-family: var(--font-display); font-weight: 600; font-size: var(--step--1);
+  color: var(--on-dark); border: 1px solid var(--line-dark);
+  border-radius: 999px; padding: .4rem .9rem;
+}
+
+/* Funnel-Karte überlappt den dunklen Hero: der Bewerbungsstart ist der Star der Seite */
+.qa-funnel { padding-bottom: var(--space-2xl); background: linear-gradient(to bottom, var(--dark) 90px, var(--bg) 90px); }
+.qa-card {
+  background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius-l);
+  box-shadow: var(--shadow-m); padding: clamp(1.2rem, 3vw, 2.2rem);
+}
+
+.qa-trust { padding-bottom: var(--space-2xl); }
+.qa-trust__title { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); letter-spacing: -0.02em; margin-bottom: var(--space-l); }
+.qa-trust__list { list-style: none; display: flex; flex-direction: column; gap: var(--space-m); max-width: 62ch; }
+.qa-trust__list li { display: grid; grid-template-columns: auto 1fr; gap: var(--space-s); color: var(--ink-soft); }
+.qa-trust__list strong { color: var(--ink); font-family: var(--font-display); }
+.qa-trust__more { display: flex; align-items: center; gap: var(--space-l); flex-wrap: wrap; margin-top: var(--space-l); }
+.qa-trust__insta { display: inline-flex; align-items: center; gap: .45rem; font-weight: 500; color: var(--ink-soft); }
+.qa-trust__insta:hover { color: var(--red); }
+
+.qa-footer { background: var(--dark); color: var(--on-dark-soft); padding-block: var(--space-l); font-size: var(--step--1); }
+.qa-footer a { color: var(--on-dark); }
+.qa-footer a:hover { color: #fff; }
+.qa-footer__addr { margin-bottom: .6rem; line-height: 1.7; }
+.qa-footer__legal { display: flex; gap: var(--space-m); flex-wrap: wrap; }
+.qa-footer__note { margin-top: .6rem; color: var(--ink-faint); }
+
+@media (max-width: 560px) {
+  .qa-bar__phone { font-size: var(--step--1); }
+  .qa-trust__more { flex-direction: column; align-items: flex-start; gap: var(--space-m); }
+  .qa-trust__more .btn { width: 100%; }
+}

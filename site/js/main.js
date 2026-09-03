@@ -98,6 +98,15 @@
       ScrollTrigger.create({ trigger: el, start: "top 85%", onEnter: () => el.classList.add("is-in") }));
   }
 
+  /* ---------- Die Leitung (Sektionstrenner zeichnet sich) ---------- */
+  const wires = $$("[data-wire]");
+  if (!hasGsap) {
+    wires.forEach((el) => el.classList.add("is-in"));
+  } else {
+    wires.forEach((el) =>
+      ScrollTrigger.create({ trigger: el, start: "top 92%", onEnter: () => el.classList.add("is-in") }));
+  }
+
   /* ---------- Parallax (Team-Band) ---------- */
   const parallaxEls = $$("[data-parallax]");
   if (!reduceMotion && parallaxEls.length) {

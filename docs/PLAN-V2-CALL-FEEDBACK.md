@@ -118,7 +118,7 @@ anfühlen wie SEIN Betrieb, nicht wie eine Vorlage mit seinem Logo.
 10. **Einblicke/Instagram-Sektion** auf der Karriere-Seite (Demo: statische
     Kacheln im Insta-Format), vorbereitet für echtes Feed-Embed.
 
-### Phase D – Der "Catch" (gegen "wie jeder andere")
+### Phase D – Der "Catch" (ERLEDIGT 01.09.)
 11. 2 bis 3 konkrete Design-Momente entwickeln, die nur zu Ihlow passen, und
     Bruno zur Auswahl vorlegen. Kandidaten: E+Blitz-Motiv als markantes
     wiederkehrendes Element (größer, mutiger), ein inszenierter Hero- oder
@@ -126,7 +126,7 @@ anfühlen wie SEIN Betrieb, nicht wie eine Vorlage mit seinem Logo.
     (1946/1979/2004 als eigenes Gestaltungselement statt nur Timeline-Badge).
     Prinzip aus CLAUDE.md bleibt: wenige, gezielte Effekte, kein Overload.
 
-### Phase E – Instagram-Funnel (sein "nächster Schritt", gehört zum Paket)
+### Phase E – Instagram-Funnel (ERLEDIGT 01.09.)
 12. **Schlanke Quick-Apply-Landing** (`bewerben.html`): mobile-first, ohne
     Navigation/Ablenkung, startet direkt im Bewerbungs-Funnel. Gedacht als
     Link-in-Bio- und Ads-Ziel. Zeigt im nächsten Gespräch, dass "alles mit
@@ -312,3 +312,42 @@ als Rohmaterial (Bruno fragt an). Erst damit wird aus dem Platzhalter echte
 Substanz.
 
 **Als Naechstes:** Phase D (der "Catch") oder Phase E (Quick-Apply-Landing).
+
+**Phase D erledigt (01.09.):** Zwei Gestaltungsmomente statt vieler Effekte.
+Beide bauen auf Assets, die nur Ihlow hat, damit sie nicht kopierbar sind.
+- **Die Leitung:** Sektionstrenner aus einer duennen Linie mit dem Blitz aus dem
+  Logo in der Mitte. Zeichnet sich beim Scrollen von aussen nach innen. Liest
+  sich wie ein Kabelweg durch die Seite. Bewusst nur 2x auf der Startseite und
+  1x auf "Ueber uns" eingesetzt. Ohne GSAP bleibt die Leitung statisch sichtbar.
+- **Generationen-Band** auf unternehmen.html: 1946 / 1979 / 2004 als grosse
+  Jahreszahlen mit Namen und Rolle, auf einer durchgehenden Schiene, dunkle
+  Sektion. Ueberschrift "Drei Generationen, eine Leitung" (Doppelsinn Kabel und
+  Fuehrung). Alle Angaben aus dem Scrape belegt. Die doppelte Mini-Timeline auf
+  dem Foto wurde entfernt, damit die Geschichte nur einmal und dafuer gross erzaehlt wird.
+
+**Phase E erledigt (01.09.):** `site/bewerben.html`, Quick-Apply-Landing.
+- Eine Seite, ein Ziel: **keine Navigation**, nur Logo und Telefonnummer.
+- Dunkler Hero mit Versprechen und drei Vertrauens-Chips, direkt darunter die
+  Funnel-Karte, die in das dunkle Band hineinragt. Auf 360px steht der
+  Bewerbungsstart sofort im Blick.
+- Identischer Funnel wie auf der Karriereseite (programmatisch uebernommen,
+  Schritte nachweislich deckungsgleich).
+- Darunter drei Kurzargumente, Link auf die volle Karriereseite und Instagram.
+- `noindex, follow`, damit die Kampagnenseite nicht mit der Karriereseite um
+  Rankings konkurriert.
+- Gedacht als Link-in-Bio-Ziel fuer @elektro_ihlow und als Anzeigen-Ziel.
+
+**Bekannte Schuld:** Der Funnel liegt jetzt doppelt im Code (karriere.html und
+bewerben.html). Fuer den Demo-Stand bewusst akzeptiert, in beiden Dateien mit
+einem Sync-Hinweis markiert. Beim echten Projekt gehoert er in ein Template
+oder wird per JS injiziert.
+
+**Selbstkontrolle (alle Punkte gruen):** CSS-Klammerbalance, keine doppelten IDs,
+genau eine H1 je Seite, keine defekten Links oder Anker, Anti-Slop-Scan sauber
+(keine Gedankenstriche, kein AI-Vokabular, keine Pose-Formulierungen), Funnel auf
+beiden Seiten komplett durchgespielt inkl. Anreicherung, alle 5 Seiten auf
+1440/768/360 ohne Overflow, ohne JS-Fehler, keine unsichtbaren Reveals.
+
+**Damit sind A bis E abgeschlossen. Offen: Phase F (finale Cross-Device-QA und
+Praesentationsstand) sowie das fehlende Rohmaterial (Mitarbeiterzitate,
+Stellen-Details).**
