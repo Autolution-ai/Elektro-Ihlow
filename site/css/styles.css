@@ -627,3 +627,72 @@ body { overflow-x: hidden; }
 .funnel__file:hover .funnel__file-label,
 .funnel__file input[type="file"]:focus-visible + .funnel__file-label { border-color: var(--red); color: var(--red); }
 .funnel__extra-done { margin-top: var(--space-m); font-weight: 500; color: var(--ink); }
+
+/* ---------- Demo-Hinweis (wiederverwendbar) ---------- */
+.demo-note {
+  font-size: var(--step--1); color: var(--ink-faint); font-style: italic;
+  margin-top: var(--space-m); padding-top: var(--space-s);
+  border-top: 1px dashed var(--line-strong);
+}
+.demo-note--center { text-align: center; max-width: 60ch; margin-inline: auto; }
+
+/* ---------- O-Ton: 3 Fragen an André ---------- */
+.oton { padding-block: var(--space-2xl); background: var(--surface); }
+.oton__inner { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.oton__media { position: sticky; top: 110px; }
+.oton__media img { width: 100%; border-radius: var(--radius-l); object-fit: cover; aspect-ratio: 1/1; box-shadow: var(--shadow-m); }
+.oton__media figcaption {
+  margin-top: var(--space-s); font-family: var(--font-display); font-weight: 700;
+  color: var(--ink); line-height: 1.4;
+}
+.oton__media figcaption span { font-family: var(--font-body); font-weight: 400; font-size: var(--step--1); color: var(--ink-soft); }
+.oton__qa { display: flex; flex-direction: column; gap: var(--space-l); }
+.oton__item { padding-left: var(--space-m); border-left: 3px solid var(--red); }
+.oton__item dt {
+  font-family: var(--font-display); font-weight: 700; font-size: var(--step-1);
+  color: var(--ink); line-height: 1.25; margin-bottom: .5rem;
+}
+.oton__item dd { color: var(--ink-soft); font-size: var(--step-0); line-height: 1.65; }
+
+/* ---------- Stimmen aus dem Team (bewusst versetzt, kein Kachelraster) ---------- */
+.voices { padding-block: var(--space-2xl); }
+.voices__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-l); align-items: start; }
+.voice { position: relative; padding-top: var(--space-l); }
+.voice::before {
+  content: "„"; position: absolute; top: -.35em; left: -.06em;
+  font-family: var(--font-display); font-weight: 800; font-size: 4.5rem;
+  color: var(--red); opacity: .28; line-height: 1;
+}
+.voices__grid .voice:nth-child(2) { margin-top: var(--space-xl); }
+.voices__grid .voice:nth-child(3) { margin-top: calc(var(--space-xl) * 2); }
+.voice p { font-size: var(--step-1); line-height: 1.5; color: var(--ink); margin-bottom: var(--space-s); text-wrap: pretty; }
+.voice cite {
+  font-style: normal; font-family: var(--font-display); font-weight: 600;
+  font-size: var(--step--1); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint);
+}
+
+/* ---------- Einblicke / Instagram ---------- */
+.insta { background: var(--dark); color: var(--on-dark); padding-block: var(--space-xl); }
+.insta__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-l); flex-wrap: wrap; }
+.insta__text { max-width: 56ch; }
+.insta__text .eyebrow { color: var(--on-dark-soft); }
+.insta__title { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); letter-spacing: -0.02em; color: #fff; margin-bottom: .5rem; }
+.insta__text p { color: var(--on-dark-soft); }
+.insta__cta { flex-shrink: 0; --btn-fg: var(--on-dark); border-color: var(--line-dark); }
+.insta__cta:hover { background: #fff; --btn-fg: var(--ink); border-color: #fff; }
+
+/* Instagram-Link im Footer */
+.site-footer__insta { display: inline-flex; align-items: center; gap: .45rem; margin-top: .6rem; }
+.site-footer__insta svg { flex-shrink: 0; }
+
+@media (max-width: 900px) {
+  .oton__inner { grid-template-columns: 1fr; }
+  .oton__media { position: static; max-width: 340px; }
+  .voices__grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+  .voices__grid .voice:nth-child(2),
+  .voices__grid .voice:nth-child(3) { margin-top: 0; }
+  .insta__inner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 560px) {
+  .insta__cta { width: 100%; }
+}

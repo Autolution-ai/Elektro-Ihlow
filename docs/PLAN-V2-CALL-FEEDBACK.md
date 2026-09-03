@@ -108,7 +108,7 @@ anfühlen wie SEIN Betrieb, nicht wie eine Vorlage mit seinem Logo.
 7. **Stellen-Reihenfolge drehen:** Projektleiter und Assistenz/Büro zuerst,
    auch im Karriere-Block der Startseite und im Funnel-Schritt 1.
 
-### Phase C – Persönlichkeit & Authentizität (sein Entscheidungs-Kriterium)
+### Phase C – Persönlichkeit & Authentizität (ERLEDIGT 01.09.)
 8. **Bild-Strategie:** Shooting-Liste erstellen (André, Team, Büro, Werkstatt
    Biesenthal, Fahrzeuge, Baustelle) als Vorlage fürs Fotoshooting. KI-Bilder
    bleiben Demo-Platzhalter, jede Position bekommt einen definierten Ersatz.
@@ -281,3 +281,34 @@ Phase A/B über website-copy + anti-slop. Die Quick-Apply-Landing
   JS-Fehler.
 
 **Als Naechstes:** Phase C (Persoenlichkeit) oder Phase E (Quick-Apply-Landing).
+
+**Phase C erledigt (01.09.):** Persoenlichkeit, ohne etwas zu erfinden.
+Grundsatz: André fordert Authentizitaet. Erfundene Zitate von ihm oder seinen
+Leuten waeren genau der Fehler, den er sofort bemerkt. Deshalb sind alle
+personenbezogenen Aussagen entweder aus belegten Fakten abgeleitet oder auf der
+Seite sichtbar als Platzhalter gekennzeichnet.
+
+- **O-Ton "Drei Fragen an den Chef"** (karriere.html, vor dem Funnel):
+  Portraet mit Bildunterschrift, drei Fragen mit Antworten. Die Antworten
+  stuetzen sich ausschliesslich auf Belegtes (seit 1946, drei Generationen,
+  ~30 Leute, bildet selbst aus, volle Auftragsbuecher, Chef ist Elektromeister).
+  Sichtbarer Hinweis, dass hier final Andrés eigene Worte stehen. Das macht den
+  Termin zum Arbeitsgespraech statt zur Behauptung.
+- **"Stimmen aus dem Team"**: drei Zitate, bewusst versetzt gesetzt statt als
+  uniformes Kachelraster. Klar als Platzhalter markiert, inkl. Ansage, dass dort
+  Name, Foto und Betriebszugehoerigkeit hinkommen.
+- **"Einblicke"-Band mit echtem Instagram-Link** (@elektro_ihlow), plus
+  Instagram im Footer aller vier Seiten. Vorbereitet fuer echtes Feed-Embed.
+- **`docs/FOTO-SHOOTING.md`**: vollstaendige Aufnahmeliste. Jeder KI-Platzhalter
+  bekommt ein definiertes echtes Motiv (A1-A8), dazu die neuen Motive fuer die
+  Persoenlichkeits-Bausteine (B1-B5) und eine Abfrageliste fuer den Termin
+  (O-Ton, Mitarbeiterzitate, Referenzen, Stellen-Details).
+
+Geprueft: alle drei Abschnitte rendern, Reveals sichtbar, Funnel unveraendert
+lauffaehig, kein Overflow, keine JS-Fehler, Anti-Slop-Scan sauber.
+
+**Offen aus Phase C:** Mitarbeiter-Zitate und Stellen-Details fehlen weiterhin
+als Rohmaterial (Bruno fragt an). Erst damit wird aus dem Platzhalter echte
+Substanz.
+
+**Als Naechstes:** Phase D (der "Catch") oder Phase E (Quick-Apply-Landing).
