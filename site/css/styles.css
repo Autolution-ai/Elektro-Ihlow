@@ -605,3 +605,25 @@ body { overflow-x: hidden; }
   .cta-band__actions { width: 100%; }
   .cta-band__actions .btn { width: 100%; }
 }
+
+
+/* ---------- Funnel: optionale Anreicherung im Danke-Screen ---------- */
+.funnel__textarea { min-height: 96px; resize: vertical; font-family: inherit; line-height: 1.5; }
+.funnel__extra {
+  max-width: 44ch; margin: var(--space-l) auto 0; padding-top: var(--space-m);
+  border-top: 1px solid var(--line); text-align: left;
+}
+.funnel__extra p { max-width: none; margin-left: 0; margin-right: 0; }
+.funnel__extra-title { font-family: var(--font-display); font-weight: 700; color: var(--ink); margin-bottom: .15rem; }
+.funnel__extra-hint { font-size: var(--step--1); color: var(--ink-faint); margin-bottom: var(--space-s); }
+.funnel__file { display: block; position: relative; margin: 0 0 var(--space-s); cursor: pointer; }
+.funnel__file input[type="file"] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.funnel__file-label {
+  display: inline-block; border: 1px dashed var(--line-strong); border-radius: var(--radius-s);
+  padding: .55rem .85rem; font-size: var(--step--1); color: var(--ink-soft);
+  transition: border-color .2s, color .2s; max-width: 100%; overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap; vertical-align: middle;
+}
+.funnel__file:hover .funnel__file-label,
+.funnel__file input[type="file"]:focus-visible + .funnel__file-label { border-color: var(--red); color: var(--red); }
+.funnel__extra-done { margin-top: var(--space-m); font-weight: 500; color: var(--ink); }

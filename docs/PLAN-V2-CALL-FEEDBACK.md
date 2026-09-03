@@ -98,7 +98,7 @@ anfühlen wie SEIN Betrieb, nicht wie eine Vorlage mit seinem Logo.
 4. **Vollständiges Screening aller 4 Seiten** auf denselben Ton (auch Mikrocopy,
    Funnel-Hints, CTA-Umfelder), danach anti-slop-Pass.
 
-### Phase B – Funnel-Erweiterung (im Call zugesagt, klar umrissen)
+### Phase B – Funnel-Erweiterung (ERLEDIGT 01.09.)
 5. Bewerbungs-Funnel: **optionaler Abschluss-Schritt** vor den Kontaktdaten oder
    mit ihnen kombiniert: Freitext "Magst du uns noch etwas mitgeben?" +
    Auswahl "Wie bist du auf uns aufmerksam geworden?" (Instagram, Google,
@@ -259,3 +259,25 @@ Phase A/B über website-copy + anti-slop. Die Quick-Apply-Landing
 - Geprüft: keine defekten Links/Anker, keine JS-Fehler, kein Overflow (1280/390).
 
 **Als Nächstes:** Phase B (Funnel V2 nach Spezifikation 7.2).
+
+**Phase B erledigt (01.09.):** Bewerbungs-Funnel nach Spezifikation 7.2 umgebaut.
+- Redundanten Schritt "Projektleitung oder Assistenz?" entfernt (Rolle steht
+  schon in Schritt 1).
+- Erfahrungs-Frage rollen-neutral formuliert ("Wie viel Erfahrung bringst du
+  mit?"), trägt jetzt auch für Büro und Ausbildung.
+- NEU Schritt 6: "Wie bist du auf uns aufmerksam geworden?" (Instagram, Google,
+  Empfehlung, Fahrzeug/Baustelle, Woanders) -> Kanaldaten mit einem Tipp.
+- Benefits-Auswahl an die echten Argumente angeglichen (Moderne Ausstattung,
+  Geregelte Zeiten statt Abwechslung/Arbeitsweg).
+- NEU: optionale Anreicherung im Danke-Screen NACH dem Absenden. Freitext
+  (Motivation) + Lebenslauf-Feld, beides klar als freiwillig markiert, mit
+  eigener Bestaetigung. Lead wird zuerst gesichert, dann angereichert.
+- Ergebnis: 7 Schritte, davon 6 per Tipp, nur ein Schritt mit Tippen. Das
+  "2 Minuten"-Versprechen ist damit real haltbar.
+- Projektanfrage-Funnel bewusst unveraendert (andere Zielgruppe); optionale
+  Anreicherung dort auf Wunsch nachruestbar.
+- Geprueft: kompletter Durchlauf, Validierung, Reset, Stellen-Vorbelegung ueber
+  data-apply-role, Projekt-Funnel auf index + standorte, kein Overflow, keine
+  JS-Fehler.
+
+**Als Naechstes:** Phase C (Persoenlichkeit) oder Phase E (Quick-Apply-Landing).

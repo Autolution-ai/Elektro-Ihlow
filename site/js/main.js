@@ -271,12 +271,37 @@
       if (bar) bar.style.width = "100%";
       if (stepLabel) stepLabel.textContent = "Fertig";
     };
+    // Optionale Anreicherung NACH dem Absenden (Freitext + Lebenslauf).
+    // Bewusst erst hier, damit die Bewerbung selbst kurz bleibt.
+    const extra = $("[data-funnel-extra]", funnel);
+    const extraDone = $("[data-funnel-extra-done]", funnel);
+    const extraSend = $("[data-funnel-extra-send]", funnel);
+    const fileInput = extra && $("input[type=file]", extra);
+    const fileLabel = extra && $(".funnel__file-label", extra);
+    const FILE_LABEL = fileLabel ? fileLabel.textContent : "";
+
+    if (fileInput && fileLabel) {
+      fileInput.addEventListener("change", () => {
+        const f = fileInput.files && fileInput.files[0];
+        fileLabel.textContent = f ? f.name : FILE_LABEL;
+      });
+    }
+    if (extraSend) {
+      extraSend.addEventListener("click", () => {
+        if (extra) extra.hidden = true;
+        if (extraDone) extraDone.hidden = false;
+      });
+    }
+
     const reset = () => {
       clearTimeout(advanceTimer); advanceTimer = null;
       idx = 0;
       if (form && typeof form.reset === "function") form.reset();
       done.hidden = true;
       nav.hidden = false;
+      if (extra) extra.hidden = false;
+      if (extraDone) extraDone.hidden = true;
+      if (fileLabel) fileLabel.textContent = FILE_LABEL;
       show(0);
     };
     funnel._reset = reset;
