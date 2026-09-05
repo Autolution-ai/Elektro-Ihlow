@@ -121,10 +121,9 @@
       </div>
 
       <ul class="hero__stats container" aria-label="Kennzahlen">
-        <li><span class="stat__num">seit 1946</span><span class="stat__label">dritte Generation</span></li>
-        <li><span class="stat__num" data-count="30" data-prefix="rund ">rund 30</span><span class="stat__label">feste Mitarbeiter</span></li>
-        <li><span class="stat__num" data-count="2" data-suffix=" Standorte">2 Standorte</span><span class="stat__label">Biesenthal &amp; Berlin</span></li>
-        <li><span class="stat__num" data-count="3" data-prefix="bis " data-suffix=" Mio. €">bis 3 Mio. €</span><span class="stat__label">Projektvolumen</span></li>
+        <li><span class="stat__num" data-count="1946" data-from="1926" data-prefix="seit ">seit 1946</span><span class="stat__label">dritte Generation</span></li>
+        <li><span class="stat__num" data-count="30" data-from="8" data-prefix="rund ">rund 30</span><span class="stat__label">feste Mitarbeiter</span></li>
+        <li><span class="stat__num">2 Standorte</span><span class="stat__label">Biesenthal &amp; Berlin</span></li>
       </ul>
     </section>
 
@@ -169,20 +168,6 @@
           </div>
         </div>
 
-        <dl class="proof__figures">
-          <div class="figure" data-reveal>
-            <dt><span data-count="1946" data-prefix="seit ">seit 1946</span></dt>
-            <dd>in Familienhand, dritte Generation</dd>
-          </div>
-          <div class="figure" data-reveal>
-            <dt><span data-count="30" data-prefix="rund ">rund 30</span></dt>
-            <dd>feste Mitarbeiter an zwei Standorten</dd>
-          </div>
-          <div class="figure" data-reveal>
-            <dt><span data-count="3" data-prefix="500 € bis " data-suffix=" Mio. €">500 € bis 3 Mio. €</span></dt>
-            <dd>Projektvolumen, von klein bis Großbaustelle</dd>
-          </div>
-        </dl>
       </div>
     </section>
 
@@ -349,7 +334,7 @@
           <article class="project project--text" data-reveal>
             <div class="project__body">
               <h3>Größere Bauvorhaben</h3>
-              <p>Projekte im sechs- bis siebenstelligen Bereich, über mehrere Gewerke und Bauabschnitte koordiniert.</p>
+              <p>Neubauten und Sanierungen, die über mehrere Bauabschnitte laufen. Wir stimmen unseren Teil mit den anderen Gewerken ab, damit der Terminplan hält.</p>
             </div>
           </article>
           <article class="project project--text" data-reveal>
@@ -424,59 +409,32 @@
           </p>
         </header>
 
-        <div class="locations__inner">
-          <!-- Eigene Karte statt Google-Maps-iframe: laedt nichts nach und setzt
-               keine Cookies vor der Einwilligung. Verlinkt direkt zur Routenplanung. -->
-          <figure class="locmap" data-reveal>
-            <svg viewBox="0 0 620 420" role="img" aria-label="Lageskizze: Biesenthal nordöstlich von Berlin">
-              <rect x="0" y="0" width="620" height="420" rx="18" fill="var(--surface-2)"/>
-              <g stroke="var(--line)" stroke-width="1" opacity=".85">
-                <path d="M0 300 C 120 270, 200 320, 330 286 S 520 250, 620 268"/>
-                <path d="M0 120 C 140 150, 240 96, 380 128 S 540 160, 620 138"/>
-                <path d="M150 0 C 176 120, 132 240, 168 420"/>
-                <path d="M430 0 C 400 130, 470 250, 436 420"/>
-              </g>
-              <path d="M196 300 C 260 250, 330 210, 424 138" fill="none" stroke="var(--red)"
-                    stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 9" opacity=".75"/>
-              <g fill="var(--red)">
-                <rect x="414" y="128" width="20" height="20" rx="4" transform="rotate(45 424 138)"/>
-                <rect x="186" y="290" width="20" height="20" rx="4" transform="rotate(45 196 300)"/>
-              </g>
-              <text x="452" y="132" class="locmap__label">Biesenthal</text>
-              <text x="452" y="154" class="locmap__sub">Stammhaus seit 1946</text>
-              <text x="196" y="342" class="locmap__label" text-anchor="middle">Berlin</text>
-              <text x="196" y="364" class="locmap__sub" text-anchor="middle">Hauptsitz</text>
-            </svg>
-            <figcaption>Rund 30 Kilometer zwischen beiden Standorten. Demo-Hinweis: im Projekt wahlweise als eingebettete Karte mit Zwei-Klick-Lösung.</figcaption>
-          </figure>
+        <div class="locations__pair">
+          <article class="location" data-reveal>
+            <span class="location__tag">Hauptsitz</span>
+            <h3>Berlin</h3>
+            <address>Bizetstraße 74<br>13088 Berlin</address>
+            <p class="location__note">Von hier laufen die Projekte in der Stadt, im Raum Weißensee und Hohenschönhausen.</p>
+            <div class="location__actions">
+              <a class="btn btn--ghost btn--sm" href="tel:+493096064895">030 96 06 48 95</a>
+              <a class="location__route" href="https://www.google.com/maps/dir/?api=1&amp;destination=Bizetstra%C3%9Fe+74%2C+13088+Berlin" target="_blank" rel="noopener">Route planen <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </article>
+          <article class="location" data-reveal>
+            <span class="location__tag">Stammhaus seit 1946</span>
+            <h3>Biesenthal</h3>
+            <address>Breite Straße 13<br>16359 Biesenthal</address>
+            <p class="location__note">Ursprung des Betriebs, hier stehen Werkstatt und Lager. Zentral im Barnim, nördlich von Berlin.</p>
+            <div class="location__actions">
+              <a class="btn btn--ghost btn--sm" href="tel:+493337455590">03337 45 59 0</a>
+              <a class="location__route" href="https://www.google.com/maps/dir/?api=1&amp;destination=Breite+Stra%C3%9Fe+13%2C+16359+Biesenthal" target="_blank" rel="noopener">Route planen <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </article>
+        </div>
 
-          <div class="locations__list">
-            <article class="location" data-reveal>
-              <span class="location__tag">Hauptsitz</span>
-              <h3>Berlin</h3>
-              <address>Bizetstraße 74<br>13088 Berlin</address>
-              <a class="location__phone" href="tel:+493096064895">030 96 06 48 95</a>
-              <a class="location__route" href="https://www.google.com/maps/dir/?api=1&amp;destination=Bizetstra%C3%9Fe+74%2C+13088+Berlin" target="_blank" rel="noopener">
-                Route planen
-                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </article>
-            <article class="location" data-reveal>
-              <span class="location__tag">Stammhaus seit 1946</span>
-              <h3>Biesenthal</h3>
-              <address>Breite Straße 13<br>16359 Biesenthal</address>
-              <a class="location__phone" href="tel:+493337455590">03337 45 59 0</a>
-              <a class="location__route" href="https://www.google.com/maps/dir/?api=1&amp;destination=Breite+Stra%C3%9Fe+13%2C+16359+Biesenthal" target="_blank" rel="noopener">
-                Route planen
-                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </article>
-            <article class="location location--cta" data-reveal>
-              <h3>Ihr Projekt?</h3>
-              <p>Sechs kurze Fragen, dann melden wir uns mit einer ehrlichen Einschätzung.</p>
-              <button class="btn btn--primary" data-open-modal="projekt">Projekt anfragen</button>
-            </article>
-          </div>
+        <div class="locations__cta" data-reveal>
+          <p>Sie planen ein Bauvorhaben? Sechs kurze Fragen, dann melden wir uns mit einer ehrlichen Einschätzung.</p>
+          <button class="btn btn--primary" data-open-modal="projekt">Projekt anfragen</button>
         </div>
       </div>
     </section>

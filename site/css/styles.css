@@ -175,7 +175,7 @@ body.is-locked { overflow-y: hidden; }
 .hero__badge-label { font-size: var(--step--1); color: var(--ink-soft); }
 
 .hero__stats {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(3, 1fr);
   gap: var(--space-m); margin-top: var(--space-l);
   padding-top: var(--space-m); border-top: 1px solid var(--line);
 }
@@ -907,33 +907,34 @@ body.is-locked { overflow-y: hidden; }
   .project--text, .project--accent { grid-column: span 2; }
 }
 
-/* ---------- Standorte: Karte + Kontaktkarten ---------- */
+/* ---------- Standorte ---------- */
 .locations__head { max-width: 60ch; margin-bottom: var(--space-l); }
 .locations__lead { font-size: var(--step-1); color: var(--ink-soft); }
-.locations__inner { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(1.5rem, 3vw, 3rem); align-items: start; }
-.locmap { margin: 0; }
-.locmap svg { width: 100%; height: auto; display: block; border-radius: var(--radius-l); box-shadow: var(--shadow-s); }
-.locmap__label { font-family: var(--font-display); font-weight: 700; font-size: 20px; fill: var(--ink); }
-.locmap__sub { font-family: var(--font-body); font-size: 14px; fill: var(--ink-soft); }
-.locmap figcaption { margin-top: var(--space-s); font-size: var(--step--1); color: var(--ink-faint); font-style: italic; }
-
-.locations__list { display: flex; flex-direction: column; gap: var(--space-m); }
+/* Zwei gleich hohe Karten statt Karte plus drei ungleicher Boxen */
+.locations__pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-m); }
 .location {
-  border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg);
-  padding: var(--space-m) var(--space-l); display: flex; flex-direction: column; align-items: flex-start; gap: .35rem;
+  display: flex; flex-direction: column; align-items: flex-start; gap: .4rem;
+  border: 1px solid var(--line); border-radius: var(--radius-l); background: var(--bg);
+  padding: var(--space-l);
   transition: border-color .25s var(--ease), box-shadow .25s var(--ease), transform .25s var(--ease);
 }
 .location:hover { border-color: transparent; box-shadow: var(--shadow-m); transform: translateY(-3px); }
 .location__tag { font-family: var(--font-display); font-weight: 700; font-size: var(--step--1); text-transform: uppercase; letter-spacing: .06em; color: var(--red); }
-.location h3 { font-size: var(--step-2); }
+.location h3 { font-size: var(--step-3); letter-spacing: -0.02em; }
 .location address { font-style: normal; color: var(--ink-soft); line-height: 1.6; }
-.location__phone { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); color: var(--ink); }
-.location__phone:hover { color: var(--red); }
-.location__route { display: inline-flex; align-items: center; gap: .4rem; margin-top: .4rem; font-family: var(--font-display); font-weight: 600; font-size: var(--step--1); color: var(--red); }
+.location__note { color: var(--ink-soft); margin-top: .3rem; }
+/* mt:auto haelt die Aktionen unten buendig, auch wenn die Texte unterschiedlich lang sind */
+.location__actions { display: flex; align-items: center; gap: var(--space-m); flex-wrap: wrap; margin-top: auto; padding-top: var(--space-m); }
+.location__route { display: inline-flex; align-items: center; gap: .4rem; font-family: var(--font-display); font-weight: 600; font-size: var(--step--1); color: var(--red); }
 .location__route svg { transition: transform .3s var(--ease); }
 .location__route:hover svg { transform: translateX(4px); }
-.location--cta { background: var(--surface); border-style: dashed; gap: var(--space-s); }
-.location--cta p { color: var(--ink-soft); }
+
+.locations__cta {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-l); flex-wrap: wrap;
+  margin-top: var(--space-m); padding: var(--space-l);
+  background: var(--ink); color: var(--on-dark); border-radius: var(--radius-l);
+}
+.locations__cta p { color: var(--on-dark-soft); max-width: 60ch; margin: 0; }
 
 /* ---------- Einblicke / Instagram-Raster ---------- */
 .feed { padding-block: var(--space-2xl); background: var(--surface); }
@@ -970,4 +971,31 @@ body.is-locked { overflow-y: hidden; }
 @media (max-width: 900px) {
   .feed__grid--bleed { width: auto; max-width: none; margin-inline: 0; gap: var(--space-s); }
   .feed__grid--bleed a { border-radius: var(--radius-s); }
+}
+
+/* ---------- Karriere-Block: tote Flaeche und flacher Eindruck ---------- */
+/* align-items:start liess die kuerzere Textspalte oben haengen, darunter blieb
+   eine grosse Leerflaeche unter den CTAs. */
+.home-career__inner { align-items: center; }
+.home-career__title { font-size: var(--step-4); }
+.home-career__media img { aspect-ratio: 4/3; max-height: 320px; }
+.home-career__roles a { font-size: var(--step-0); padding: .6rem 1.15rem; }
+/* Blitz aus dem Logo als grosses, ruhiges Hintergrundmotiv gegen den flachen Eindruck */
+.home-career::before {
+  content: ""; position: absolute; left: -4%; bottom: -18%;
+  width: 340px; height: 460px; pointer-events: none; opacity: .07;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='15 0 18 36'%3E%3Cpath d='M31 2 21 18h5l-8 16 4-13h-5z'/%3E%3C/svg%3E") no-repeat center / contain;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='15 0 18 36'%3E%3Cpath d='M31 2 21 18h5l-8 16 4-13h-5z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+@media (max-width: 900px) {
+  .locations__pair { grid-template-columns: 1fr; }
+  .locations__cta { flex-direction: column; align-items: flex-start; }
+  .home-career__title { font-size: var(--step-3); }
+  .home-career__media img { aspect-ratio: 4/3; max-height: none; }
+  .home-career::before { display: none; }
+}
+@media (max-width: 560px) {
+  .locations__cta .btn { width: 100%; }
 }

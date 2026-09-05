@@ -131,16 +131,24 @@
   const counters = $$("[data-count]");
   const runCounter = (el) => {
     const target = parseFloat(el.dataset.count);
+    // data-from: Startwert. Von 0 auf 1946 hochzuzaehlen sieht albern aus,
+    // von 1926 aus wirkt es wie eine Jahreszahl, die hochlaeuft.
+    const from = el.dataset.from !== undefined ? parseFloat(el.dataset.from) : 0;
+    const dec = parseInt(el.dataset.decimals || "0", 10);
     const prefix = el.dataset.prefix || "";
     const suffix = el.dataset.suffix || "";
-    if (reduceMotion) { el.textContent = prefix + target + suffix; return; }
+    // useGrouping aus, sonst wird aus dem Jahr 1946 ein "1.946".
+    const fmt = (v) => v.toLocaleString("de-DE", {
+      minimumFractionDigits: dec, maximumFractionDigits: dec, useGrouping: false });
+    if (reduceMotion) { el.textContent = prefix + fmt(target) + suffix; return; }
     const dur = 1100, t0 = performance.now();
     const tick = (now) => {
       const p = Math.min((now - t0) / dur, 1);
       const eased = 1 - Math.pow(1 - p, 3);
-      // Suffix (z.B. " Standorte", " Mio. €") erst am Ende einblenden, damit
-      // keine unsauberen Zwischenwerte wie "1 Standorte" entstehen.
-      el.textContent = p < 1 ? prefix + Math.round(target * eased) : prefix + target + suffix;
+      // Suffix (z.B. " Standorte") erst am Ende, sonst entstehen falsche
+      // Pluralformen wie "1 Standorte".
+      el.textContent = p < 1 ? prefix + fmt(from + (target - from) * eased)
+                             : prefix + fmt(target) + suffix;
       if (p < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
