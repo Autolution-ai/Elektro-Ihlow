@@ -30,3 +30,9 @@ button, input, textarea, select { font: inherit; }
     scroll-behavior: auto !important;
   }
 }
+
+
+/* Autoren-Regeln wie .btn{display:inline-flex} schlagen die UA-Regel fuer
+   [hidden]. Ohne dies bleiben ausgeblendete Funnel-Schritte und die
+   Button-Leiste nach dem Absenden sichtbar. */
+[hidden] { display: none !important; }

@@ -132,7 +132,7 @@ anfühlen wie SEIN Betrieb, nicht wie eine Vorlage mit seinem Logo.
     Link-in-Bio- und Ads-Ziel. Zeigt im nächsten Gespräch, dass "alles mit
     drin ist".
 
-### Phase F – QA & nächste Präsentation
+### Phase F – QA & nächste Präsentation (ERLEDIGT)
 13. Finale QA (qa-reviewer inhaltlich + responsive-qa cross-device, Fokus mobil,
     da Instagram-Traffic mobil ist).
 14. Präsentations-Stand für das Follow-up in ca. 4 Wochen: V2 belegt sichtbar,
@@ -351,3 +351,77 @@ beiden Seiten komplett durchgespielt inkl. Anreicherung, alle 5 Seiten auf
 **Damit sind A bis E abgeschlossen. Offen: Phase F (finale Cross-Device-QA und
 Praesentationsstand) sowie das fehlende Rohmaterial (Mitarbeiterzitate,
 Stellen-Details).**
+
+---
+
+## 9. Phase F – Finale QA (05.09.)
+
+Beide QA-Agenten sind gelaufen (`qa-reviewer` gegen CHECKLISTE 5a, `responsive-qa`
+gegen 5b). Beide haben die Freigabe zunaechst verweigert. Alle kritischen Befunde
+sind behoben und einzeln nachgemessen.
+
+### 5a Inhalt – behoben
+- **Die kritisierte Ablehnungs-Rhetorik stand wieder auf der Startseite**
+  ("So gut ausgelastet, dass wir Auftraege ablehnen"). In Phase A war nur nach
+  "ablehnen muessen" gesucht worden, diese Variante blieb stehen. Ersetzt.
+- **Erfundenes André-Zitat** auf index und unternehmen war als einziger
+  personenbezogener Text nicht gekennzeichnet. Demo-Hinweis ergaenzt.
+- **Demo-Hinweis am O-Ton** behauptete selbst eine falsche Herkunft
+  ("aus unseren Gespraechen"). Korrigiert.
+- **Stelle "Elektriker / Monteur"** war fuenfmal versprochen, aber nicht gelistet.
+  Als dritter Accordion-Eintrag gebaut.
+- Unbelegte Standort-Historie entfernt, Tuersteher-Reste, CTA-Labels, Megamenue-
+  Hinweis, Ueberschriften-Sprung, Leser-Orientierung in fuenf Abschnitten,
+  SEO-Notizen auf alle fuenf Seiten.
+
+### 5b Cross-Device – behoben, darunter die Ursache eines Altproblems
+- **`body { overflow-x: hidden }` machte den Body zum Scroll-Container.** Dadurch
+  griff `position: sticky` nie: der Header scrollte einfach weg, die komplette
+  Smart-Header-Logik lief ins Leere. **Das ist die eigentliche Ursache des
+  Header-Problems, das Bruno mehrfach gemeldet hatte** und das faelschlich Lenis
+  zugeschrieben wurde. Fix: `overflow-x: clip`. Nachgemessen auf allen Seiten:
+  runter = ausgeblendet, hoch = wieder da, top = 0.
+- **Das Mobil-Menue haeng in der Header-Box fest** (128 px statt 844 px), Eintraege
+  lagen ausserhalb des Viewports. Ursache: `will-change: transform` und
+  `backdrop-filter` auf `.site-header` erzeugten einen Containing Block fuer das
+  fixierte Panel. Fix: Hintergrund und Blur auf `::before` verlagert.
+- **Nach dem Absenden blieb die Button-Leiste stehen**, "Zurueck" war auf Schritt 1
+  sichtbar. `[hidden]` wurde von `display: flex` der Autoren-Styles geschlagen.
+  Fix: `[hidden] { display: none !important; }` in base.css.
+- **Bewerben-Button im Job-Accordion lief 44 px aus der Karte** (doppelter Einzug).
+- Dazu: Menue scrollbar, alle Touch-Targets auf 44 px, `--ink-faint` und Rot auf
+  dunklem Grund auf WCAG AA, Mindestschrift 14 px, `scroll-margin-top` fuer Anker,
+  Funnel-Buttonleiste auf Mobil klebend, Zeilenlaenge im Job-Detail begrenzt.
+- Scroll-Sperre von Inline-Style auf `body.is-locked` (nur Y-Achse), sonst haette
+  das offene Menue das Sticky-Verhalten erneut gebrochen.
+
+### Nachgewiesener Endstand
+Smart-Header auf 4 Seiten, Mobil-Menue (alle Eintraege im Viewport), Mega-Menue
+mobil, beide Funnels inkl. Anreicherung, 3 Job-Accordions, Stellen-Vorbelegung,
+beide Projekt-Modals, kein horizontales Scrollen auf 360/390/768/1280/1440/1920,
+keine Touch-Targets unter 44 px, keine JS-Fehler, `prefers-reduced-motion` sauber,
+keine doppelten IDs, keine defekten Anker, Anti-Slop-Scan sauber.
+
+### OFFEN – Entscheidungen fuer Bruno (blockieren die Freigabe)
+1. **Hauptsitz Biesenthal oder Berlin?** Die Altseite schreibt, André eroeffnete
+   2004 "mit Sitz in Berlin und Niederlassung in Biesenthal", Handwerksrolle HWK
+   Berlin. Unsere Demo kennzeichnet Biesenthal als Hauptsitz (so stand es im
+   Briefing). Direkter Widerspruch, betrifft index und standorte. Muss André
+   bestaetigen.
+2. **Hero-Headline.** "Jetzt suchen wir die naechste Generation" kann auf einer
+   Seite ueber drei Generationen Familienbetrieb wie die Suche nach einem
+   Familiennachfolger klingen. Gesucht sind Projektleiter und Assistenz. Die
+   Headline ist Brunos abgenommene Variante A, daher nicht eigenmaechtig geaendert.
+3. **Zahl der offenen Stellen.** "Gerade ist einiges frei" waere mit der echten
+   Zahl staerker (im Call 3 Buerokraefte). Vier Wochen alt, bitte gegenchecken.
+4. **Fehlendes Rohmaterial:** Mitarbeiterzitate und Stellen-Details, siehe
+   Abfrageliste in `docs/FOTO-SHOOTING.md`.
+
+### Nicht pruefbar in dieser Umgebung
+- **Echtes iOS-Safari-Verhalten** (Adressleisten-Kollaps, Bounce-Scroll,
+  Scroll-Lock hinter dem Menue) und die Wirkung mit geladener Archivo/Inter.
+  Vor der Praesentation einmal manuell auf einem iPhone gegenpruefen.
+- **Live-URL:** Der Egress-Proxy dieser Umgebung verweigert
+  `elektro-ihlow.vercel.app` per Richtlinie (403 auf CONNECT). Das ist eine
+  Sandbox-Beschraenkung, keine Aussage ueber die echte Erreichbarkeit. Bruno muss
+  den Deploy selbst gegenpruefen.

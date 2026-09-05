@@ -11,7 +11,7 @@
   /* Neutrale, warm getönt (nicht klinisch kalt) */
   --ink: oklch(21% 0.012 55);               /* Haupttext / Near-Black */
   --ink-soft: oklch(43% 0.009 55);          /* Sekundärtext */
-  --ink-faint: oklch(60% 0.006 55);         /* Hinweise, Captions */
+  --ink-faint: oklch(52% 0.007 55);         /* Hinweise, Captions (AA: ~4.9:1) */
   --line: oklch(88% 0.006 60);              /* feine Trennlinien */
   --line-strong: oklch(80% 0.008 55);
 
@@ -25,6 +25,7 @@
   --on-dark: oklch(96% 0.006 75);
   --on-dark-soft: oklch(74% 0.008 60);
   --line-dark: oklch(38% 0.01 55);
+  --red-on-dark: oklch(68% 0.16 30);        /* helleres Rot fuer dunkle Flaechen */
 
   /* Farb-Rollen (Boilerplate-kompatibel) */
   --color-bg: var(--bg);
@@ -38,7 +39,7 @@
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Fluid-Schriftgrößen */
-  --step--1: clamp(0.83rem, 0.80rem + 0.15vw, 0.92rem);
+  --step--1: clamp(0.875rem, 0.84rem + 0.15vw, 0.92rem); /* min. 14px auf Mobil */
   --step-0:  clamp(1rem, 0.96rem + 0.22vw, 1.14rem);
   --step-1:  clamp(1.2rem, 1.10rem + 0.5vw, 1.5rem);
   --step-2:  clamp(1.55rem, 1.35rem + 1vw, 2.25rem);

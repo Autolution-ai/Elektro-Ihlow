@@ -11,7 +11,12 @@
 :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 3px; }
 
 html { overflow-x: hidden; }
-body { overflow-x: hidden; }
+/* clip statt hidden: 'hidden' macht den Body zum Scroll-Container, dadurch
+   greift position:sticky am Header und an .oton__media nicht mehr. */
+body { overflow-x: clip; }
+/* Scroll-Sperre fuer Menue/Modal nur auf der Y-Achse, sonst faellt overflow-x
+   zurueck auf 'visible' und das Sticky-Verhalten bricht erneut. */
+body.is-locked { overflow-y: hidden; }
 
 .section-title {
   font-size: var(--step-3);
@@ -65,16 +70,25 @@ body { overflow-x: hidden; }
 
 /* ---------- Header ---------- */
 .site-header {
-  position: sticky; top: 0; z-index: 100; will-change: transform;
-  transition: transform .35s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+  position: sticky; top: 0; z-index: 100;
+  transition: transform .35s var(--ease), border-color .3s var(--ease);
   border-bottom: 1px solid transparent;
+}
+/* Hintergrund und Blur liegen bewusst auf ::before. Auf dem Header selbst
+   wuerden backdrop-filter (und will-change: transform) einen Containing Block
+   erzeugen, an dem das fixierte Mobil-Menue haengen bleibt. */
+.site-header::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  transition: background .3s var(--ease), box-shadow .3s var(--ease);
 }
 .site-header.is-hidden { transform: translateY(-100%); }
 .site-header__inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
-.site-header.is-scrolled, .site-header--solid {
-  background: oklch(98.6% 0.006 75 / 0.85); backdrop-filter: blur(12px);
-  border-bottom-color: var(--line); box-shadow: 0 1px 0 var(--line);
+.site-header.is-scrolled::before, .site-header--solid::before {
+  background: oklch(98.6% 0.006 75 / 0.85);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--line);
 }
+.site-header.is-scrolled, .site-header--solid { border-bottom-color: var(--line); }
 .brand { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--font-display); }
 .brand__mark { width: 34px; height: 30px; color: var(--ink); flex-shrink: 0; }
 .brand__text { font-size: 1.22rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
@@ -496,7 +510,7 @@ body { overflow-x: hidden; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .site-header--solid, .site-header.is-scrolled { background: oklch(98.6% 0.006 75 / 0.95); }
+  .site-header--solid::before, .site-header.is-scrolled::before { background: oklch(98.6% 0.006 75 / 0.95); }
   .nav__toggle { display: block; z-index: 120; }
   .nav__menu {
     position: fixed; inset: 0 0 0 auto; width: min(82vw, 340px); flex-direction: column;
@@ -801,4 +815,58 @@ body { overflow-x: hidden; }
   .qa-bar__phone { font-size: var(--step--1); }
   .qa-trust__more { flex-direction: column; align-items: flex-start; gap: var(--space-m); }
   .qa-trust__more .btn { width: 100%; }
+}
+
+/* ============================================================
+   Befunde der Cross-Device-QA (Phase 5b)
+   ============================================================ */
+
+/* W7 – Anker sprangen unter den (jetzt wieder klebenden) Header */
+:where([id]) { scroll-margin-top: 92px; }
+
+/* W6 – Rot auf dunklen Flaechen war unter 4.5:1 */
+.service__index, .band__eyebrow { color: var(--red-on-dark); }
+
+/* W9 – Einleitungssatz im Job-Detail lief auf ~136 Zeichen */
+.job__detail p { max-width: var(--maxw-text); }
+
+@media (max-width: 900px) {
+  /* W3 – Menue war nicht scrollbar, Eintraege lagen ausserhalb des Viewports */
+  .nav__menu {
+    justify-content: flex-start;
+    padding-block: calc(76px + var(--space-l)) var(--space-l);
+    overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+  }
+  /* W4 – Touch-Targets unter 44px */
+  .nav__menu a:not(.btn) { display: block; padding-block: .55rem; }
+  .btn--sm { padding: .8em 1.3em; min-height: 44px; }
+  a[href^="tel:"] { display: inline-flex; align-items: center; min-height: 44px; }
+  .link-cta { min-height: 44px; }
+  .site-footer__legal a, .qa-footer__legal a { display: inline-flex; align-items: center; min-height: 44px; }
+  .site-footer__insta, .qa-trust__insta { min-height: 44px; }
+  .home-career__roles a { display: inline-flex; align-items: center; min-height: 44px; }
+  .brand { padding-block: .4rem; }
+
+  /* W2 – Grid-Track blaehte sich an der langen Ueberschrift auf und wurde beschnitten */
+  .service--lead > * { min-width: 0; }
+  .service--lead h3 { hyphens: auto; overflow-wrap: break-word; }
+}
+
+@media (max-width: 560px) {
+  /* K4 – Bewerben-Button lief 44px aus der Karte, doppelter Einzug */
+  .job__summary { padding: var(--space-m) var(--space-s); }
+  .job__detail-inner > * { padding-inline: var(--space-s); }
+  .job__detail-inner .btn {
+    margin: 0 var(--space-s) var(--space-m);
+    width: calc(100% - 2 * var(--space-s));
+    white-space: normal;
+  }
+  /* W5 – Fliesstext, der als Hinweis gesetzt war, aber gelesen werden muss */
+  .loc-card__hours, .gen__note, .funnel__hint, .qa-footer__addr { font-size: 0.95rem; }
+  /* W8 – Weiter-Button lag bei den Tipp-Schritten unter der Falz */
+  .funnel__nav {
+    position: sticky; bottom: 0; z-index: 2;
+    background: var(--bg); padding-block: var(--space-s); margin-top: var(--space-m);
+  }
+  .modal .funnel__nav { background: var(--bg); }
 }

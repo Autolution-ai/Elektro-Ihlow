@@ -48,7 +48,7 @@
     const setNav = (open) => {
       navToggle.setAttribute("aria-expanded", String(open));
       navMenu.classList.toggle("is-open", open);
-      document.body.style.overflow = open ? "hidden" : "";
+      document.body.classList.toggle("is-locked", open);
     };
     navToggle.addEventListener("click", () =>
       setNav(navToggle.getAttribute("aria-expanded") !== "true"));
@@ -183,14 +183,14 @@
     if (fn && fn._reset) fn._reset();
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("is-locked");
     const focusable = modal.querySelector("input, button, [tabindex]");
     if (focusable) setTimeout(() => focusable.focus(), 60);
   };
   const closeModal = (modal) => {
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
+    document.body.classList.remove("is-locked");
     if (lastFocus) lastFocus.focus();
   };
   $$("[data-open-modal]").forEach((b) =>
