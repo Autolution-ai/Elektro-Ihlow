@@ -402,20 +402,35 @@ beide Projekt-Modals, kein horizontales Scrollen auf 360/390/768/1280/1440/1920,
 keine Touch-Targets unter 44 px, keine JS-Fehler, `prefers-reduced-motion` sauber,
 keine doppelten IDs, keine defekten Anker, Anti-Slop-Scan sauber.
 
-### OFFEN – Entscheidungen fuer Bruno (blockieren die Freigabe)
-1. **Hauptsitz Biesenthal oder Berlin?** Die Altseite schreibt, André eroeffnete
-   2004 "mit Sitz in Berlin und Niederlassung in Biesenthal", Handwerksrolle HWK
-   Berlin. Unsere Demo kennzeichnet Biesenthal als Hauptsitz (so stand es im
-   Briefing). Direkter Widerspruch, betrifft index und standorte. Muss André
-   bestaetigen.
-2. **Hero-Headline.** "Jetzt suchen wir die naechste Generation" kann auf einer
-   Seite ueber drei Generationen Familienbetrieb wie die Suche nach einem
-   Familiennachfolger klingen. Gesucht sind Projektleiter und Assistenz. Die
-   Headline ist Brunos abgenommene Variante A, daher nicht eigenmaechtig geaendert.
-3. **Zahl der offenen Stellen.** "Gerade ist einiges frei" waere mit der echten
-   Zahl staerker (im Call 3 Buerokraefte). Vier Wochen alt, bitte gegenchecken.
-4. **Fehlendes Rohmaterial:** Mitarbeiterzitate und Stellen-Details, siehe
-   Abfrageliste in `docs/FOTO-SHOOTING.md`.
+### Entscheidungen von Bruno (05.09.) – umgesetzt
+1. **Hauptsitz = Berlin.** Umgesetzt: Berlin traegt "Hauptsitz", Biesenthal
+   "Stammhaus seit 1946" (index + standorte + Meta). Deckt sich mit der Altseite
+   und der Handwerksrolle HWK Berlin.
+2. **Hero-Headline bleibt** wie abgenommen.
+3. **Keine konkrete Stellenzahl verfuegbar**, "einiges frei" bleibt stehen.
+4. **Platzhalter bleiben** vorerst (Mitarbeiterzitate, Stellen-Details).
+
+### Tonalitaets-Durchgang Karriere-Seite (05.09., von Bruno beauftragt)
+Bruno fand beim Gegenlesen weiteres "Abgehobenes und Arrogantes". Befund: die
+Karriere-Seite prahlte dreimal mit vollen Auftragsbuechern und enthielt mehrere
+Seitenhiebe auf andere Arbeitgeber. Ueberarbeitet:
+- Hero-Lead: "Auftragsbuechern, die seit Jahren voll sind" raus.
+- Warum wir: bleibt als EINZIGE Stelle zum Thema, jetzt sachlich
+  ("ganzjaehrig Arbeit, auch im Winter") statt "die Frage stellt sich bei uns nicht".
+- Benefits: "das sagt mehr als jedes Versprechen" raus.
+- Kultur: "Zusammenhalt ist kein Wort fuers Stelleninserat" (Seitenhieb) raus.
+- O-Ton: "Weil du hier nicht in einer Kartei landest" und "keine drei Ebenen"
+  (beides Vergleiche) raus; dritte Auftragsbuch-Nennung raus.
+- Einblicke: Superlativ "der ehrlichste Weg" raus.
+- bewerben.html analog nachgezogen (gleiche Zielgruppe).
+Ergebnis: 0 Prahl- oder Vergleichsformeln auf karriere.html und bewerben.html,
+Ansprache du:wir von 1,1:1 auf 1,5:1 verbessert.
+
+### OFFEN
+- **Startseite:** Bruno liest sie selbst gegen und meldet, was zu aendern ist.
+  Hinweis: dort stehen aktuell noch 6 Erwaehnungen von Auftragslage/Auslastung.
+- Mitarbeiterzitate und Stellen-Details als Rohmaterial (Platzhalter bleiben).
+- Manueller iPhone-Check und Live-URL-Pruefung durch Bruno.
 
 ### Nicht pruefbar in dieser Umgebung
 - **Echtes iOS-Safari-Verhalten** (Adressleisten-Kollaps, Bounce-Scroll,
