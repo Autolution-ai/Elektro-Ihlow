@@ -95,17 +95,17 @@
             Jetzt suchen wir die nächste Generation.
           </h1>
           <p class="hero__lead" data-reveal>
-            Drei Generationen Elektrohandwerk in Biesenthal und Berlin, rund 30 Kollegen
-            und Projekte von der einzelnen Wohnung bis zur ganzen Siedlung.
-            Wir haben mehr Arbeit als Hände. Deshalb suchen wir Verstärkung, und für Ihr
-            Bauvorhaben ist trotzdem jemand da, der sich Zeit nimmt.
+            Drei Generationen Elektrohandwerk in Biesenthal und Berlin, rund 30 Kollegen,
+            Projekte von der einzelnen Wohnung bis zur ganzen Siedlung. Planen Sie ein
+            Bauvorhaben, sind Sie hier richtig. Und wenn Sie selbst Elektriker sind:
+            Wir stellen gerade ein.
           </p>
           <div class="hero__actions" data-reveal>
             <div class="hero__cta-group">
-              <a class="btn btn--primary btn--lg" href="karriere.html#funnel">In 2 Minuten bewerben</a>
-              <span class="hero__microcopy">In 2 Minuten, ohne Anschreiben</span>
+              <button class="btn btn--primary btn--lg" data-open-modal="projekt">Projekt anfragen</button>
+              <span class="hero__microcopy">Sechs kurze Fragen, wir melden uns</span>
             </div>
-            <button class="btn btn--ghost btn--lg" data-open-modal="projekt">Projekt anfragen</button>
+            <a class="btn btn--ghost btn--lg" href="karriere.html#stellen">Offene Stellen</a>
           </div>
         </div>
 
@@ -142,27 +142,46 @@
       </div>
     </aside>
 
-    <!-- 3. AUFTRAGSLAGE & PROOF -->
+    <!-- 3. PROOF / VERTRAUEN -->
     <section class="proof">
-      <div class="proof__inner container">
-        <div class="proof__lead">
-          <h2 class="section-title" data-reveal>Voll ausgelastet, seit Jahren</h2>
-          <p data-reveal>
-            Unsere Auftragsbücher sind seit Jahren voll. Private Bauherren,
-            Wohnungsverwaltungen und Ämter kommen wieder, manche seit Jahrzehnten.
-            Für Sie heißt das: Sie haben einen Betrieb an der Hand, den es nächstes
-            und übernächstes Jahr noch gibt.
-          </p>
-          <p data-reveal>
-            Was wir zusagen, führen wir sauber zu Ende. Wird es terminlich eng, sagen
-            wir Ihnen das offen, statt Sie hinzuhalten.
-          </p>
-          <button class="btn btn--ghost proof__cta" data-open-modal="projekt" data-reveal>Projekt anfragen</button>
+      <div class="container">
+        <div class="proof__inner">
+          <figure class="proof__media" data-img-reveal>
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_192623_cdb7cf81-26b5-4c19-abb8-2e2c9bc56516_min.webp"
+                 width="1400" height="1050" loading="lazy"
+                 alt="André Ihlow mit dem Team von Elektro Ihlow vor dem Betrieb">
+            <figcaption>Demo-Hinweis: Platzhalter. Hier steht später ein Foto der Familie Ihlow.</figcaption>
+          </figure>
+          <div class="proof__lead">
+            <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Seit 1946 im Barnim und in Berlin</p>
+            <h2 class="section-title" data-reveal>Warum Kunden wiederkommen</h2>
+            <p data-reveal>
+              Private Bauherren, Wohnungsverwaltungen und Ämter arbeiten seit Jahren mit uns,
+              manche seit Jahrzehnten. Was wir zusagen, führen wir sauber zu Ende. Wird es
+              terminlich eng, sagen wir Ihnen das offen, statt Sie hinzuhalten.
+            </p>
+            <p data-reveal>
+              Sie haben einen festen Ansprechpartner, der Ihr Projekt von der ersten Leitung
+              bis zur Abnahme kennt. Und einen Familienbetrieb, den es auch in zehn Jahren
+              noch geben wird.
+            </p>
+            <button class="btn btn--primary proof__cta" data-open-modal="projekt" data-reveal>Projekt anfragen</button>
+          </div>
         </div>
+
         <dl class="proof__figures">
-          <div class="figure" data-reveal><dt>seit 1946</dt><dd>in Familienhand, dritte Generation</dd></div>
-          <div class="figure" data-reveal><dt>rund 30</dt><dd>feste Mitarbeiter an zwei Standorten</dd></div>
-          <div class="figure" data-reveal><dt>500 € bis 3 Mio. €</dt><dd>Projektvolumen, von klein bis Großbaustelle</dd></div>
+          <div class="figure" data-reveal>
+            <dt><span data-count="1946" data-prefix="seit ">seit 1946</span></dt>
+            <dd>in Familienhand, dritte Generation</dd>
+          </div>
+          <div class="figure" data-reveal>
+            <dt><span data-count="30" data-prefix="rund ">rund 30</span></dt>
+            <dd>feste Mitarbeiter an zwei Standorten</dd>
+          </div>
+          <div class="figure" data-reveal>
+            <dt><span data-count="3" data-prefix="500 € bis " data-suffix=" Mio. €">500 € bis 3 Mio. €</span></dt>
+            <dd>Projektvolumen, von klein bis Großbaustelle</dd>
+          </div>
         </dl>
       </div>
     </section>
@@ -172,10 +191,11 @@
       <div class="home-career__inner container">
         <div class="home-career__text">
           <p class="eyebrow eyebrow--on-dark" data-reveal><span class="eyebrow__dot"></span>Karriere bei Elektro Ihlow</p>
-          <h2 class="home-career__title" id="home-career-title" data-reveal>Volle Auftragsbücher, <span class="mark-red">offene Stellen</span>.</h2>
+          <h2 class="home-career__title" id="home-career-title" data-reveal>Wir suchen <span class="mark-red">dich</span>.</h2>
           <p class="home-career__lead" data-reveal>
-            Elektro Ihlow ist ein Familienbetrieb seit 1946, mit rund 30 Leuten in Biesenthal
-            und Berlin. Weil die Arbeit nicht ausgeht, suchen wir Verstärkung, die bleiben will.
+            Projektleiter, Assistenz im Büro, Elektriker und Monteure. Wir sind ein
+            Familienbetrieb seit 1946, rund 30 Leute in Biesenthal und Berlin, und wir haben
+            Platz für Leute, die bleiben wollen.
           </p>
           <ul class="home-career__roles" data-reveal>
             <li><a href="karriere.html#stellen">Projektleiter</a></li>
@@ -198,7 +218,7 @@
           <ul class="home-career__benefits" data-reveal aria-label="Arbeitgeber-Argumente">
             <li>
               <span class="home-career__benefit-mark" aria-hidden="true"></span>
-              <span><strong>Sichere Auftragslage</strong>Die Auftragsbücher sind seit Jahren voll. Deine Arbeit geht nicht aus, auch nicht im Winter.</span>
+              <span><strong>Ganzjährig Arbeit</strong>Bei uns ist auch im Winter zu tun. Geregelte Zeiten, planbare Monate.</span>
             </li>
             <li>
               <span class="home-career__benefit-mark" aria-hidden="true"></span>
@@ -396,36 +416,102 @@
     <!-- 7. STANDORTE -->
     <section class="locations" id="standorte">
       <div class="container">
-        <h2 class="section-title" data-reveal>Zwei Standorte, ein Team</h2>
-        <p class="locations__lead" data-reveal>
-          Ob im Barnim oder in Berlin: Rufen Sie die Nummer an, die näher liegt. Dahinter steht dasselbe Team.
-          Rufen Sie an, dann besprechen wir, wie wir Ihr Vorhaben umsetzen.
-        </p>
-        <div class="locations__grid">
-          <article class="location" data-reveal>
-            <span class="location__tag">Stammhaus seit 1946</span>
-            <h3>Biesenthal</h3>
-            <address>
-              Breite Straße 13<br>16359 Biesenthal<br>
-              <a href="tel:+493337455590">03337 45 59 0</a>
-            </address>
-          </article>
-          <article class="location" data-reveal>
-            <span class="location__tag">Hauptsitz</span>
-            <h3>Berlin</h3>
-            <address>
-              Bizetstraße 74<br>13088 Berlin<br>
-              <a href="tel:+493096064895">030 96 06 48 95</a>
-            </address>
-          </article>
-          <article class="location location--cta" data-reveal>
-            <h3>Ihr Projekt?</h3>
-            <p>Sechs kurze Fragen, dann melden wir uns mit einer ehrlichen Einschätzung.</p>
-            <button class="btn btn--primary" data-open-modal="projekt">Projekt anfragen</button>
-          </article>
+        <header class="locations__head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Biesenthal &amp; Berlin</p>
+          <h2 class="section-title" data-reveal>Zwei Standorte, ein Team</h2>
+          <p class="locations__lead" data-reveal>
+            Rufen Sie die Nummer an, die näher liegt. Dahinter steht dasselbe Team.
+          </p>
+        </header>
+
+        <div class="locations__inner">
+          <!-- Eigene Karte statt Google-Maps-iframe: laedt nichts nach und setzt
+               keine Cookies vor der Einwilligung. Verlinkt direkt zur Routenplanung. -->
+          <figure class="locmap" data-reveal>
+            <svg viewBox="0 0 620 420" role="img" aria-label="Lageskizze: Biesenthal nordöstlich von Berlin">
+              <rect x="0" y="0" width="620" height="420" rx="18" fill="var(--surface-2)"/>
+              <g stroke="var(--line)" stroke-width="1" opacity=".85">
+                <path d="M0 300 C 120 270, 200 320, 330 286 S 520 250, 620 268"/>
+                <path d="M0 120 C 140 150, 240 96, 380 128 S 540 160, 620 138"/>
+                <path d="M150 0 C 176 120, 132 240, 168 420"/>
+                <path d="M430 0 C 400 130, 470 250, 436 420"/>
+              </g>
+              <path d="M196 300 C 260 250, 330 210, 424 138" fill="none" stroke="var(--red)"
+                    stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 9" opacity=".75"/>
+              <g fill="var(--red)">
+                <rect x="414" y="128" width="20" height="20" rx="4" transform="rotate(45 424 138)"/>
+                <rect x="186" y="290" width="20" height="20" rx="4" transform="rotate(45 196 300)"/>
+              </g>
+              <text x="452" y="132" class="locmap__label">Biesenthal</text>
+              <text x="452" y="154" class="locmap__sub">Stammhaus seit 1946</text>
+              <text x="196" y="342" class="locmap__label" text-anchor="middle">Berlin</text>
+              <text x="196" y="364" class="locmap__sub" text-anchor="middle">Hauptsitz</text>
+            </svg>
+            <figcaption>Rund 30 Kilometer zwischen beiden Standorten. Demo-Hinweis: im Projekt wahlweise als eingebettete Karte mit Zwei-Klick-Lösung.</figcaption>
+          </figure>
+
+          <div class="locations__list">
+            <article class="location" data-reveal>
+              <span class="location__tag">Hauptsitz</span>
+              <h3>Berlin</h3>
+              <address>Bizetstraße 74<br>13088 Berlin</address>
+              <a class="location__phone" href="tel:+493096064895">030 96 06 48 95</a>
+              <a class="location__route" href="https://www.google.com/maps/dir/?api=1&amp;destination=Bizetstra%C3%9Fe+74%2C+13088+Berlin" target="_blank" rel="noopener">
+                Route planen
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </article>
+            <article class="location" data-reveal>
+              <span class="location__tag">Stammhaus seit 1946</span>
+              <h3>Biesenthal</h3>
+              <address>Breite Straße 13<br>16359 Biesenthal</address>
+              <a class="location__phone" href="tel:+493337455590">03337 45 59 0</a>
+              <a class="location__route" href="https://www.google.com/maps/dir/?api=1&amp;destination=Breite+Stra%C3%9Fe+13%2C+16359+Biesenthal" target="_blank" rel="noopener">
+                Route planen
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </article>
+            <article class="location location--cta" data-reveal>
+              <h3>Ihr Projekt?</h3>
+              <p>Sechs kurze Fragen, dann melden wir uns mit einer ehrlichen Einschätzung.</p>
+              <button class="btn btn--primary" data-open-modal="projekt">Projekt anfragen</button>
+            </article>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- 8. EINBLICKE / INSTAGRAM -->
+    <section class="feed">
+      <div class="container">
+        <div class="feed__head">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Einblicke</p>
+            <h2 class="section-title" data-reveal>Woran wir gerade arbeiten</h2>
+          </div>
+          <a class="btn btn--ghost feed__cta" href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
+            @elektro_ihlow
+          </a>
+        </div>
+        <ul class="feed__grid feed__grid--bleed" data-reveal>
+          <li><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_192625_c43e9b4d-cb9a-4a9e-a70a-c68bd0b185ac_min.webp" width="600" height="600" loading="lazy" alt="Verteilerschrank auf einer Baustelle von Elektro Ihlow"></a></li>
+          <li><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260722_064936_baa19113-3d9f-48cd-bc03-bec158f98b44_min.webp" width="600" height="600" loading="lazy" alt="Zwei Monteure von Elektro Ihlow bei der Arbeit"></a></li>
+          <li><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_122228_f8e0e7b9-1091-4675-8c21-d15e4527e683_min.webp" width="600" height="600" loading="lazy" alt="Neu gebaute Wohnsiedlung"></a></li>
+          <li><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_192626_8e050218-c225-4022-b01a-c27b66fdab83_min.webp" width="600" height="600" loading="lazy" alt="Smart-Home-Bedienung in einem Wohnraum"></a></li>
+          <li><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_122230_dee936e3-9f62-441e-be6c-3150fb21ff50_min.webp" width="600" height="600" loading="lazy" alt="Gewerbeimmobilie mit sichtbarer Elektroinstallation"></a></li>
+          <li><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_192623_cdb7cf81-26b5-4c19-abb8-2e2c9bc56516_min.webp" width="600" height="600" loading="lazy" alt="Team von Elektro Ihlow auf der Baustelle"></a></li>
+        </ul>
+        <p class="demo-note demo-note--center" data-reveal>Demo-Hinweis: Platzhalter-Kacheln. Im Projekt zieht dieser Bereich die echten Beiträge und Reels automatisch aus dem Instagram-Konto.</p>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">

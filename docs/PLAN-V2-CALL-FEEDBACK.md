@@ -440,3 +440,42 @@ Ansprache du:wir von 1,1:1 auf 1,5:1 verbessert.
   `elektro-ihlow.vercel.app` per Richtlinie (403 auf CONNECT). Das ist eine
   Sandbox-Beschraenkung, keine Aussage ueber die echte Erreichbarkeit. Bruno muss
   den Deploy selbst gegenpruefen.
+
+
+## 10. Startseiten-Ueberarbeitung (05.09., nach Brunos Durchsicht)
+
+**Umgesetzt:**
+- **Hero-Lead** trennt die Zielgruppen sauber statt sie in einen Satz zu quetschen:
+  "Planen Sie ein Bauvorhaben, sind Sie hier richtig. Und wenn Sie selbst
+  Elektriker sind: Wir stellen gerade ein."
+- **CTA-Hierarchie gedreht:** "Projekt anfragen" ist jetzt der primaere rote
+  Button im Hero, "Offene Stellen" der sekundaere. Begruendung: Recruiting steht
+  ohnehin dreifach (Header-Button auf jeder Seite, Ribbon direkt unter dem Hero,
+  Karriere-Block); der Kunde hatte bis dahin keinen Primaerweg.
+- **Proof-Block komplett neu.** "Voll ausgelastet, seit Jahren" und "Unsere
+  Auftragsbuecher sind seit Jahren voll" raus. Neu: "Warum Kunden wiederkommen",
+  Bestandskunden als Beleg, fester Ansprechpartner. Dazu ein Bildplatz fuer das
+  Familienfoto (aktuell Platzhalter, gekennzeichnet) und die drei Kennzahlen als
+  breites Band mit Zaehler-Animation.
+- **Karriere-Block:** "Volle Auftragsbuecher, offene Stellen" -> "Wir suchen
+  dich.", Lead nennt jetzt die Rollen zuerst.
+- **Breite:** Container von 1240 auf 1440 px, Instagram-Raster randlos ueber die
+  volle Fensterbreite.
+- **Leistungen:** vier Karten nebeneinander statt 2x2, weniger Scrollen.
+- **Hover:** roter Balken waechst in die Leistungskarten, Projektkacheln heben
+  sich mit Rotfaerbung der Ueberschrift, Instagram-Kacheln zoomen mit Rot-Overlay.
+- **Projekte:** Abstand zur Ueberschrift verkleinert (Leitung + Kopf gepolstert
+  doppelt), Breitkachel auf 4 Spalten statt 6 fuer mehr Rhythmus.
+- **Standorte:** eigene Lageskizze im Markenlook (Inline-SVG, laedt nichts nach
+  und setzt keine Cookies), Berlin als Hauptsitz, "Route planen" pro Standort
+  direkt in Google Maps, auch auf standorte.html nachgezogen.
+- **NEU: Einblicke/Instagram-Sektion** auf der Startseite, sechs Kacheln plus
+  Profil-Link, als Platzhalter gekennzeichnet.
+
+**Bewusst nicht per iframe:** Eine eingebettete Google-Karte setzt Cookies vor
+der Einwilligung. Da Datenschutz Teil des Angebots ist, liegt hier eine eigene
+Karte plus Maps-Verlinkung; die echte Einbettung kommt im Projekt mit
+Zwei-Klick-Loesung.
+
+**Offen:** Familienfoto und echte Instagram-Beitraege sind Rohmaterial
+(Platzhalter gekennzeichnet, in `docs/FOTO-SHOOTING.md` als A1/B-Motive gefuehrt).
