@@ -57,8 +57,8 @@ Elektrohandwerk, Elektriker, Meisterbetrieb.
   Ausbildung Elektroniker Barnim, Familienbetrieb arbeiten
 
 #### Offene Stellen
-- vermutet: Projektleiter Elektrotechnik Stellenangebot, Bauleiter Elektro Job,
-  Bürokraft Handwerksbetrieb, Assistenz Büro Elektrofirma, Monteur Elektro Job,
+- vermutet: Projektleiter Elektrotechnik Stellenangebot, Bürokraft Handwerksbetrieb,
+  Assistenz Büro Elektrofirma, Elektriker Stellenangebot Barnim, Monteur Elektro Job,
   Elektriker Initiativbewerbung
 
 #### Benefits
@@ -74,6 +74,47 @@ Elektrohandwerk, Elektriker, Meisterbetrieb.
   Elektriker Bewerbung online
 
 ---
+
+### unternehmen.html (Über uns, "Sie")
+
+#### Subhero & Faktenleiste
+- vermutet: Elektro Ihlow Geschichte, Familienbetrieb Elektro Barnim,
+  Meisterbetrieb Elektrotechnik Biesenthal, Elektro-Innung Mitglied
+
+#### Heritage & Generationen-Band
+- vermutet: Elektrobetrieb seit 1946, Elektro Ihlow Gerhard Jörg-Reinhard André,
+  Elektrohandwerk drei Generationen Brandenburg
+
+#### Wie wir arbeiten
+- vermutet: Elektrobetrieb Ansprechpartner Bauprojekt, Elektroinstallation aus einer Hand,
+  Ausbildungsbetrieb Elektrotechnik Barnim
+
+### standorte.html (Standorte, "Sie")
+Wichtigste Seite fürs lokale SEO. Zwei Standorte = zwei getrennte lokale Ziele.
+
+#### Standort Biesenthal
+- vermutet: Elektriker Biesenthal, Elektrobetrieb Barnim, Elektroinstallation Bernau,
+  Elektriker Wandlitz, Elektrofirma 16359
+
+#### Standort Berlin
+- vermutet: Elektriker Berlin Weißensee, Elektrobetrieb Hohenschönhausen,
+  Elektroinstallation Berlin Pankow, Elektrofirma 13088
+
+#### Einzugsgebiet
+- vermutet: Elektriker Umkreis Bernau, Elektrobetrieb Panketal, Elektriker Barnim Umland
+
+### bewerben.html (Quick-Apply-Landing, "Du")
+**Bewusst `noindex, follow`.** Kampagnenseite für Instagram-Bio und Anzeigen, soll
+nicht mit karriere.html um dieselben Rankings konkurrieren. Hier also KEINE
+Keyword-Optimierung. Wichtig fürs echte Projekt: Wenn diese Seite später doch
+indexiert werden soll, vorher entscheiden, welche der beiden Seiten für
+"Bewerbung Elektriker" ranken soll, sonst kannibalisieren sie sich.
+
+### Neue Sektionen (Phase C und D), noch nicht keyword-geführt
+- O-Ton "Drei Fragen an den Chef" (karriere): trägt Vertrauen, kaum Suchvolumen.
+- "Stimmen aus dem Team" (karriere): erst mit echten Zitaten relevant.
+- "Einblicke" mit Instagram-Link (karriere): zahlt auf Social ein, nicht auf Suche.
+- Generationen-Band (unternehmen): siehe Heritage oben.
 
 ## Hinweise fürs echte Projekt
 
