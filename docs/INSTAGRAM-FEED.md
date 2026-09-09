@@ -27,9 +27,9 @@ kommt. Für die Demo ist das so gewollt (Entscheidung Bruno: "das machen wir
 später auf jeden Fall mit den Cookies"). Vor dem Livegang gehört das in ein
 Consent-Banner: Instagram erst nach Zustimmung laden.
 
-Die vorherige Zwei-Klick-Lösung ist entfernt. **Die Karten auf der
-Standorte-Seite haben sie weiterhin** – vor dem Livegang beides gleich
-behandeln, entweder beides über das Cookie-Banner oder beides über zwei Klicks.
+Die vorherige Zwei-Klick-Lösung ist entfernt, bei den Karten auf
+`standorte.html` ebenfalls. Beides läuft jetzt gleich: direkt laden in der Demo,
+Einwilligung vor dem Livegang über ein Cookie-Banner.
 
 ## Warum drei statt sechs Beiträge
 Instagrams Einbettung rendert unter etwa 330 px Breite unsauber. Bei sechs
@@ -49,3 +49,20 @@ einfach als zusätzliches `<li>` ergänzen.
 Wenn der Feed sich ohne unser Zutun aktualisieren soll, braucht es die Instagram
 Basic Display API oder einen Feed-Dienst, jeweils mit Zugang vom Kundenkonto und
 regelmäßiger Token-Erneuerung. Für die Demo und den Start nicht nötig.
+
+## Cookie-Banner: was vor dem Livegang zu tun ist
+Betrifft beides, Instagram und die Google-Karten auf `standorte.html`.
+
+1. Consent-Werkzeug einbinden (z. B. Klaro, Cookiebot, Usercentrics), Kategorie
+   „externe Medien" für Meta und Google.
+2. Die `src` der iframes auf `data-src` umstellen und erst nach Einwilligung
+   setzen. Betroffen sind `.feed__grid--live iframe` in `index.html` und
+   `karriere.html` sowie `.loc-map iframe` in `standorte.html`.
+3. Platzhalter mit Hinweistext und „Jetzt laden" pro Block, damit die Sektion
+   ohne Einwilligung nicht leer wirkt.
+4. Datenschutzerklärung ergänzen: Instagram/Meta und Google Maps, jeweils mit
+   Rechtsgrundlage und Widerruf.
+
+Der Aufwand ist klein, weil beide Einbettungen schon in eigenen Wrappern liegen
+(`.feed__grid--live` und `.loc-map`) und keine Skripte von Meta oder Google
+nachladen.

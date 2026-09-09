@@ -29,6 +29,8 @@ Deploy. Nichts geht live, solange kritische Punkte offen sind.
 - [ ] Logo sauber eingebunden (freigestellt, scharf, richtig platziert)
 - [ ] Keine leeren Bild-Löcher (Original/Higgsfield/sauberer Platzhalter)
 - [ ] Footer: Impressum & Datenschutz als Links mit Platzhalter-Inhalt
+- [ ] Externe Einbettungen (Instagram, Google Maps) laden in der Demo direkt.
+      Beim Livegang gehoeren sie hinter das Cookie-Banner, nicht vorher.
 
 ## 5b – Cross-Device (responsive-qa)
 

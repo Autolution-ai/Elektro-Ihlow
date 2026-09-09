@@ -221,10 +221,12 @@ Von uns, vor der Präsentation:
    iOS-Safari-Eigenheiten lassen sich in unserer Testumgebung nicht abbilden.
 7. **Live-URL gegenprüfen** (die Demo-Umgebung kann sie nicht selbst aufrufen).
 8. ~~Entscheidung Karte~~ **erledigt:** Echte Google-Karte je Standort auf
-   `standorte.html`, mit Zwei-Klick-Lösung. Gemessen: **vor dem Klick geht keine
-   einzige Anfrage an Google raus.** Erst die Zustimmung erzeugt den iframe, sie
-   gilt dann für beide Karten der Sitzung. Im Verkaufsgespräch ein Beleg für die
-   angebotene Datenschutz-Kompetenz.
+   `standorte.html`. Sie lädt direkt, genau wie der Instagram-Feed.
+   **Vor dem Livegang gehört beides hinter ein Cookie-Banner** (Entscheidung
+   Bruno). In der Demo ist das bewusst offen, damit der Kunde die Karten und
+   die Beiträge im Gespräch sofort sieht. Für das Angebot ist es ein Punkt,
+   den wir aktiv ansprechen: Google und Meta laden Daten nach, wir lösen das
+   sauber über die Einwilligung.
 
 ---
 

@@ -148,7 +148,8 @@ Die Abschnitte 8b/9 oben sind überholt. Phasen A–F sind gebaut und geprüft.
 - Startseite überarbeitet: CTA-Hierarchie (Projekt anfragen primär), Proof-Block
   neu, Zähler mit `data-from`, Breite 1440, Hover-Effekte, Google-Bewertung
   4,4/5 mit ehrlich anteilig gefüllten Sternen.
-- Standorte: echte Google-Karte mit Zwei-Klick-Lösung, Öffnungszeiten Biesenthal.
+- Standorte: echte Google-Karte je Standort (lädt direkt), Öffnungszeiten
+  Biesenthal.
 - Instagram: echte Beiträge direkt eingebunden, abspielbar, als Social Proof
   weit oben (Details: `docs/INSTAGRAM-FEED.md`).
 - Bildplatzhalter mit Motivbeschreibung an allen Foto-Stellen
@@ -160,8 +161,9 @@ Die Abschnitte 8b/9 oben sind überholt. Phasen A–F sind gebaut und geprüft.
 - Öffnungszeiten Berlin (kommen von Bruno).
 - Alte Fotos Gerhard / Jörg-Reinhard Ihlow (Bruno sucht).
 - O-Ton-Aufnahme: bewusst erst auf der Live-Website, nicht in der Demo.
-- Consent einheitlich: Karten haben Zwei-Klick, Instagram lädt direkt – vor dem
-  Livegang über ein Cookie-Banner zusammenführen.
+- Cookie-Banner vor dem Livegang: Karten und Instagram laden in der Demo
+  bewusst direkt, die Einwilligung kommt für beide über das Banner
+  (Schritte in `docs/INSTAGRAM-FEED.md`).
 - Bruno-Abnahme am Mac und iPhone.
 
 **Prüfliste gegen Andrés Kritik:** `docs/CHECKLISTE-ANDRE.md`.

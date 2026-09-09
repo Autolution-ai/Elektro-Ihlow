@@ -504,6 +504,8 @@ Rueckmeldung Bruno nach eigener Sichtung.
   Abschnitt jetzt direkt nach den Projekten (Position 7 von 9) statt ganz unten.
   Auf der Karriereseite nach den Team-Stimmen, direkt vor dem Bewerbungs-Funnel.
 
-**Bewusst offen:** Die Karten auf `standorte.html` haben weiterhin die
-Zwei-Klick-Loesung, Instagram nicht mehr. Vor dem Livegang beides gleich
-behandeln.
+**Nachgezogen (Entscheidung Bruno: "beides sollte ueber Cookie Banner
+laufen"):** Die Zwei-Klick-Loesung ist auch bei den Karten auf
+`standorte.html` raus. Karte und Instagram laden jetzt gleich, naemlich direkt.
+Die Einwilligung kommt vor dem Livegang gebuendelt ueber das Cookie-Banner,
+die noetigen Schritte stehen in `docs/INSTAGRAM-FEED.md`.
