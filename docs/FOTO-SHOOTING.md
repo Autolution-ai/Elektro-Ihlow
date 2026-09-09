@@ -45,7 +45,22 @@
 3. **Referenzen**, die genannt werden dürfen (Objektart, Ort, gern Auftraggeber).
 4. **Stellen-Details**: wie viele Projektleiter, wie viele Assistenzen, Anforderungen.
 
-## E. Technisches
+## E. Wo die Platzhalter in der Demo bereits sichtbar sind
+
+Diese Stellen zeigen im aktuellen Stand einen gestalteten Motivplatz mit
+Beschreibung. Im Termin lassen sie sich direkt durchgehen:
+
+| Seite | Stelle | Motiv | Nummer oben |
+|---|---|---|---|
+| Über uns | Generationen-Band | Gerhard Ihlow (1946), historisch | C |
+| Über uns | Generationen-Band | Jörg-Reinhard Ihlow (1979) | C |
+| Über uns | Generationen-Band | André Ihlow (2004) | A1 |
+| Karriere | Stimmen aus dem Team | drei Mitarbeiter-Porträts | B1 |
+| Startseite | Proof-Block | Familienfoto (markiertes Platzhalterbild) | A2 |
+| Standorte | Karte Biesenthal | Werkstatt und Lager | B3 |
+| Standorte | Karte Berlin | Aussenaufnahme oder Fahrzeuge | B4 |
+
+## F. Technisches
 
 - Querformate mit Rand aufnehmen, die Seite beschneidet je nach Bildschirmgröße.
 - Vom Hero-Porträt zwingend Hoch- **und** Quadratformat, es läuft an drei Stellen.

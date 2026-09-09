@@ -999,3 +999,61 @@ body.is-locked { overflow-y: hidden; }
 @media (max-width: 560px) {
   .locations__cta .btn { width: 100%; }
 }
+
+/* ---------- Bildplatzhalter mit Motivbeschreibung ---------- */
+/* Bewusst als gestaltete Flaeche, nicht als leerer Kasten: der Platzhalter soll
+   im Termin zeigen, welches Bild dort hingehoert. */
+.photo-slot {
+  display: flex; flex-direction: column; align-items: flex-start; gap: .45rem;
+  border: 1.5px dashed var(--line-strong); border-radius: var(--radius);
+  padding: var(--space-m); background: var(--surface);
+  transition: border-color .25s var(--ease), background .25s var(--ease);
+}
+.photo-slot:hover { border-color: var(--red); }
+.photo-slot__icon { display: inline-flex; color: var(--red); }
+.photo-slot__icon svg { width: 26px; height: 26px; }
+.photo-slot__title { font-family: var(--font-display); font-weight: 700; font-size: var(--step-0); color: var(--ink); }
+.photo-slot__desc { font-size: var(--step--1); color: var(--ink-soft); line-height: 1.5; }
+
+/* Generationen-Band: dunkler Grund, darum eigene Farbwerte */
+.photo-slot--gen {
+  aspect-ratio: 4/3; justify-content: center; margin-bottom: var(--space-m);
+  background: oklch(100% 0 0 / 0.04); border-color: var(--line-dark);
+}
+.photo-slot--gen .photo-slot__title { color: #fff; }
+.photo-slot--gen .photo-slot__desc { color: var(--on-dark-soft); }
+.photo-slot--gen:hover { background: oklch(100% 0 0 / 0.07); }
+
+/* Portraet bei den Team-Stimmen: schmal, neben dem Namen */
+.voice__person { display: flex; align-items: center; gap: var(--space-s); margin-top: var(--space-s); }
+.photo-slot--portrait {
+  width: 62px; height: 62px; flex-shrink: 0; border-radius: 50%;
+  align-items: center; justify-content: center; gap: 0; padding: 0;
+}
+.photo-slot--portrait .photo-slot__title,
+.photo-slot--portrait .photo-slot__desc { display: none; }
+.voice__person cite { display: flex; flex-direction: column; font-style: normal; }
+.voice__person cite strong {
+  font-family: var(--font-display); font-weight: 700; font-size: var(--step-0);
+  color: var(--ink); text-transform: none; letter-spacing: 0;
+}
+.voice__person cite span { font-size: var(--step--1); color: var(--ink-faint); text-transform: none; letter-spacing: 0; }
+
+/* Markierung auf vorhandenen Platzhalter-Bildern */
+.media-badge {
+  position: absolute; left: var(--space-s); bottom: var(--space-s); z-index: 2;
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .45rem .8rem; border-radius: 999px;
+  background: oklch(21% 0.012 55 / 0.82); color: #fff;
+  font-family: var(--font-display); font-weight: 600; font-size: var(--step--1);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.media-badge::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--red); transform: rotate(45deg); }
+
+@media (max-width: 560px) {
+  .photo-slot--gen { aspect-ratio: 16/9; }
+  .voice__person { align-items: flex-start; }
+}
+
+/* Motivplatz in den Standort-Karten: breit, ueber dem Text */
+.photo-slot--wide { width: 100%; aspect-ratio: 16/9; justify-content: center; margin-bottom: var(--space-s); }
