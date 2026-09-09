@@ -218,6 +218,35 @@
     }
   });
 
+  /* ---------- Karten mit Zwei-Klick-Loesung ---------- */
+  // Der iframe entsteht erst beim Klick. Ohne Zustimmung geht keine einzige
+  // Anfrage an Google raus, deshalb braucht die Seite dafuer kein Cookie-Banner.
+  const mapBoxes = $$("[data-map]");
+  const activateMap = (box) => {
+    if (box.classList.contains("is-loaded")) return;
+    const frame = document.createElement("iframe");
+    frame.src = box.dataset.mapSrc;
+    frame.title = "Karte " + (box.dataset.mapLabel || "Standort");
+    frame.loading = "lazy";
+    frame.referrerPolicy = "no-referrer-when-downgrade";
+    frame.allowFullscreen = true;
+    box.textContent = "";
+    box.classList.add("is-loaded");
+    box.appendChild(frame);
+  };
+  const acceptMaps = () => {
+    try { sessionStorage.setItem("mapsOk", "1"); } catch (e) { /* Private Mode */ }
+    // Eine Zustimmung gilt fuer alle Karten, sonst muesste der Nutzer je
+    // Standort erneut klicken.
+    mapBoxes.forEach(activateMap);
+  };
+  mapBoxes.forEach((box) => {
+    const btn = $("[data-map-load]", box);
+    if (btn) btn.addEventListener("click", acceptMaps);
+  });
+  try { if (mapBoxes.length && sessionStorage.getItem("mapsOk") === "1") mapBoxes.forEach(activateMap); }
+  catch (e) { /* egal */ }
+
   /* ---------- Funnel (Bewerbung + Projektanfrage) ---------- */
   $$("[data-funnel]").forEach((funnel) => {
     const form = $("[data-funnel-form]", funnel);

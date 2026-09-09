@@ -215,8 +215,11 @@ Von uns, vor der Präsentation:
 6. **Manueller Check auf einem echten iPhone.** Alles andere ist geprüft, aber
    iOS-Safari-Eigenheiten lassen sich in unserer Testumgebung nicht abbilden.
 7. **Live-URL gegenprüfen** (die Demo-Umgebung kann sie nicht selbst aufrufen).
-8. **Entscheidung Karte:** aktuell „Route planen"-Verlinkung. Eine echte
-   eingebettete Karte ginge mit Zwei-Klick-Lösung, DSGVO-konform.
+8. ~~Entscheidung Karte~~ **erledigt:** Echte Google-Karte je Standort auf
+   `standorte.html`, mit Zwei-Klick-Lösung. Gemessen: **vor dem Klick geht keine
+   einzige Anfrage an Google raus.** Erst die Zustimmung erzeugt den iframe, sie
+   gilt dann für beide Karten der Sitzung. Im Verkaufsgespräch ein Beleg für die
+   angebotene Datenschutz-Kompetenz.
 
 ---
 
