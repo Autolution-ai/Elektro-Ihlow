@@ -1098,3 +1098,24 @@ body.is-locked { overflow-y: hidden; }
 .feed__grid--live iframe { width: 100%; min-height: 640px; border: 0; display: block; }
 @media (max-width: 1100px) { .feed__grid--live { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 760px)  { .feed__grid--live { grid-template-columns: 1fr; } }
+
+/* ---------- Öffnungszeiten ---------- */
+.loc-hours { margin-top: var(--space-s); display: flex; flex-direction: column; gap: .25rem; }
+.loc-hours > div { display: flex; gap: .6rem; align-items: baseline; font-size: var(--step--1); }
+.loc-hours dt { font-family: var(--font-display); font-weight: 600; color: var(--ink); min-width: 8.5ch; }
+.loc-hours dd { color: var(--ink-soft); }
+.loc-hours--open dd { color: var(--ink-faint); font-style: italic; }
+.location__hours { font-size: var(--step--1); color: var(--ink-soft); margin-top: .3rem; }
+
+/* ---------- Google-Bewertung ---------- */
+.rating { display: flex; align-items: center; gap: .7rem; margin-top: var(--space-l); flex-wrap: wrap; }
+.rating__stars { position: relative; display: inline-block; line-height: 0; }
+.rating__base { display: inline-flex; gap: .1rem; color: var(--line-strong); }
+.rating__fill {
+  position: absolute; inset: 0; display: inline-flex; gap: .1rem;
+  color: var(--red); overflow: hidden; white-space: nowrap;
+}
+.rating__fill svg { flex-shrink: 0; }
+.rating__text { color: var(--ink-soft); font-size: var(--step--1); }
+.rating__text strong { font-family: var(--font-display); font-weight: 700; font-size: var(--step-0); color: var(--ink); }
+.proof__lead .rating + .proof__cta { margin-top: var(--space-m); }

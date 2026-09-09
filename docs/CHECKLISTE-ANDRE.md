@@ -182,6 +182,11 @@ Geprüft, alles noch intakt:
 | Direkt zur Stellenausschreibung | „dass man **von dort aus gleich auf Stellenausschreibung** kommt" | ✅ Hero-Button „Offene Stellen", Ribbon direkt darunter, Header-Button auf jeder Seite |
 | Der Preis | „**Nö, das kann ich erstmal so hinnehmen.**" | ✅ unverändert |
 
+**Neu ergänzt (aus dem Google-Profil):** 4,4 von 5 Sternen bei 32 Bewertungen steht
+jetzt im Proof-Block der Startseite. Echte, überprüfbare Social Proof, die vorher
+gefehlt hat. Die Sterne sind auf 88 Prozent gefüllt, damit die Darstellung die
+Bewertung nicht besser aussehen lässt als sie ist.
+
 ---
 
 ## C. Was er zusätzlich verlangt hat
