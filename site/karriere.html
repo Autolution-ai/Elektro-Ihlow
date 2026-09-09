@@ -348,7 +348,7 @@
         <!-- Die Kacheln sind der Platz, an dem spaeter die echten Beitraege
              stehen. Jedes <li data-insta-slot> wird dann durch die offizielle
              Instagram-Einbettung ersetzt (siehe docs/INSTAGRAM-FEED.md). -->
-        <ul class="feed__grid" data-reveal>
+        <ul class="feed__grid" data-feed-grid data-reveal>
           <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
             <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260722_064936_baa19113-3d9f-48cd-bc03-bec158f98b44_min.webp" width="600" height="600" loading="lazy" alt="Zwei Monteure von Elektro Ihlow bei der Arbeit"></a></li>
           <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
@@ -362,7 +362,14 @@
           <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
             <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_122228_f8e0e7b9-1091-4675-8c21-d15e4527e683_min.webp" width="600" height="600" loading="lazy" alt="Neu gebaute Wohnsiedlung"></a></li>
         </ul>
-        <p class="demo-note demo-note--center" data-reveal>Demo-Hinweis: Platzhalter-Kacheln. Sobald wir die Beitragslinks haben, stehen hier die echten Posts und Reels aus dem Konto.</p>
+        <div class="feed__consent" data-embed-consent data-embed-posts="CIGRjmoFssc,B-M6L28oeFf,B-J7Ospo2tS">
+          <p class="feed__consent-text">
+            Die Kacheln oben sind Platzhalter. Beim Laden der echten Beiträge werden
+            Daten an Instagram übertragen, deshalb passiert das erst auf Ihren Klick.
+          </p>
+          <button type="button" class="btn btn--ghost btn--sm" data-embed-load>Echte Beiträge laden</button>
+          <p class="feed__consent-legal">Es gilt die Datenschutzerklärung von Instagram.</p>
+        </div>
       </div>
     </section>
 

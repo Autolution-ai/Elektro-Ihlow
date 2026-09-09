@@ -1,44 +1,42 @@
-# Instagram-Feed: was noch fehlt und wie er live geht
+# Instagram-Feed
 
 Konto: **https://www.instagram.com/elektro_ihlow/**
 
-## Stand jetzt
-Die Feed-Sektion ist auf **Startseite** und **Karriereseite** gebaut. Sie zeigt
-sechs quadratische Kacheln, die auf das Profil verlinken, mit Hover-Zoom und
-rotem Overlay. Jede Kachel trägt im Markup `data-insta-slot` — das sind die
-Stellen, an denen später die echten Beiträge stehen.
+## Stand: eingebaut und aktiv
 
-## Was gebraucht wird, um echte Beiträge zu zeigen
+Die echten Beiträge sind eingebunden. Vor der Zustimmung stehen sechs lokale
+Platzhalter-Kacheln, nach dem Klick werden drei echte Beiträge geladen.
 
-**Variante A (empfohlen, kein Zugang nötig): Beitragslinks.**
-Sechs Links auf öffentliche Beiträge oder Reels aus dem Konto, Format:
+| Seite | Eingebundene Beiträge |
+|---|---|
+| Startseite | `Cq7jhMJoiEa`, `CqhnwADIZB3`, `CILln1_FXR7` |
+| Karriereseite | `CIGRjmoFssc`, `B-M6L28oeFf`, `B-J7Ospo2tS` |
+| Reserve, nicht eingebaut | `B91g1CfphQY` |
+
+## Datenschutz: Zwei-Klick-Lösung
+Die Einbettung lädt Inhalte von Meta. Der iframe wird deshalb erst per
+JavaScript erzeugt, wenn jemand auf "Echte Beiträge laden" klickt. Vorher
+existiert kein Instagram-Element im DOM, es geht also keine Anfrage raus.
+Gemessen: 0 Anfragen an instagram.com vor dem Klick, 3 danach.
+
+Die Zustimmung gilt für die Sitzung (`sessionStorage`, gekapselt für den
+privaten Modus). Gleiche Mechanik wie bei den Karten auf der Standorte-Seite.
+
+## Warum nur drei statt sechs Beiträge
+Instagrams Einbettung rendert unter etwa 330 px Breite unsauber. Bei sechs
+Spalten wären es rund 220 px. Nach der Zustimmung schaltet das Raster deshalb
+auf drei Spalten (zwei ab 1100 px, eine ab 760 px). Die Platzhalter-Ansicht
+bleibt sechsspaltig, weil sie als Bildraster funktioniert.
+
+## Beiträge austauschen
+In `index.html` bzw. `karriere.html` das Attribut anpassen:
+```html
+<div class="feed__consent" data-embed-consent data-embed-posts="CODE1,CODE2,CODE3">
 ```
-https://www.instagram.com/p/XXXXXXXXXXX/
-https://www.instagram.com/reel/XXXXXXXXXXX/
-```
-Einfach im Browser den Beitrag öffnen und die Adresse kopieren. Damit lässt sich
-Instagrams offizielle Einbettung nutzen, ganz ohne API-Zugang und ohne Passwort.
-Einbau dauert wenige Minuten.
+Der Code ist der Teil hinter `/p/` in der Beitragsadresse. Mehr als drei Codes
+sind möglich, dann wird das Raster entsprechend länger.
 
-**Variante B (automatisch aktualisierend): API-Zugang.**
-Instagram Basic Display API oder ein Feed-Dienst. Braucht einen Zugang vom
-Kundenkonto und ist laufend zu erneuern. Nur sinnvoll, wenn der Feed sich ohne
-unser Zutun aktualisieren soll. Für die Demo nicht nötig.
-
-## Datenschutz
-Die Instagram-Einbettung lädt Inhalte von Meta und setzt dabei Daten ab. Sie
-bekommt deshalb dieselbe **Zwei-Klick-Lösung** wie die Karten auf der
-Standorte-Seite: Vor der Zustimmung wird kein iframe erzeugt, also geht auch
-keine Anfrage raus. Der Mechanismus liegt in `js/main.js` (`[data-map]`) und
-lässt sich eins zu eins übernehmen.
-
-Solange Platzhalter-Kacheln stehen, ist nichts zu tun: Sie sind lokale Bilder
-und laden nichts von Dritten.
-
-## Einbau, wenn die Links da sind
-1. Je `<li data-insta-slot>` durch die Einbettung ersetzen:
-   `https://www.instagram.com/p/<SHORTCODE>/embed/captioned/` im iframe.
-2. Zwei-Klick-Muster davorschalten (Attribute `data-map`, `data-map-src`,
-   `data-map-label` wiederverwenden oder auf `data-embed` umbenennen).
-3. Seitenverhältnis der Kachel auf die Einbettung anpassen, Instagram liefert
-   höher als quadratisch.
+## Für später: automatisch aktualisierender Feed
+Wenn der Feed sich ohne unser Zutun aktualisieren soll, braucht es die Instagram
+Basic Display API oder einen Feed-Dienst, jeweils mit Zugang vom Kundenkonto und
+regelmäßiger Token-Erneuerung. Für die Demo und den Start nicht nötig.
