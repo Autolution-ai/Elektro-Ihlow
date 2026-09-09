@@ -132,3 +132,37 @@ Funnel, Instagram-Funnel gehört zum Paket. Vollständige Analyse + Umsetzungspl
 Plan V2 (`docs/PLAN-V2-CALL-FEEDBACK.md`) mit Bruno durchgehen: Tonalitäts-
 Leitplanken freigeben, Skills/Material liefern, dann Phase A (Tonalität) starten.
 Header-Scroll bei Bedarf wieder aufgreifen.
+
+## 10. Stand 09.09. – Plan V2 vollständig umgesetzt
+Die Abschnitte 8b/9 oben sind überholt. Phasen A–F sind gebaut und geprüft.
+
+**Seiten:** `index.html`, `karriere.html`, `unternehmen.html`, `standorte.html`,
+`bewerben.html` (Schnellbewerbung, `noindex`, ohne Navigation).
+
+**Erledigt seit Plan V2:**
+- Tonalität: alle „abgehoben"-Formulierungen raus, über alle fünf Seiten geprüft.
+- Funnel V2 mit Freitextfeld und optionalem Lebenslauf, identisch in
+  `karriere.html` und `bewerben.html` (Sync-Kommentar im Markup).
+- Persönlichkeit: Generationen-Band, „Die Leitung", Team-Stimmen – alles
+  Erfundene sichtbar als Demo gekennzeichnet (`.demo-note`).
+- Startseite überarbeitet: CTA-Hierarchie (Projekt anfragen primär), Proof-Block
+  neu, Zähler mit `data-from`, Breite 1440, Hover-Effekte, Google-Bewertung
+  4,4/5 mit ehrlich anteilig gefüllten Sternen.
+- Standorte: echte Google-Karte mit Zwei-Klick-Lösung, Öffnungszeiten Biesenthal.
+- Instagram: echte Beiträge direkt eingebunden, abspielbar, als Social Proof
+  weit oben (Details: `docs/INSTAGRAM-FEED.md`).
+- Bildplatzhalter mit Motivbeschreibung an allen Foto-Stellen
+  (`docs/FOTO-SHOOTING.md`).
+- Alle vier kritischen Responsive-Fehler behoben (Sticky-Header durch
+  `overflow-x: clip`, Mobilmenü-Höhe, `[hidden]`-Überschreibung, Job-Akkordeon).
+
+**Offen:**
+- Öffnungszeiten Berlin (kommen von Bruno).
+- Alte Fotos Gerhard / Jörg-Reinhard Ihlow (Bruno sucht).
+- O-Ton-Aufnahme: bewusst erst auf der Live-Website, nicht in der Demo.
+- Consent einheitlich: Karten haben Zwei-Klick, Instagram lädt direkt – vor dem
+  Livegang über ein Cookie-Banner zusammenführen.
+- Bruno-Abnahme am Mac und iPhone.
+
+**Prüfliste gegen Andrés Kritik:** `docs/CHECKLISTE-ANDRE.md`.
+**Lehren fürs Template-Repo:** `docs/TEMPLATE-LESSONS.md`.

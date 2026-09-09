@@ -146,10 +146,12 @@
       <div class="container">
         <div class="proof__inner">
           <figure class="proof__media" data-img-reveal>
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_192623_cdb7cf81-26b5-4c19-abb8-2e2c9bc56516_min.webp"
-                 width="1400" height="1050" loading="lazy"
-                 alt="André Ihlow mit dem Team von Elektro Ihlow vor dem Betrieb">
-            <span class="media-badge">Platzhalter · hier steht das Familienfoto</span>
+            <span class="media-frame">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_192623_cdb7cf81-26b5-4c19-abb8-2e2c9bc56516_min.webp"
+                   width="1400" height="1050" loading="lazy"
+                   alt="André Ihlow mit dem Team von Elektro Ihlow vor dem Betrieb">
+              <span class="media-badge">Platzhalter · hier steht das Familienfoto</span>
+            </span>
             <figcaption>Gewünschtes Motiv: die Familie Ihlow, gern mit André und seinem Vater, vor dem Betrieb oder in der Werkstatt.</figcaption>
           </figure>
           <div class="proof__lead">
@@ -174,7 +176,7 @@
               </span>
               <p class="rating__text"><strong>4,4 von 5</strong> bei 32 Google-Bewertungen</p>
             </div>
- class="btn btn--primary proof__cta" data-open-modal="projekt" data-reveal>Projekt anfragen</button>
+            <button class="btn btn--primary proof__cta" data-open-modal="projekt" data-reveal>Projekt anfragen</button>
           </div>
         </div>
 
@@ -366,6 +368,37 @@
       </div>
     </section>
 
+    <!-- 5b. EINBLICKE / INSTAGRAM (Social Proof, direkt nach den Projekten) -->
+    <section class="feed" id="einblicke">
+      <div class="container">
+        <div class="feed__head">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Einblicke</p>
+            <h2 class="section-title" data-reveal>Woran wir gerade arbeiten</h2>
+            <p class="feed__lead" data-reveal>Direkt aus unserem Instagram-Kanal: Baustellen, Projekte und das Team.</p>
+          </div>
+          <a class="btn btn--ghost feed__cta" href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
+            @elektro_ihlow
+          </a>
+        </div>
+        <ul class="feed__grid feed__grid--live">
+          <li><iframe src="https://www.instagram.com/p/Cq7jhMJoiEa/embed/captioned/"
+              title="Instagram-Beitrag von Elektro Ihlow" loading="lazy" scrolling="no"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              allowfullscreen></iframe></li>
+          <li><iframe src="https://www.instagram.com/p/CqhnwADIZB3/embed/captioned/"
+              title="Instagram-Beitrag von Elektro Ihlow" loading="lazy" scrolling="no"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              allowfullscreen></iframe></li>
+          <li><iframe src="https://www.instagram.com/p/CILln1_FXR7/embed/captioned/"
+              title="Instagram-Beitrag von Elektro Ihlow" loading="lazy" scrolling="no"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              allowfullscreen></iframe></li>
+        </ul>
+      </div>
+    </section>
+
     <!-- 6. UNTERNEHMEN / HERITAGE -->
     <section class="heritage" id="unternehmen">
       <div class="heritage__inner container">
@@ -447,44 +480,6 @@
         <div class="locations__cta" data-reveal>
           <p>Sie planen ein Bauvorhaben? Sechs kurze Fragen, dann melden wir uns mit einer ehrlichen Einschätzung.</p>
           <button class="btn btn--primary" data-open-modal="projekt">Projekt anfragen</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. EINBLICKE / INSTAGRAM -->
-    <section class="feed">
-      <div class="container">
-        <div class="feed__head">
-          <div>
-            <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Einblicke</p>
-            <h2 class="section-title" data-reveal>Woran wir gerade arbeiten</h2>
-          </div>
-          <a class="btn btn--ghost feed__cta" href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
-            @elektro_ihlow
-          </a>
-        </div>
-        <ul class="feed__grid feed__grid--bleed" data-feed-grid data-reveal>
-          <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_192625_c43e9b4d-cb9a-4a9e-a70a-c68bd0b185ac_min.webp" width="600" height="600" loading="lazy" alt="Verteilerschrank auf einer Baustelle von Elektro Ihlow"></a></li>
-          <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260722_064936_baa19113-3d9f-48cd-bc03-bec158f98b44_min.webp" width="600" height="600" loading="lazy" alt="Zwei Monteure von Elektro Ihlow bei der Arbeit"></a></li>
-          <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_122228_f8e0e7b9-1091-4675-8c21-d15e4527e683_min.webp" width="600" height="600" loading="lazy" alt="Neu gebaute Wohnsiedlung"></a></li>
-          <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_192626_8e050218-c225-4022-b01a-c27b66fdab83_min.webp" width="600" height="600" loading="lazy" alt="Smart-Home-Bedienung in einem Wohnraum"></a></li>
-          <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_122230_dee936e3-9f62-441e-be6c-3150fb21ff50_min.webp" width="600" height="600" loading="lazy" alt="Gewerbeimmobilie mit sichtbarer Elektroinstallation"></a></li>
-          <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_192623_cdb7cf81-26b5-4c19-abb8-2e2c9bc56516_min.webp" width="600" height="600" loading="lazy" alt="Team von Elektro Ihlow auf der Baustelle"></a></li>
-        </ul>
-        <div class="feed__consent" data-embed-consent data-embed-posts="Cq7jhMJoiEa,CqhnwADIZB3,CILln1_FXR7">
-          <p class="feed__consent-text">
-            Die Kacheln oben sind Platzhalter. Beim Laden der echten Beiträge werden
-            Daten an Instagram übertragen, deshalb passiert das erst auf Ihren Klick.
-          </p>
-          <button type="button" class="btn btn--ghost btn--sm" data-embed-load>Echte Beiträge laden</button>
-          <p class="feed__consent-legal">Es gilt die Datenschutzerklärung von Instagram.</p>
         </div>
       </div>
     </section>

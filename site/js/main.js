@@ -247,38 +247,6 @@
   try { if (mapBoxes.length && sessionStorage.getItem("mapsOk") === "1") mapBoxes.forEach(activateMap); }
   catch (e) { /* egal */ }
 
-  /* ---------- Instagram-Beitraege mit Zwei-Klick-Loesung ---------- */
-  // Wie bei den Karten: Der iframe entsteht erst nach der Zustimmung. Vorher
-  // stehen nur lokale Platzhalterbilder, es geht keine Anfrage an Meta raus.
-  $$("[data-embed-consent]").forEach((bar) => {
-    const btn = $("[data-embed-load]", bar);
-    const grid = $("[data-feed-grid]", bar.parentElement);
-    const codes = (bar.dataset.embedPosts || "").split(",").map((c) => c.trim()).filter(Boolean);
-    if (!btn || !grid || !codes.length) return;
-
-    const activate = () => {
-      grid.textContent = "";
-      grid.classList.add("feed__grid--live");
-      grid.classList.remove("feed__grid--bleed");
-      codes.forEach((code) => {
-        const li = document.createElement("li");
-        const frame = document.createElement("iframe");
-        frame.src = "https://www.instagram.com/p/" + encodeURIComponent(code) + "/embed/captioned/";
-        frame.title = "Instagram-Beitrag von Elektro Ihlow";
-        frame.loading = "lazy";
-        frame.scrolling = "no";
-        frame.allowFullscreen = true;
-        li.appendChild(frame);
-        grid.appendChild(li);
-      });
-      bar.hidden = true;
-      try { sessionStorage.setItem("instaOk", "1"); } catch (e) { /* Private Mode */ }
-    };
-
-    btn.addEventListener("click", activate);
-    try { if (sessionStorage.getItem("instaOk") === "1") activate(); } catch (e) { /* egal */ }
-  });
-
   /* ---------- Funnel (Bewerbung + Projektanfrage) ---------- */
   $$("[data-funnel]").forEach((funnel) => {
     const form = $("[data-funnel-form]", funnel);

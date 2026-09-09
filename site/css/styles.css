@@ -1039,7 +1039,10 @@ body.is-locked { overflow-y: hidden; }
 }
 .voice__person cite span { font-size: var(--step--1); color: var(--ink-faint); text-transform: none; letter-spacing: 0; }
 
-/* Markierung auf vorhandenen Platzhalter-Bildern */
+/* Markierung auf vorhandenen Platzhalter-Bildern.
+   Der Rahmen begrenzt die absolute Positionierung auf das Bild selbst,
+   damit das Label nicht in die Bildunterschrift rutscht. */
+.media-frame { position: relative; display: block; }
 .media-badge {
   position: absolute; left: var(--space-s); bottom: var(--space-s); z-index: 2;
   display: inline-flex; align-items: center; gap: .4rem;
@@ -1080,17 +1083,7 @@ body.is-locked { overflow-y: hidden; }
 .feed__lead { color: var(--on-dark-soft); max-width: 56ch; margin-top: .5rem; }
 .feed--dark .demo-note { color: var(--on-dark-soft); border-top-color: var(--line-dark); }
 
-/* ---------- Instagram: Zustimmung und echte Beiträge ---------- */
-.feed__consent {
-  display: flex; flex-direction: column; align-items: center; gap: .6rem;
-  text-align: center; max-width: 62ch; margin: var(--space-l) auto 0;
-  padding-top: var(--space-m); border-top: 1px dashed var(--line-strong);
-}
-.feed__consent-text { font-size: var(--step--1); color: var(--ink-soft); line-height: 1.55; }
-.feed__consent-legal { font-size: var(--step--1); color: var(--ink-faint); }
-.feed--dark .feed__consent { border-top-color: var(--line-dark); }
-.feed--dark .feed__consent-text { color: var(--on-dark-soft); }
-
+/* ---------- Instagram: echte Beiträge ---------- */
 /* Echte Einbettungen brauchen Breite: Instagram rendert unter ~330px unsauber,
    deshalb drei Spalten statt sechs. */
 .feed__grid--live { grid-template-columns: repeat(3, 1fr); gap: var(--space-m); }

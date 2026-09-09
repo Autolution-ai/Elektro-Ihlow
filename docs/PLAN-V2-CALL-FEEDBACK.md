@@ -479,3 +479,31 @@ Zwei-Klick-Loesung.
 
 **Offen:** Familienfoto und echte Instagram-Beitraege sind Rohmaterial
 (Platzhalter gekennzeichnet, in `docs/FOTO-SHOOTING.md` als A1/B-Motive gefuehrt).
+
+---
+
+## Nachtrag: Instagram direkt, Bildplatzhalter repariert
+
+Rueckmeldung Bruno nach eigener Sichtung.
+
+- **Sichtbarer Rohcode im Proof-Block behoben.** Beim Einbau der
+  Google-Bewertung hatte ich per Index-Slicing geschnitten und dabei das
+  oeffnende `<button` abgeschnitten. Uebrig blieb reiner Attributtext, der als
+  Fliesstext auf der Seite stand. Tag wieder vollstaendig, Pruefung: kein
+  Rohcode mehr im Proof-Block.
+- **Platzhalter-Label sass ueber der Bildunterschrift.** `.media-badge` war
+  absolut zum `<figure>` positioniert, und das `<figure>` schliesst die
+  Bildunterschrift ein. Das Bild liegt jetzt in `<span class="media-frame">`,
+  das Label sitzt im Bild. Gemessen bei 1440 und 390 px.
+- **Instagram ohne Zustimmungshuerde.** Die Zwei-Klick-Loesung fuer den Feed
+  ist raus, die Beitraege laden direkt (Entscheidung Bruno, Consent kommt spaeter
+  ueber das Cookie-Banner). Die iframes haben `allow="autoplay; ...
+  encrypted-media; picture-in-picture; web-share"` und `allowfullscreen`,
+  Reels sind damit in der Kachel abspielbar.
+- **Instagram als Social Proof nach oben.** Auf der Startseite steht der
+  Abschnitt jetzt direkt nach den Projekten (Position 7 von 9) statt ganz unten.
+  Auf der Karriereseite nach den Team-Stimmen, direkt vor dem Bewerbungs-Funnel.
+
+**Bewusst offen:** Die Karten auf `standorte.html` haben weiterhin die
+Zwei-Klick-Loesung, Instagram nicht mehr. Vor dem Livegang beides gleich
+behandeln.

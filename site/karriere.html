@@ -332,44 +332,33 @@
     </section>
 
     <!-- 5d. EINBLICKE / INSTAGRAM -->
-    <section class="feed feed--dark">
+    <section class="feed feed--dark" id="einblicke">
       <div class="container">
         <div class="feed__head">
           <div>
             <p class="eyebrow eyebrow--on-dark" data-reveal><span class="eyebrow__dot"></span>Einblicke</p>
-            <h2 class="section-title" data-reveal>Schau dir an, woran wir gerade arbeiten</h2>
-            <p class="feed__lead" data-reveal>Auf Instagram zeigen wir Baustellen, Projekte und das Team. Wenn du wissen willst, wie es bei uns wirklich aussieht, schau dort vorbei.</p>
+            <h2 class="section-title" data-reveal>Woran wir gerade arbeiten</h2>
+            <p class="feed__lead" data-reveal>Direkt aus unserem Instagram-Kanal: Baustellen, Projekte und das Team.</p>
           </div>
           <a class="btn btn--ghost btn--on-dark feed__cta" href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
             @elektro_ihlow
           </a>
         </div>
-        <!-- Die Kacheln sind der Platz, an dem spaeter die echten Beitraege
-             stehen. Jedes <li data-insta-slot> wird dann durch die offizielle
-             Instagram-Einbettung ersetzt (siehe docs/INSTAGRAM-FEED.md). -->
-        <ul class="feed__grid" data-feed-grid data-reveal>
-          <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260722_064936_baa19113-3d9f-48cd-bc03-bec158f98b44_min.webp" width="600" height="600" loading="lazy" alt="Zwei Monteure von Elektro Ihlow bei der Arbeit"></a></li>
-          <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_192623_cdb7cf81-26b5-4c19-abb8-2e2c9bc56516_min.webp" width="600" height="600" loading="lazy" alt="Team von Elektro Ihlow auf der Baustelle"></a></li>
-          <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_192625_c43e9b4d-cb9a-4a9e-a70a-c68bd0b185ac_min.webp" width="600" height="600" loading="lazy" alt="Sauber verdrahteter Verteilerschrank"></a></li>
-          <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_122226_1d579866-79bb-4ed7-95ba-fdd54e079328_min.webp" width="600" height="600" loading="lazy" alt="Erfahrener Elektriker mit Auszubildendem"></a></li>
-          <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_192626_8e050218-c225-4022-b01a-c27b66fdab83_min.webp" width="600" height="600" loading="lazy" alt="Moderne Gebäudetechnik im Wohnraum"></a></li>
-          <li data-insta-slot><a href="https://www.instagram.com/elektro_ihlow/" target="_blank" rel="noopener">
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_122228_f8e0e7b9-1091-4675-8c21-d15e4527e683_min.webp" width="600" height="600" loading="lazy" alt="Neu gebaute Wohnsiedlung"></a></li>
+        <ul class="feed__grid feed__grid--live">
+          <li><iframe src="https://www.instagram.com/p/CIGRjmoFssc/embed/captioned/"
+              title="Instagram-Beitrag von Elektro Ihlow" loading="lazy" scrolling="no"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              allowfullscreen></iframe></li>
+          <li><iframe src="https://www.instagram.com/p/B-M6L28oeFf/embed/captioned/"
+              title="Instagram-Beitrag von Elektro Ihlow" loading="lazy" scrolling="no"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              allowfullscreen></iframe></li>
+          <li><iframe src="https://www.instagram.com/p/B-J7Ospo2tS/embed/captioned/"
+              title="Instagram-Beitrag von Elektro Ihlow" loading="lazy" scrolling="no"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              allowfullscreen></iframe></li>
         </ul>
-        <div class="feed__consent" data-embed-consent data-embed-posts="CIGRjmoFssc,B-M6L28oeFf,B-J7Ospo2tS">
-          <p class="feed__consent-text">
-            Die Kacheln oben sind Platzhalter. Beim Laden der echten Beiträge werden
-            Daten an Instagram übertragen, deshalb passiert das erst auf Ihren Klick.
-          </p>
-          <button type="button" class="btn btn--ghost btn--sm" data-embed-load>Echte Beiträge laden</button>
-          <p class="feed__consent-legal">Es gilt die Datenschutzerklärung von Instagram.</p>
-        </div>
       </div>
     </section>
 
