@@ -96,7 +96,7 @@ halbe Stunde Arbeit für Sie."
 4. **Der Blitz als Hintergrundmotiv** im Karriere-Block.
 
 Dazu die Struktur, die ein Baukasten nicht liefert: Mega-Menü mit allen
-16 Leistungen aus seiner alten Seite, zwei getrennte Funnels, eigene Unterseiten.
+15 Leistungen aus seiner alten Seite, zwei getrennte Funnels, eigene Unterseiten.
 
 **Gesprächsanknüpfung:** „Sie sagten, es sieht aus wie jeder andere. Wir haben
 Gestaltungselemente aus Ihrem eigenen Logo und Ihrer Firmengeschichte gebaut. Das

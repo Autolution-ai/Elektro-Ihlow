@@ -70,7 +70,7 @@ CTA-Band (Projekt-Modal + Anruf). Enthält das Projektanfrage-Modal.
 - **Smart-Header:** natives window-scroll + rAF + ticking + DELTA=6 +
   SHOW_HIDE_START=120. Runter = aus, hoch = ein. (Lenis wurde ENTFERNT, weil es
   das Scroll-Event abfing – siehe offene Punkte.)
-- **Mega-Menü „Leistungen":** Hover (Desktop) / Tap (Mobil). 16 Leistungen aus
+- **Mega-Menü „Leistungen":** Hover (Desktop) / Tap (Mobil). 15 Leistungen aus
   dem Scrape der Altseite, 3 Spalten (Elektrotechnik / Sicherheit & Licht /
   Fernsehempfang). Links vorerst auf `#leistungen`; Detailseiten folgen.
 - **Zwei Funnels:** Bewerbung (inline, karriere) + Projektanfrage (Modal, index).
