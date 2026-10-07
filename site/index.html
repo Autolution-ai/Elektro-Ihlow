@@ -96,16 +96,21 @@
           </h1>
           <p class="hero__lead" data-reveal>
             Drei Generationen Elektrohandwerk in Biesenthal und Berlin, rund 30 Kollegen,
-            Projekte von der einzelnen Wohnung bis zur ganzen Siedlung. Planen Sie ein
-            Bauvorhaben, sind Sie hier richtig. Und wenn Sie selbst Elektriker sind:
-            Wir stellen gerade ein.
+            Projekte von der einzelnen Wohnung bis zur ganzen Siedlung.
           </p>
-          <div class="hero__actions" data-reveal>
-            <div class="hero__cta-group">
-              <button class="btn btn--primary btn--lg" data-open-modal="projekt">Projekt anfragen</button>
-              <span class="hero__microcopy">Sechs kurze Fragen, wir melden uns</span>
-            </div>
-            <a class="btn btn--ghost btn--lg" href="karriere.html#stellen">Offene Stellen</a>
+          <!-- Die Weiche: zwei Wege, sichtbar getrennt. Der Kundenweg ist der
+               Hauptweg (rot, breiter), der Bewerberweg steht gleich daneben. -->
+          <div class="paths" data-reveal>
+            <button type="button" class="path path--main" data-open-modal="projekt">
+              <span class="path__who">Sie planen ein Bauvorhaben</span>
+              <span class="path__go">Projekt anfragen <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="path__note">Sechs kurze Fragen, wir melden uns</span>
+            </button>
+            <a class="path path--career" href="karriere.html#stellen">
+              <span class="path__who">Sie suchen eine Stelle</span>
+              <span class="path__go">Offene Stellen <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="path__note">Projektleitung, Büro, Montage</span>
+            </a>
           </div>
         </div>
 
@@ -159,20 +164,6 @@
         </ol>
       </div>
     </section>
-
-    <!-- 2. RECRUITING-RIBBON -->
-    <aside class="ribbon">
-      <div class="ribbon__inner container">
-        <p class="ribbon__text">
-          Wir wachsen und suchen Menschen, die ihr Handwerk ernst nehmen.
-          Vom Projektleiter bis zum Monteur ist gerade einiges frei.
-        </p>
-        <a class="ribbon__link" href="karriere.html#stellen">
-          Zu den offenen Stellen
-          <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </aside>
 
     <!-- 3. PROOF / VERTRAUEN -->
     <section class="proof">

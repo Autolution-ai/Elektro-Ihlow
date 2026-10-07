@@ -179,7 +179,7 @@ Geprüft, alles noch intakt:
 |---|---|---|
 | Der Bewerbungs-Funnel | „**Ja, klar. Ist gut.** Hätte man ja." | ✅ funktioniert, zusätzlich verbessert |
 | Zeitgemäßer Auftritt | „ist zeitgemäß", „geht schon besser wie unser" | ✅ erhalten |
-| Direkt zur Stellenausschreibung | „dass man **von dort aus gleich auf Stellenausschreibung** kommt" | ✅ Hero-Button „Offene Stellen", Ribbon direkt darunter, Header-Button auf jeder Seite |
+| Direkt zur Stellenausschreibung | „dass man **von dort aus gleich auf Stellenausschreibung** kommt" | ✅ Weiche im Hero („Sie suchen eine Stelle → Offene Stellen"), Link am Ende der Leitung, Header-Button auf jeder Seite |
 | Der Preis | „**Nö, das kann ich erstmal so hinnehmen.**" | ✅ unverändert |
 
 **Neu ergänzt (aus dem Google-Profil):** 4,4 von 5 Sternen bei 32 Bewertungen steht

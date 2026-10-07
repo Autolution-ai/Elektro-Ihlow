@@ -87,8 +87,17 @@ Rollen gegen die „Über uns"-Seite der Altseite geprüft.
   Leitung darunter als Fortschritt. Natives Scrollen, das Mausrad wird
   nicht umgelenkt.
 
-Punkt 2 (zwei getrennte Wege ab der ersten Bildschirmhöhe) offen, berührt
-die Entscheidung „Projekt anfragen" als Hauptweg.
+**Stand 07.10.: Punkt 2 umgesetzt, mit „Projekt anfragen" als Hauptweg
+(Entscheidung Bruno).** Die zwei Knöpfe im Hero sind einer Weiche gewichen:
+„Sie planen ein Bauvorhaben → Projekt anfragen" in Rot und breiter, daneben
+„Sie suchen eine Stelle → Offene Stellen". Auf dem Telefon nebeneinander,
+damit beide Wege im ersten Bildschirm stehen. Die Recruiting-Leiste unter dem
+Hero ist entfallen, sie wäre die vierte Bewerbungs-Aufforderung auf einem
+Bildschirm gewesen. Die Reihenfolge der Abschnitte bleibt: Der Karriere-Block
+steht weiter weit oben, ein Umsortieren in zwei Hälften hätte das Recruiting
+nach unten gedrückt.
+
+**Damit ist B1 komplett.**
 
 ### B2. 🔴 Sein eigener Aufhänger liegt ungenutzt da
 
