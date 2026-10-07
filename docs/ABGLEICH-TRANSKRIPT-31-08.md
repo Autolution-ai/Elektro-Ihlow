@@ -74,7 +74,21 @@ Sie läuft vom Fensterrand durch 1946 (Gerhard), 1979 (Jörg-Reinhard) und 2004
 mit dem Link zu den offenen Stellen. Damit wird die Überschrift „Jetzt suchen
 wir die nächste Generation" sichtbar eingelöst. Die Linie zeichnet sich nach
 dem Hero-Text Punkt für Punkt, nichts blockiert das Lesen. Jahreszahlen und
-Rollen gegen die „Über uns"-Seite der Altseite geprüft. Punkte 2 und 3 offen.
+Rollen gegen die „Über uns"-Seite der Altseite geprüft.
+
+**Stand 07.10.: Punkt 3 umgesetzt, an zwei Stellen.**
+- *Leistungen als stehendes Schaltfeld:* Links bleibt das Bild stehen, ein
+  Index markiert in Rot den Bereich, der gerade die Fenstermitte kreuzt.
+  Rechts laufen die fünf Bereiche vorbei, die nicht aktiven treten zurück.
+  Jeder Bereich nennt jetzt seine Einzelleistungen aus dem Menü der Altseite,
+  damit stehen alle 15 Leistungen auch im Inhalt, nicht nur im Menü.
+- *Projekte als seitliche Fahrt:* Die Projektarten laufen in einer Spur
+  rechts aus dem Fenster, mit Pfeilen, Wischen auf dem Telefon und einer
+  Leitung darunter als Fortschritt. Natives Scrollen, das Mausrad wird
+  nicht umgelenkt.
+
+Punkt 2 (zwei getrennte Wege ab der ersten Bildschirmhöhe) offen, berührt
+die Entscheidung „Projekt anfragen" als Hauptweg.
 
 ### B2. 🔴 Sein eigener Aufhänger liegt ungenutzt da
 

@@ -278,44 +278,56 @@
           </p>
         </header>
 
-        <div class="services__grid">
-          <article class="service service--lead" data-reveal>
-            <div class="service__lead-media" data-img-reveal>
+        <!-- Stehendes Schaltfeld: links bleibt das Bild stehen, der Index zeigt
+             den aktiven Bereich, rechts laufen die Bereiche vorbei. Die
+             Einzelleistungen stammen aus dem Leistungsmenue der Altseite (alle 15). -->
+        <div class="services__layout" data-switchboard>
+          <aside class="services__aside">
+            <figure class="services__media" data-img-reveal>
               <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_192625_c43e9b4d-cb9a-4a9e-a70a-c68bd0b185ac_min.webp"
                    width="1000" height="750" loading="lazy"
                    alt="Sauber verdrahteter Verteilerschrank in einem Neubau von Elektro Ihlow">
-            </div>
-            <div class="service__lead-text">
-              <span class="service__index">Kernleistung</span>
+            </figure>
+            <ol class="services__index" aria-label="Bereiche">
+              <li><a href="#leistung-installation" data-area-link="installation">Gesamt-Elektroinstallation</a></li>
+              <li><a href="#leistung-wohnungsbau" data-area-link="wohnungsbau">Wohnungsbau &amp; Siedlungen</a></li>
+              <li><a href="#leistung-gewerbe" data-area-link="gewerbe">Gewerbe &amp; öffentliche Objekte</a></li>
+              <li><a href="#leistung-smarthome" data-area-link="smarthome">Smart Home &amp; KNX</a></li>
+              <li><a href="#leistung-datennetze" data-area-link="datennetze">Datennetze</a></li>
+            </ol>
+          </aside>
+
+          <div class="services__list">
+            <article class="area area--lead" id="leistung-installation" data-area="installation">
+              <span class="area__kicker">Kernleistung</span>
               <h3>Gesamt-Elektroinstallation</h3>
-              <p>
-                Der Kern unserer Arbeit. Wir übernehmen die komplette Elektrik eines Gebäudes:
-                Planung, Installation, Verteilung, Prüfung und Übergabe. Ob Wohnhaus,
-                Neubausiedlung oder gewerbliches Objekt, Sie haben einen Ansprechpartner von
-                der ersten Leitung bis zum Abnahmeprotokoll.
-              </p>
+              <p>Der Kern unserer Arbeit. Wir übernehmen die komplette Elektrik eines Gebäudes: Planung, Installation, Verteilung, Prüfung und Übergabe. Ob Wohnhaus, Neubausiedlung oder gewerbliches Objekt, Sie haben einen Ansprechpartner von der ersten Leitung bis zum Abnahmeprotokoll.</p>
+              <ul class="area__tags" aria-label="Einzelleistungen"><li>Elektroinstallation</li><li>Beleuchtungsanlage</li><li>E-Heizung</li></ul>
               <button class="link-cta" data-open-modal="projekt">Projekt anfragen
                 <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
-            </div>
-          </article>
-
-          <article class="service" data-reveal>
-            <h3>Wohnungsbau &amp; Siedlungen</h3>
-            <p>Ganze Wohnanlagen und neue Siedlungen, oft über mehrere Bauabschnitte. Wir arbeiten seit Jahren mit Bauträgern und Wohnungsverwaltungen zusammen und kennen den Takt einer Baustelle.</p>
-          </article>
-          <article class="service" data-reveal>
-            <h3>Gewerbe &amp; öffentliche Objekte</h3>
-            <p>Betriebe, Verwaltungen, Gemeinden und Ämter, auch bei größeren Bauvorhaben mit festen Terminen und klaren Abnahmen.</p>
-          </article>
-          <article class="service" data-reveal>
-            <h3>Smart Home &amp; KNX</h3>
-            <p>Licht, Heizung, Beschattung und Sicherheit sinnvoll verbunden und per KNX geplant, damit die Technik dem Haus dient und nicht umgekehrt.</p>
-          </article>
-          <article class="service" data-reveal>
-            <h3>Datennetze</h3>
-            <p>Strukturierte Verkabelung für Wohnung und Betrieb, damit Netzwerk und Telefonie dort funktionieren, wo Sie sie brauchen.</p>
-          </article>
+            </article>
+            <article class="area" id="leistung-wohnungsbau" data-area="wohnungsbau">
+              <h3>Wohnungsbau &amp; Siedlungen</h3>
+              <p>Ganze Wohnanlagen und neue Siedlungen, oft über mehrere Bauabschnitte. Wir arbeiten seit Jahren mit Bauträgern und Wohnungsverwaltungen zusammen und kennen den Takt einer Baustelle.</p>
+              <ul class="area__tags" aria-label="Einzelleistungen"><li>Wechselsprechanlage</li><li>Rauchmelder</li><li>Antennenanlage</li><li>Kabelanschluss</li><li>Satellitenanlage</li></ul>
+            </article>
+            <article class="area" id="leistung-gewerbe" data-area="gewerbe">
+              <h3>Gewerbe &amp; öffentliche Objekte</h3>
+              <p>Betriebe, Verwaltungen, Gemeinden und Ämter, auch bei größeren Bauvorhaben mit festen Terminen und klaren Abnahmen.</p>
+              <ul class="area__tags" aria-label="Einzelleistungen"><li>Einbruchmeldeanlage</li><li>Blitzschutz</li></ul>
+            </article>
+            <article class="area" id="leistung-smarthome" data-area="smarthome">
+              <h3>Smart Home &amp; KNX</h3>
+              <p>Licht, Heizung, Beschattung und Sicherheit sinnvoll verbunden und per KNX geplant, damit die Technik dem Haus dient und nicht umgekehrt.</p>
+              <ul class="area__tags" aria-label="Einzelleistungen"><li>KNX</li><li>Hausautomatisierung</li><li>Smart Home</li></ul>
+            </article>
+            <article class="area" id="leistung-datennetze" data-area="datennetze">
+              <h3>Datennetze</h3>
+              <p>Strukturierte Verkabelung für Wohnung und Betrieb, damit Netzwerk und Telefonie dort funktionieren, wo Sie sie brauchen.</p>
+              <ul class="area__tags" aria-label="Einzelleistungen"><li>Datennetze</li><li>IPTV</li></ul>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -343,15 +355,27 @@
     <section class="projects" id="projekte">
       <div class="container">
         <header class="projects__head">
-          <h2 class="section-title" data-reveal>Woran wir arbeiten</h2>
-          <p data-reveal>
-            In welcher Größenordnung Sie mit uns arbeiten können, zeigen diese Projektarten.
-            Konkrete Namen und Zahlen bekommen Sie im Gespräch, dort nennen wir Ihnen
-            Referenzen aus Ihrer Ecke.
-          </p>
+          <div class="projects__head-text">
+            <h2 class="section-title" data-reveal>Woran wir arbeiten</h2>
+            <p data-reveal>
+              In welcher Größenordnung Sie mit uns arbeiten können, zeigen diese Projektarten.
+              Konkrete Namen und Zahlen bekommen Sie im Gespräch, dort nennen wir Ihnen
+              Referenzen aus Ihrer Ecke.
+            </p>
+          </div>
+          <div class="rail-controls" data-reveal>
+            <button type="button" class="rail-btn" data-rail-prev aria-controls="projects-track" aria-label="Vorherige Projektart"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="rail-btn" data-rail-next aria-controls="projects-track" aria-label="Nächste Projektart"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
         </header>
+      </div>
 
-        <div class="projects__grid">
+      <!-- Seitliche Fahrt: die Spur beginnt buendig mit dem Inhalt und laeuft
+           rechts aus dem Fenster. Natives Scrollen mit Einrasten, kein
+           Umlenken des Mausrads. Die Leitung darunter zeigt den Fortschritt. -->
+      <div class="projects__rail" data-rail>
+        <div class="projects__track" id="projects-track" data-rail-track tabindex="0"
+             role="region" aria-label="Projektarten, seitlich blätterbar">
           <article class="project project--wide" data-reveal>
             <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3064uXRqZDhsfEEjgzVarJDAKP6/hf_20260721_122228_f8e0e7b9-1091-4675-8c21-d15e4527e683_min.webp" width="1200" height="900" loading="lazy"
                  alt="Neu gebaute Wohnsiedlung mit mehreren Mehrfamilienhäusern">
@@ -398,6 +422,7 @@
             </div>
           </article>
         </div>
+        <div class="rail-progress container" aria-hidden="true"><span class="rail-progress__fill" data-rail-fill></span></div>
       </div>
     </section>
 

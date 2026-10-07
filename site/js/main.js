@@ -236,6 +236,73 @@
     }
   }
 
+  /* ---------- Leistungen: stehendes Schaltfeld ---------- */
+  // Aktiv ist der Bereich, der gerade die Fenstermitte kreuzt. Nur auf
+  // breiten Bildschirmen, dort steht das Bild links still.
+  const board = $("[data-switchboard]");
+  if (board && "IntersectionObserver" in window) {
+    const areas = $$("[data-area]", board);
+    const links = $$("[data-area-link]", board);
+    const wide = window.matchMedia("(min-width: 901px)");
+    const setActive = (key) => {
+      areas.forEach((a) => a.classList.toggle("is-active", a.dataset.area === key));
+      links.forEach((l) => {
+        const on = l.dataset.areaLink === key;
+        l.classList.toggle("is-active", on);
+        if (on) l.setAttribute("aria-current", "true"); else l.removeAttribute("aria-current");
+      });
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) setActive(e.target.dataset.area); });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    const apply = () => {
+      board.classList.toggle("is-live", wide.matches);
+      if (wide.matches) { areas.forEach((a) => io.observe(a)); setActive(areas[0].dataset.area); }
+      else { io.disconnect(); areas.forEach((a) => a.classList.remove("is-active")); }
+    };
+    apply();
+    wide.addEventListener("change", apply);
+    // Index-Klick: Bereich in die Fenstermitte holen, nicht an die Oberkante
+    links.forEach((l) => l.addEventListener("click", (ev) => {
+      const target = $(`[data-area="${l.dataset.areaLink}"]`, board);
+      if (!target) return;
+      ev.preventDefault();
+      target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    }));
+  }
+
+  /* ---------- Projekte: seitliche Fahrt ---------- */
+  // Natives horizontales Scrollen mit Einrasten. Pfeile blaettern um eine
+  // Karte, die Leitung darunter zeigt, wie viel schon zu sehen war.
+  $$("[data-rail]").forEach((rail) => {
+    const track = $("[data-rail-track]", rail);
+    const fill = $("[data-rail-fill]", rail);
+    const section = rail.closest("section") || document;
+    const prev = $("[data-rail-prev]", section);
+    const next = $("[data-rail-next]", section);
+    if (!track) return;
+    const step = () => {
+      const first = track.firstElementChild;
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return first ? first.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
+    };
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const max = track.scrollWidth - track.clientWidth;
+      const seen = (track.scrollLeft + track.clientWidth) / track.scrollWidth;
+      if (fill) fill.style.setProperty("--p", Math.min(1, Math.max(0, seen)).toFixed(3));
+      if (prev) prev.setAttribute("aria-disabled", String(track.scrollLeft <= 2));
+      if (next) next.setAttribute("aria-disabled", String(track.scrollLeft >= max - 2));
+    };
+    const go = (dir) => track.scrollBy({ left: dir * step(), behavior: reduceMotion ? "auto" : "smooth" });
+    if (prev) prev.addEventListener("click", () => go(-1));
+    if (next) next.addEventListener("click", () => go(1));
+    track.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  });
+
   /* ---------- Accordion (Stellen) ---------- */
   $$("[data-accordion]").forEach((btn) => {
     const panel = btn.nextElementSibling;
