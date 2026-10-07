@@ -67,6 +67,15 @@ Mein Vorschlag, in der Reihenfolge der Wirkung:
 Das ist Arbeit an der Struktur, nicht Kosmetik. Vor einem Termin nächste Woche
 schaffen wir eins bis zwei davon seriös, nicht alle drei.
 
+**Stand 07.10.: Punkt 1 umgesetzt, anders als oben skizziert.** Statt eines
+Vorspanns vor dem Inhalt ersetzt eine Leitung die Kennzahlen-Reihe im Hero.
+Sie läuft vom Fensterrand durch 1946 (Gerhard), 1979 (Jörg-Reinhard) und 2004
+(André) bis zu einem roten Blitz bei „heute" und endet gestrichelt im Offenen,
+mit dem Link zu den offenen Stellen. Damit wird die Überschrift „Jetzt suchen
+wir die nächste Generation" sichtbar eingelöst. Die Linie zeichnet sich nach
+dem Hero-Text Punkt für Punkt, nichts blockiert das Lesen. Jahreszahlen und
+Rollen gegen die „Über uns"-Seite der Altseite geprüft. Punkte 2 und 3 offen.
+
 ### B2. 🔴 Sein eigener Aufhänger liegt ungenutzt da
 
 Er hat beiläufig erzählt, warum er dem Wettbewerber vertraut:

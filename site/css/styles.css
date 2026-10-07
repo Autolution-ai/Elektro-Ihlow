@@ -174,14 +174,93 @@ body.is-locked { overflow-y: hidden; }
 .hero__badge-num { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; color: var(--ink); }
 .hero__badge-label { font-size: var(--step--1); color: var(--ink-soft); }
 
-.hero__stats {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-m); margin-top: var(--space-l);
-  padding-top: var(--space-m); border-top: 1px solid var(--line);
+/* ---------- Die Leitung im Hero: drei Generationen, offenes Ende ----------
+   Jeder Knoten traegt das Leitungsstueck bis zum naechsten Punkt selbst.
+   So laesst sich die Linie Abschnitt fuer Abschnitt zeichnen, ohne etwas
+   per Skript auszumessen. Vor 1946 laeuft sie bis an den Fensterrand,
+   nach "heute" gestrichelt ins Offene. */
+.lineage { --lin-gap: var(--space-m); --dot: 14px; --dot-y: 0px; margin-top: var(--space-l); }
+.lineage__list {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--lin-gap);
+  list-style: none; padding: 0; margin: 0;
 }
-.hero__stats li { display: flex; flex-direction: column; gap: .25rem; list-style: none; }
-.stat__num { font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); letter-spacing: -0.02em; color: var(--ink); }
-.stat__label { font-size: var(--step--1); color: var(--ink-soft); }
+.lineage__node {
+  position: relative; display: flex; flex-direction: column; gap: .2rem;
+  padding-top: calc(var(--dot) + var(--space-s));
+}
+.lineage__dot {
+  position: absolute; top: var(--dot-y); left: 0; z-index: 1;
+  width: var(--dot); height: var(--dot); border-radius: 50%;
+  background: var(--ink); box-shadow: 0 0 0 5px var(--bg);
+}
+.lineage__seg {
+  position: absolute; top: calc(var(--dot-y) + var(--dot) / 2 - 1px); left: calc(var(--dot) / 2);
+  width: calc(100% + var(--lin-gap)); height: 2px;
+  background: var(--ink); transform-origin: left center;
+}
+.lineage__seg--in { left: auto; right: calc(100% - var(--dot) / 2); width: 100vw; background: var(--line-strong); }
+.lineage__seg--open {
+  width: 100vw; background: none;
+  background-image: linear-gradient(90deg, var(--red) 0 8px, transparent 8px 14px);
+  background-size: 14px 2px;
+  -webkit-mask-image: linear-gradient(90deg, #000 0, transparent 70vw);
+          mask-image: linear-gradient(90deg, #000 0, transparent 70vw);
+}
+
+.lineage__year { font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); letter-spacing: -0.02em; line-height: 1.05; color: var(--ink); }
+.lineage__name { font-family: var(--font-display); font-weight: 700; font-size: var(--step-0); color: var(--ink); }
+.lineage__text { font-size: var(--step--1); color: var(--ink-soft); line-height: 1.45; max-width: 28ch; }
+
+/* "heute": der Blitz aus dem Logo als Knoten, in Rot */
+/* Groesser als die anderen Punkte, aber mit demselben Mittelpunkt, damit die
+   Linie durch die Mitte laeuft und der Text buendig bleibt. */
+.lineage__node--now .lineage__dot {
+  --big: 30px;
+  width: var(--big); height: var(--big);
+  top: calc(var(--dot-y) + var(--dot) / 2 - var(--big) / 2); left: calc(var(--dot) / 2 - var(--big) / 2);
+  display: grid; place-items: center;
+  background: var(--red); color: #fff;
+}
+.lineage__node--now .lineage__dot svg { width: 12px; height: 24px; }
+.lineage__node--now .lineage__year { color: var(--red); }
+.lineage__link {
+  display: inline-flex; align-items: center; gap: .35rem; margin-top: .35rem;
+  font-family: var(--font-display); font-weight: 700; font-size: var(--step--1);
+  color: var(--red); text-decoration: none;
+}
+.lineage__link svg { transition: transform .3s var(--ease); }
+.lineage__link:hover svg, .lineage__link:focus-visible svg { transform: translateX(4px); }
+.lineage__link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Einmaliger Puls, sobald die Leitung am Blitz ankommt */
+.lineage__node--now.is-live .lineage__dot { animation: lineage-pulse 1.1s var(--ease) 1; }
+@keyframes lineage-pulse {
+  0%   { box-shadow: 0 0 0 5px var(--bg), 0 0 0 5px oklch(58.5% 0.186 28.5 / .45); }
+  100% { box-shadow: 0 0 0 5px var(--bg), 0 0 0 22px oklch(58.5% 0.186 28.5 / 0); }
+}
+
+/* Unter 900 px: senkrecht, der Text rechts neben der Linie */
+@media (max-width: 900px) {
+  /* Punkt auf die Mitte der Jahreszahl, nicht auf ihre Oberkante */
+  .lineage { --dot-y: 5px; }
+  .lineage__list { grid-template-columns: 1fr; gap: var(--space-m); }
+  .lineage__node { padding-top: 0; padding-left: calc(var(--dot) + var(--space-s)); }
+  .lineage__seg {
+    top: calc(var(--dot-y) + var(--dot) / 2); left: calc(var(--dot) / 2 - 1px);
+    width: 2px; height: calc(100% + var(--space-m));
+    transform-origin: center top;
+  }
+  .lineage__seg--in { display: none; }
+  .lineage__seg--open {
+    height: 64px;
+    background-image: linear-gradient(180deg, var(--red) 0 8px, transparent 8px 14px);
+    background-size: 2px 14px;
+    -webkit-mask-image: linear-gradient(180deg, #000 0, transparent 100%);
+            mask-image: linear-gradient(180deg, #000 0, transparent 100%);
+  }
+  .lineage__year { font-size: var(--step-1); }
+  .lineage__text { max-width: none; }
+}
 
 /* ---------- Ribbon ---------- */
 .ribbon { background: var(--ink); color: var(--on-dark); }
@@ -529,7 +608,6 @@ body.is-locked { overflow-y: hidden; }
   .hero__inner { grid-template-columns: 1fr; gap: var(--space-l); }
   .hero__media { order: -1; max-width: 440px; }
   .hero__media img { aspect-ratio: 4/3; }
-  .hero__stats { grid-template-columns: repeat(2, 1fr); gap: var(--space-l) var(--space-m); }
   .proof__inner, .heritage__inner, .apply__inner, .why__cols, .home-career__inner { grid-template-columns: 1fr; }
   .heritage__media { max-width: 420px; }
   .services__grid { grid-template-columns: 1fr; }
@@ -545,7 +623,6 @@ body.is-locked { overflow-y: hidden; }
 }
 
 @media (max-width: 560px) {
-  .hero__stats { grid-template-columns: 1fr 1fr; }
   .hero__badge { left: 12px; }
   .heritage__timeline { left: 8px; right: auto; }
   .projects__grid { grid-template-columns: 1fr; }

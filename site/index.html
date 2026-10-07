@@ -120,11 +120,44 @@
         </div>
       </div>
 
-      <ul class="hero__stats container" aria-label="Kennzahlen">
-        <li><span class="stat__num" data-count="1946" data-from="1926" data-prefix="seit ">seit 1946</span><span class="stat__label">dritte Generation</span></li>
-        <li><span class="stat__num" data-count="30" data-from="8" data-prefix="rund ">rund 30</span><span class="stat__label">feste Mitarbeiter</span></li>
-        <li><span class="stat__num">2 Standorte</span><span class="stat__label">Biesenthal &amp; Berlin</span></li>
-      </ul>
+      <!-- Die Leitung: drei Generationen auf einer Linie, die offen endet.
+           Ersetzt die Kennzahlen-Reihe. Fakten aus "Ueber uns" der Altseite. -->
+      <div class="lineage container" data-lineage>
+        <ol class="lineage__list" aria-label="Drei Generationen Elektro Ihlow">
+          <li class="lineage__node">
+            <span class="lineage__seg lineage__seg--in" aria-hidden="true"></span>
+            <span class="lineage__seg" aria-hidden="true"></span>
+            <span class="lineage__dot" aria-hidden="true"></span>
+            <span class="lineage__year">1946</span>
+            <span class="lineage__name">Gerhard Ihlow</span>
+            <span class="lineage__text">gründet den Betrieb in Biesenthal</span>
+          </li>
+          <li class="lineage__node">
+            <span class="lineage__seg" aria-hidden="true"></span>
+            <span class="lineage__dot" aria-hidden="true"></span>
+            <span class="lineage__year">1979</span>
+            <span class="lineage__name">Jörg-Reinhard Ihlow</span>
+            <span class="lineage__text">führt ihn in zweiter Generation weiter</span>
+          </li>
+          <li class="lineage__node">
+            <span class="lineage__seg" aria-hidden="true"></span>
+            <span class="lineage__dot" aria-hidden="true"></span>
+            <span class="lineage__year">2004</span>
+            <span class="lineage__name">André Ihlow</span>
+            <span class="lineage__text">Meisterprüfung, Firmensitz in Berlin</span>
+          </li>
+          <li class="lineage__node lineage__node--now">
+            <span class="lineage__seg lineage__seg--open" aria-hidden="true"></span>
+            <span class="lineage__dot" aria-hidden="true"><svg viewBox="15 0 18 36" aria-hidden="true"><path d="M31 2 21 18h5l-8 16 4-13h-5z" fill="currentColor"/></svg></span>
+            <span class="lineage__year">heute</span>
+            <span class="lineage__name"><span data-count="30" data-from="8" data-prefix="rund ">rund 30</span> Kollegen</span>
+            <span class="lineage__text">an zwei Standorten, und Platz für die nächste Generation.</span>
+            <a class="lineage__link" href="karriere.html#stellen">Offene Stellen
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </li>
+        </ol>
+      </div>
     </section>
 
     <!-- 2. RECRUITING-RIBBON -->

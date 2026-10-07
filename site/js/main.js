@@ -128,7 +128,8 @@
   }
 
   /* ---------- Zähler (Hero-Stats) ---------- */
-  const counters = $$("[data-count]");
+  // Zaehler in der Hero-Leitung starten erst, wenn die Linie dort ankommt.
+  const counters = $$("[data-count]").filter((el) => !el.closest("[data-lineage]"));
   const runCounter = (el) => {
     const target = parseFloat(el.dataset.count);
     // data-from: Startwert. Von 0 auf 1946 hochzuzaehlen sieht albern aus,
@@ -167,6 +168,71 @@
       counters.forEach((c) => io.observe(c));
     } else {
       counters.forEach(runCounter);
+    }
+  }
+
+  /* ---------- Die Leitung im Hero ---------- */
+  // Die Linie laeuft vom Fensterrand durch 1946, 1979 und 2004 bis zum Blitz
+  // und endet gestrichelt im Offenen. Punkte und Texte erscheinen erst, wenn
+  // die Linie sie erreicht. Ohne GSAP oder bei reduzierter Bewegung steht
+  // alles sofort da.
+  const lineage = $("[data-lineage]");
+  if (lineage) {
+    const nodes = $$(".lineage__node", lineage);
+    const nowNode = $(".lineage__node--now", lineage);
+    const nowCount = $("[data-count]", lineage);
+    const finish = () => {
+      if (nowNode) nowNode.classList.add("is-live");
+      if (nowCount) runCounter(nowCount);
+    };
+    if (!hasGsap) {
+      finish();
+    } else {
+      const vertical = window.matchMedia("(max-width: 900px)").matches;
+      const axis = vertical ? "scaleY" : "scaleX";
+      const segIn = $(".lineage__seg--in", lineage);
+      const segOpen = $(".lineage__seg--open", lineage);
+      const runSegs = $$(".lineage__seg:not(.lineage__seg--in):not(.lineage__seg--open)", lineage);
+      const texts = (n) => $$(".lineage__year, .lineage__name, .lineage__text, .lineage__link", n);
+
+      gsap.set([segIn, segOpen, ...runSegs].filter(Boolean), { [axis]: 0 });
+      gsap.set($$(".lineage__dot", lineage), { scale: 0 });
+      nodes.forEach((n) => gsap.set(texts(n), { autoAlpha: 0, y: 10 }));
+
+      // Feste Zeitmarken statt Verkettung: jeder Punkt springt genau in dem
+      // Moment auf, in dem das Leitungsstueck davor bei ihm ankommt.
+      const tl = gsap.timeline({ paused: true, defaults: { ease: "power2.out" } });
+      const SEG = 0.45;
+      let t = 0;
+      if (segIn && !vertical) { tl.to(segIn, { [axis]: 1, duration: 0.5, ease: "power1.in" }, 0); t = 0.5; }
+      nodes.forEach((n) => {
+        const isNow = n === nowNode;
+        tl.to($(".lineage__dot", n), {
+          scale: 1, duration: isNow ? 0.5 : 0.3,
+          ease: isNow ? "back.out(2.4)" : "back.out(1.8)",
+        }, t);
+        tl.to(texts(n), { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.05 }, t + 0.05);
+        const seg = runSegs.find((x) => x.parentElement === n);
+        if (seg) {
+          tl.to(seg, { [axis]: 1, duration: SEG, ease: "power1.inOut" }, t + 0.1);
+          t += 0.1 + SEG;
+        }
+        if (isNow) {
+          tl.call(finish, null, t);
+          if (segOpen) tl.to(segOpen, { [axis]: 1, duration: 0.7 }, t + 0.15);
+        }
+      });
+
+      // Liegt die Leitung beim Laden schon im Bild (Desktop), startet sie kurz
+      // nach dem Hero-Text. Sonst beim Hineinscrollen (Telefon), ohne Wartezeit.
+      // (delay() greift bei einer pausierten Timeline nicht, daher delayedCall.)
+      const visibleAtLoad = lineage.getBoundingClientRect().top < window.innerHeight * 0.88;
+      const start = () => (visibleAtLoad ? gsap.delayedCall(0.9, () => tl.play()) : tl.play());
+      if (window.ScrollTrigger) {
+        ScrollTrigger.create({ trigger: lineage, start: "top 88%", once: true, onEnter: start });
+      } else {
+        start();
+      }
     }
   }
 
