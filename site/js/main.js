@@ -244,8 +244,10 @@
     const areas = $$("[data-area]", board);
     const links = $$("[data-area-link]", board);
     const wide = window.matchMedia("(min-width: 901px)");
+    const imgs = $$("[data-area-img]", board);
     const setActive = (key) => {
       areas.forEach((a) => a.classList.toggle("is-active", a.dataset.area === key));
+      imgs.forEach((im) => im.classList.toggle("is-active", im.dataset.areaImg === key));
       links.forEach((l) => {
         const on = l.dataset.areaLink === key;
         l.classList.toggle("is-active", on);
@@ -258,7 +260,11 @@
     const apply = () => {
       board.classList.toggle("is-live", wide.matches);
       if (wide.matches) { areas.forEach((a) => io.observe(a)); setActive(areas[0].dataset.area); }
-      else { io.disconnect(); areas.forEach((a) => a.classList.remove("is-active")); }
+      else {
+        io.disconnect();
+        areas.forEach((a) => a.classList.remove("is-active"));
+        imgs.forEach((im, i) => im.classList.toggle("is-active", i === 0));
+      }
     };
     apply();
     wide.addEventListener("change", apply);
@@ -271,36 +277,24 @@
     }));
   }
 
-  /* ---------- Projekte: seitliche Fahrt ---------- */
-  // Natives horizontales Scrollen mit Einrasten. Pfeile blaettern um eine
-  // Karte, die Leitung darunter zeigt, wie viel schon zu sehen war.
-  $$("[data-rail]").forEach((rail) => {
-    const track = $("[data-rail-track]", rail);
-    const fill = $("[data-rail-fill]", rail);
-    const section = rail.closest("section") || document;
-    const prev = $("[data-rail-prev]", section);
-    const next = $("[data-rail-next]", section);
-    if (!track) return;
-    const step = () => {
-      const first = track.firstElementChild;
-      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
-      return first ? first.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
-    };
-    let ticking = false;
-    const update = () => {
-      ticking = false;
-      const max = track.scrollWidth - track.clientWidth;
-      const seen = (track.scrollLeft + track.clientWidth) / track.scrollWidth;
-      if (fill) fill.style.setProperty("--p", Math.min(1, Math.max(0, seen)).toFixed(3));
-      if (prev) prev.setAttribute("aria-disabled", String(track.scrollLeft <= 2));
-      if (next) next.setAttribute("aria-disabled", String(track.scrollLeft >= max - 2));
-    };
-    const go = (dir) => track.scrollBy({ left: dir * step(), behavior: reduceMotion ? "auto" : "smooth" });
-    if (prev) prev.addEventListener("click", () => go(-1));
-    if (next) next.addEventListener("click", () => go(1));
-    track.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
-    window.addEventListener("resize", update);
-    update();
+  /* ---------- Laufband "Woran wir arbeiten" ---------- */
+  // Die zweite Runde entsteht hier, damit sie im HTML nicht doppelt steht
+  // und Screenreader sie nicht vorlesen. Tempo nach Breite, damit das Band
+  // auf jedem Bildschirm gleich ruhig laeuft.
+  $$("[data-marquee]").forEach((mq) => {
+    if (reduceMotion) return;
+    const track = $(".marquee__track", mq);
+    const group = $(".marquee__group", mq);
+    if (!track || !group) return;
+    const clone = group.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    clone.setAttribute("inert", "");
+    $$("img", clone).forEach((im) => { im.alt = ""; });
+    track.appendChild(clone);
+    const setSpeed = () => mq.style.setProperty("--marquee-dur", `${Math.max(30, group.scrollWidth / 45)}s`);
+    setSpeed();
+    window.addEventListener("resize", setSpeed);
+    mq.classList.add("is-running");
   });
 
   /* ---------- Accordion (Stellen) ---------- */

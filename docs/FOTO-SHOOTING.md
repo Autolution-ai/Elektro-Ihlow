@@ -66,3 +66,19 @@ Beschreibung. Im Termin lassen sie sich direkt durchgehen:
 - Vom Hero-Porträt zwingend Hoch- **und** Quadratformat, es läuft an drei Stellen.
 - Möglichst hohe Auflösung liefern, die Website rechnet selbst herunter.
 - Bilder wandern später nach `site/assets/images/` (aktuell externe Demo-URLs).
+
+## Stockfotos als Platzhalter (Stand 09.10.)
+
+Für die wechselnden Bilder im Leistungsbereich und das Laufband „Woran wir
+arbeiten" reichten die vorhandenen Higgsfield-Bilder nicht ohne Dopplung.
+Higgsfields Bildgenerator war in der Sitzung nicht verfügbar, deshalb stehen
+an drei Stellen frei lizenzierte Unsplash-Fotos (Unsplash-Lizenz, kommerziell
+frei, keine Namensnennung nötig). Ausgewählt nach Bildbeschreibung, **die
+Sichtprüfung steht noch aus**.
+
+| Stelle | Unsplash-Foto | Ersetzen durch |
+|---|---|---|
+| Leistung Wohnungsbau | `photo-1621905251189-08b45d6a269e` (Elektriker verlegt Leitungen) | Ihlow-Team im Rohbau einer Siedlung |
+| Leistung Gewerbe | `photo-1758101755915-462eddc23f57` (Prüfung am Verteiler) | Messung/Abnahme in einem Gewerbeobjekt |
+| Leistung Datennetze | `photo-1544197150-b99a580bb7a8` (Patchpanel) | eigenes Netzwerk-Rack aus einem Projekt |
+| Laufband „Moderne Gebäudetechnik" | `photo-1783419752280-46a2073ef7dc` (geöffneter Schaltschrank) | KNX-Verteiler oder Smart-Home-Bedienung aus einem Projekt |
